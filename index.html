@@ -2,1467 +2,558 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#2a1b6b">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0e7490">
+<title>دليل الأطباء – الجزائر</title>
+<meta name="description" content="دليل احترافي شامل لأطباء وعيادات الجزائر – أرقام الهاتف، العناوين والتخصصات.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-<title>حساب المسافة - عرض جميع المسافات</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{
-    --bg-1:#0f0a2e;
-    --bg-2:#2a1b6b;
-    --bg-3:#0b3a6e;
-    --card:rgba(255,255,255,.07);
-    --card-border:rgba(255,255,255,.16);
-    --text:#f4f6ff;
-    --muted:#a9b0d8;
-    --cyan:#00e5ff;
-    --pink:#ff3d9a;
-    --amber:#ffb300;
-    --violet:#8b5cf6;
-    --green:#22e58b;
-    --red:#ff5d73;
-    --grad-main:linear-gradient(135deg,#7c4dff 0%,#00b0ff 55%,#00e5ff 100%);
-    --grad-warm:linear-gradient(135deg,#ff3d9a 0%,#ff8a00 100%);
-    --grad-cool:linear-gradient(135deg,#00e5ff 0%,#22e58b 100%);
-    --radius:18px;
-    --shadow:0 10px 40px rgba(0,0,0,.35);
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html{scroll-behavior:smooth;}
-body{
-    margin:0;
-    min-height:100vh;
-    color:var(--text);
-    font-family:"Cairo","Segoe UI",Tahoma,Verdana,Arial,sans-serif;
-    font-size:15px;
-    line-height:1.6;
-    padding:clamp(12px,3vw,32px);
-    background:
-        radial-gradient(circle at 12% 8%,rgba(255,61,154,.35),transparent 38%),
-        radial-gradient(circle at 90% 15%,rgba(0,229,255,.30),transparent 40%),
-        radial-gradient(circle at 70% 95%,rgba(139,92,246,.35),transparent 45%),
-        linear-gradient(160deg,var(--bg-1),var(--bg-2) 55%,var(--bg-3));
-    background-attachment:fixed;
-}
-.wrap{max-width:960px;margin:0 auto;}
+  :root{
+    --primary:#0e7490; --primary-dark:#155e75; --primary-light:#e0f2fe;
+    --accent:#06b6d4; --green:#16a34a; --bg:#f1f5f9; --card:#fff;
+    --text:#0f172a; --muted:#64748b; --border:#e2e8f0;
+    --shadow:0 4px 16px rgba(15,23,42,.06); --shadow-lg:0 12px 32px rgba(15,23,42,.12);
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+  body{font-family:'Cairo',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
-/* ===== الترويسة ===== */
-.hero{text-align:center;margin:6px 0 22px;}
-.hero-icon{
-    width:74px;height:74px;margin:0 auto 12px;
-    border-radius:22px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:36px;
-    background:var(--grad-warm);
-    box-shadow:0 12px 30px rgba(255,61,154,.45);
-    transform:rotate(-6deg);
-}
-h1{
-    margin:0 0 6px;
-    font-size:clamp(26px,5vw,40px);
-    font-weight:800;
-    background:linear-gradient(90deg,#fff,#7df3ff 50%,#ff9ad0);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
-}
-.subtitle{color:var(--muted);font-size:clamp(12px,2.6vw,14px);}
-h2{
-    font-size:clamp(17px,3.4vw,20px);
-    margin:0 0 14px;
-    padding-inline-start:12px;
-    border-inline-start:5px solid var(--cyan);
-    border-bottom:none;
-}
+  /* HEADER */
+  header{background:linear-gradient(135deg,#0e7490,#0891b2,#06b6d4);color:#fff;position:relative;overflow:hidden;}
+  header::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 20% 20%,rgba(255,255,255,.13) 0%,transparent 45%),radial-gradient(circle at 85% 70%,rgba(255,255,255,.10) 0%,transparent 40%);pointer-events:none;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.15);position:relative;z-index:2;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;}
+  .brand .logo{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.18);display:grid;place-items:center;font-size:1.2rem;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(6px);flex-shrink:0;}
+  .brand small{display:block;font-weight:400;font-size:.7rem;opacity:.85;line-height:1.2;}
+  .top-links{display:flex;gap:8px;flex-wrap:wrap;}
+  .top-links a{color:#fff;text-decoration:none;font-size:.78rem;font-weight:600;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);transition:.2s;min-height:36px;display:inline-flex;align-items:center;touch-action:manipulation;}
+  .top-links a:hover{background:rgba(255,255,255,.28);}
 
-/* ===== شريط المسؤول ===== */
-.admin-bar{display:flex;justify-content:flex-end;margin-bottom:14px;}
-.admin-bar button{
-    background:var(--card);border:1px solid var(--card-border);color:var(--text);
-    font:inherit;font-size:13px;padding:7px 16px;border-radius:999px;cursor:pointer;
-    backdrop-filter:blur(8px);transition:.2s;
-}
-.admin-bar button:hover{background:rgba(255,255,255,.16);transform:translateY(-1px);}
-.admin-bar .admin-status{
-    font-size:13px;color:var(--green);display:flex;align-items:center;gap:10px;
-}
-#adminBar{align-items:center;gap:10px;}
+  /* HERO */
+  .hero{padding:32px 18px 80px;text-align:center;position:relative;z-index:2;}
+  .hero h1{font-size:clamp(1.35rem,4vw,2.4rem);font-weight:800;letter-spacing:-.5px;margin-bottom:8px;line-height:1.3;}
+  .hero h1 span{color:#a5f3fc;}
+  .hero p{max-width:620px;margin:0 auto 22px;font-size:clamp(.82rem,2vw,1rem);opacity:.92;line-height:1.6;}
 
-/* ===== التبويبات ===== */
-.tab-nav{
-    display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
-    margin-bottom:22px;padding:8px;
-    background:var(--card);border:1px solid var(--card-border);
-    border-radius:999px;backdrop-filter:blur(10px);
-}
-.tab-nav button{
-    flex:1 1 auto;
-    background:transparent;color:var(--muted);border:none;
-    border-radius:999px;padding:10px 18px;
-    font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:.2s;
-    white-space:nowrap;
-}
-.tab-nav button:hover{color:#fff;background:rgba(255,255,255,.1);}
-.tab-nav button.active{
-    color:#fff;background:var(--grad-main);
-    box-shadow:0 6px 18px rgba(0,176,255,.45);
-}
-.tab-panel{display:none;animation:fadeUp .35s ease;}
-.tab-panel.active{display:block;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* SEARCH */
+  .search-wrap{max-width:620px;margin:0 auto;position:relative;}
+  .search-wrap svg{position:absolute;right:18px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:#94a3b8;pointer-events:none;}
+  #searchInput{width:100%;padding:15px 50px 15px 18px;border-radius:999px;border:none;font-family:inherit;font-size:.95rem;font-weight:500;color:var(--text);box-shadow:0 10px 30px rgba(8,47,73,.28);outline:none;transition:.25s;min-height:52px;}
+  #searchInput::placeholder{color:#94a3b8;font-size:.85rem;}
+  #searchInput:focus{box-shadow:0 0 0 4px rgba(255,255,255,.35),0 12px 34px rgba(8,47,73,.3);}
 
-/* ===== البطاقات ===== */
-.card,.add-place-box,.upload-box,.result-box{
-    background:var(--card);
-    border:1px solid var(--card-border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    backdrop-filter:blur(12px);
-}
-.card{padding:clamp(16px,3.5vw,28px);}
+  /* STATS */
+  .stats{max-width:1100px;margin:-50px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;position:relative;z-index:3;}
+  .stat{background:var(--card);border-radius:var(--radius);padding:14px 12px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);}
+  .stat b{display:block;font-size:1.5rem;font-weight:800;color:var(--primary);line-height:1.2;}
+  .stat span{font-size:.75rem;color:var(--muted);font-weight:600;}
 
-/* ===== حقول الإدخال ===== */
-label{display:block;font-weight:700;font-size:14px;margin-bottom:8px;}
-label small{color:var(--muted);font-weight:400;margin-inline-start:6px;}
-.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:8px;}
-.dot-from{background:var(--cyan);box-shadow:0 0 10px var(--cyan);}
-.dot-to{background:var(--pink);box-shadow:0 0 10px var(--pink);}
+  /* FILTERS */
+  .filters-container{max-width:1180px;margin:28px auto 0;padding:0 16px;display:flex;flex-direction:column;gap:16px;}
+  .filters{width:100%;}
+  .filters h2{font-size:.85rem;font-weight:700;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;}
+  .chip{font-family:inherit;font-size:.78rem;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer;background:#fff;color:#334155;border:1.5px solid var(--border);transition:.18s;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;gap:5px;touch-action:manipulation;}
+  .chip:hover{border-color:var(--accent);color:var(--primary);}
+  .chip.active{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border-color:transparent;box-shadow:0 6px 16px rgba(14,116,144,.28);}
+  .chip .cnt{display:inline-block;background:rgba(0,0,0,.08);border-radius:999px;padding:0 6px;font-size:.7rem;font-weight:700;min-width:20px;text-align:center;}
+  .chip.active .cnt{background:rgba(255,255,255,.25);}
+  
+  .chip.wilaya{border-color:#cbd5e1;background:#f8fafc;}
+  .chip.wilaya.active{background:linear-gradient(135deg,#0f172a,#334155);border-color:transparent;}
 
-input[type="text"],input[type="search"],input[type="password"]{
-    width:100%;padding:13px 14px;
-    font:inherit;font-size:16px;color:#fff;text-align:center;
-    background:rgba(8,6,32,.55);
-    border:2px solid rgba(255,255,255,.18);
-    border-radius:14px;outline:none;transition:.2s;
-}
-input::placeholder{color:rgba(255,255,255,.4);}
-input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(0,229,255,.2);}
-input:disabled{opacity:.55;}
-.code-name{
-    font-size:13px;color:var(--cyan);min-height:20px;margin-top:6px;
-    text-align:center;font-weight:600;
-}
+  /* RESULTS */
+  main{max-width:1180px;margin:0 auto;padding:22px 16px 50px;}
+  .results-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;font-size:.82rem;color:var(--muted);font-weight:600;}
+  .results-bar b{color:var(--primary);}
+  .results-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 
-.route-grid{
-    display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:start;
-}
-.route-arrow{
-    margin-top:36px;width:44px;height:44px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-size:22px;background:var(--grad-warm);
-    box-shadow:0 6px 16px rgba(255,61,154,.4);
-}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .source-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;padding:3px 9px;border-radius:999px;background:#dcfce7;color:#166534;font-weight:700;}
+  .source-badge.local{background:#fef3c7;color:#92400e;}
+  .source-badge.loading{background:#e0f2fe;color:#0369a1;}
 
-/* ===== الأزرار ===== */
-.btn,.btn-primary,input[type="submit"]{
-    font:inherit;font-size:15px;font-weight:700;color:#fff;
-    padding:11px 24px;border:none;border-radius:12px;cursor:pointer;
-    background:rgba(255,255,255,.14);
-    border:1px solid var(--card-border);
-    transition:transform .15s,box-shadow .2s,background .2s;
-}
-.btn:hover{background:rgba(255,255,255,.24);transform:translateY(-1px);}
-.btn:disabled{opacity:.4;cursor:not-allowed;}
-.btn-primary,#btnSubmitPlace,#btnConfirmUpload,#btnConfirmLogin{
-    background:var(--grad-main);border:none;
-    box-shadow:0 8px 22px rgba(0,176,255,.4);
-}
-.btn-primary:hover,#btnSubmitPlace:hover,#btnConfirmUpload:hover,#btnConfirmLogin:hover{
-    background:var(--grad-main);transform:translateY(-2px);
-    box-shadow:0 12px 28px rgba(0,176,255,.55);
-}
-.btn-primary{
-    width:100%;margin-top:20px;padding:15px;font-size:17px;
-    background:var(--grad-warm);box-shadow:0 10px 26px rgba(255,61,154,.45);
-}
-.btn-primary:hover{background:var(--grad-warm);box-shadow:0 14px 32px rgba(255,61,154,.6);}
-#btnDownloadData{background:var(--grad-cool);color:#04281b;border:none;}
+  .refresh-btn{background:#fff;border:1.5px solid var(--border);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;transition:.2s;color:var(--muted);flex-shrink:0;touch-action:manipulation;}
+  .refresh-btn:hover{border-color:var(--accent);color:var(--primary);}
+  .refresh-btn.loading svg{animation:spin .8s linear infinite;}
 
-/* ===== رسائل الحالة ===== */
-.status{
-    margin:16px 0;font-size:14px;padding:12px 14px;
-    border-radius:12px;display:none;border:1px solid transparent;
-}
-.status.error{display:block;background:rgba(255,93,115,.16);color:#ffb3bd;border-color:rgba(255,93,115,.5);}
-.status.ok{display:block;background:rgba(34,229,139,.15);color:#8ff5c3;border-color:rgba(34,229,139,.5);}
-.status.warn{display:block;background:rgba(255,179,0,.15);color:#ffd77a;border-color:rgba(255,179,0,.5);}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
 
-/* ===== النتيجة ===== */
-.result-box{
-    display:none;text-align:center;padding:clamp(18px,4vw,30px);margin-top:14px;
-    background:linear-gradient(135deg,rgba(124,77,255,.35),rgba(0,229,255,.25));
-    animation:fadeUp .4s ease;
-}
-.result-box .sub{font-size:14px;color:var(--text);opacity:.9;word-break:break-word;}
-.result-box .big-distance{
-    font-size:clamp(44px,12vw,76px);font-weight:800;line-height:1.1;margin:10px 0 2px;
-    background:linear-gradient(90deg,#fff,#7df3ff,#ffd36e);
-    -webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;color:transparent;
-}
-.stats{text-align:center;font-size:12px;color:var(--muted);margin-top:16px;}
+  /* LOADING */
+  .loading{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted);font-weight:600;}
+  .spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
 
-/* ===== الجداول ===== */
-table{width:100%;border-collapse:collapse;}
-.list-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
-.list-toolbar input[type=search]{flex:1;min-width:180px;text-align:start;}
-.table-scroll,.card > div[style*="overflow-x"]{overflow-x:auto;}
-table.list-table{
-    font-size:14px;background:var(--card);border:1px solid var(--card-border);
-    border-radius:var(--radius);overflow:hidden;
-}
-table.list-table th{
-    background:var(--grad-main);color:#fff;padding:12px 10px;font-weight:700;text-align:center;
-}
-table.list-table td{
-    padding:11px 10px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08);
-}
-table.list-table tbody tr:nth-child(even){background:rgba(255,255,255,.04);}
-table.list-table tbody tr:hover{background:rgba(0,229,255,.12);}
-table.list-table td:first-child{color:var(--amber);font-weight:700;direction:ltr;}
-table.list-table .btn{padding:6px 16px;font-size:13px;background:var(--grad-warm);border:none;}
+  /* CARD */
+  .card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:12px;transition:transform .22s,box-shadow .22s,border-color .22s;position:relative;overflow:hidden;min-width:0;}
+  .card::before{content:"";position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent));transform:scaleX(0);transform-origin:right;transition:transform .3s;}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#cbd5e1;}
+  .card:hover::before{transform:scaleX(1);}
+  .card-head{display:flex;gap:11px;align-items:flex-start;min-width:0;}
+  .avatar{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e0f2fe,#cffafe);color:var(--primary);display:grid;place-items:center;font-size:1.15rem;font-weight:800;border:1px solid #bae6fd;}
+  .card-head h3{font-size:.95rem;font-weight:800;line-height:1.4;margin-bottom:2px;word-break:break-word;}
+  .specialty{font-size:.75rem;color:var(--primary);font-weight:600;line-height:1.5;word-break:break-word;}
+  .tags-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px;}
+  .tag{font-size:.68rem;font-weight:700;background:var(--primary-light);color:var(--primary-dark);padding:3px 10px;border-radius:999px;border:1px solid #bae6fd;white-space:nowrap;}
+  .tag.wilaya-tag{background:#f1f5f9;color:#475569;border-color:#cbd5e1;}
+  .addr{display:flex;gap:7px;align-items:flex-start;font-size:.78rem;color:var(--muted);font-weight:500;background:#f8fafc;border:1px dashed #e2e8f0;border-radius:10px;padding:8px 10px;word-break:break-word;}
+  .addr svg{flex-shrink:0;width:14px;height:14px;margin-top:4px;stroke:var(--accent);}
+  .phones{display:flex;flex-direction:column;gap:7px;margin-top:auto;}
+  .phone-row{display:flex;gap:7px;align-items:center;min-width:0;}
+  .phone{flex:1;display:flex;align-items:center;gap:7px;text-decoration:none;background:#f0fdfa;color:#0f766e;border:1px solid #99f6e4;border-radius:10px;padding:9px 10px;font-size:.82rem;font-weight:700;font-variant-numeric:tabular-nums;direction:ltr;justify-content:center;transition:.18s;min-height:44px;min-width:0;touch-action:manipulation;}
+  .phone:hover{background:#ccfbf1;border-color:#5eead4;}
+  .phone svg{width:14px;height:14px;stroke:currentColor;flex-shrink:0;}
+  .wa{flex-shrink:0;width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:#dcfce7;border:1px solid #86efac;transition:.18s;touch-action:manipulation;}
+  .wa:hover{background:#bbf7d0;}
+  .wa svg{width:20px;height:20px;fill:#16a34a;}
+  .no-phone{font-size:.78rem;color:#b45309;font-weight:600;background:#fffbeb;border:1px dashed #fcd34d;border-radius:10px;padding:9px 10px;text-align:center;min-height:44px;display:flex;align-items:center;justify-content:center;}
 
-.footer-row{
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;
-}
-.info-text{font-size:13px;color:var(--muted);}
-.pagination{display:flex;gap:6px;flex-wrap:wrap;}
-.pagination button{
-    background:var(--card);color:var(--text);border:1px solid var(--card-border);
-    border-radius:10px;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer;transition:.2s;
-}
-.pagination button.active{background:var(--grad-main);border-color:transparent;font-weight:700;}
-.pagination button:hover:not(.active):not(:disabled){background:rgba(255,255,255,.2);}
-.pagination button:disabled{opacity:.35;cursor:not-allowed;}
-.loading-msg{text-align:center;color:var(--muted);padding:22px;}
+  /* EMPTY */
+  .empty{grid-column:1/-1;text-align:center;padding:50px 18px;background:#fff;border-radius:var(--radius);border:1px dashed #cbd5e1;color:var(--muted);}
+  .empty .ico{font-size:2.6rem;margin-bottom:8px;opacity:.6;}
+  .empty b{display:block;font-size:1rem;color:var(--text);margin-bottom:5px;}
 
-/* ===== إضافة مكان ===== */
-.add-place-box{padding:clamp(16px,3.5vw,26px);}
-.add-place-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;flex-wrap:wrap;}
-.badge-custom{
-    display:inline-block;font-size:11px;color:var(--cyan);
-    border:1px solid rgba(0,229,255,.5);border-radius:6px;padding:1px 6px;margin-inline-start:6px;
-}
+  /* NOTE */
+  .note{max-width:1180px;margin:0 auto 36px;padding:0 16px;}
+  .note-inner{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:14px 16px;font-size:.8rem;color:#92400e;font-weight:500;display:flex;gap:9px;align-items:flex-start;line-height:1.6;}
+  .note-inner span{font-size:1rem;flex-shrink:0;}
 
-/* ===== رفع الملف ===== */
-.upload-box{padding:clamp(16px,3.5vw,26px);}
-.upload-help{font-size:13.5px;color:var(--muted);line-height:1.9;margin:0 0 16px;}
-.upload-help code{
-    background:rgba(0,229,255,.15);color:var(--cyan);padding:1px 8px;border-radius:6px;
-    direction:ltr;display:inline-block;
-}
-.dropzone{
-    border:2px dashed rgba(255,255,255,.3);border-radius:16px;
-    padding:clamp(26px,6vw,44px) 16px;text-align:center;cursor:pointer;
-    background:rgba(8,6,32,.35);transition:.2s;
-}
-.dropzone:hover,.dropzone:focus{border-color:var(--cyan);background:rgba(0,229,255,.1);outline:none;}
-.dropzone.dragover{border-color:var(--pink);background:rgba(255,61,154,.15);transform:scale(1.01);}
-.dropzone.has-file{border-color:var(--green);background:rgba(34,229,139,.12);}
-.dropzone-icon{font-size:38px;margin-bottom:8px;}
-.dropzone-text{font-size:14px;}
-.dropzone-link{color:var(--cyan);text-decoration:underline;}
-.dropzone-filename{margin-top:10px;font-size:13px;color:var(--green);direction:ltr;word-break:break-all;}
-.upload-preview{margin-top:18px;border-top:1px solid var(--card-border);padding-top:16px;}
-.upload-preview h3{font-size:16px;margin:0 0 12px;}
-.upload-preview ul{
-    list-style:none;margin:0;padding:0;font-size:14px;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;
-}
-.upload-preview ul li{
-    background:rgba(255,255,255,.07);border:1px solid var(--card-border);
-    border-radius:12px;padding:10px 12px;
-}
-.upload-preview ul li b{color:var(--amber);}
-.upload-download-row{margin-top:18px;border-top:1px solid var(--card-border);padding-top:16px;}
-.spinner-inline{
-    display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);
-    border-top-color:var(--amber);border-radius:50%;animation:spin .7s linear infinite;
-    margin-inline-end:8px;vertical-align:-2px;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
+  /* FOOTER */
+  footer{background:#0f172a;color:#cbd5e1;padding:36px 18px 22px;text-align:center;}
+  footer h3{color:#fff;font-size:1rem;font-weight:800;margin-bottom:6px;}
+  footer p{font-size:.8rem;opacity:.75;max-width:480px;margin:0 auto 18px;}
+  .dev-card{display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 18px;flex-wrap:wrap;justify-content:center;max-width:100%;}
+  .dev-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800;font-size:.9rem;flex-shrink:0;}
+  .dev-info{text-align:right;}
+  .dev-info b{color:#fff;display:block;font-size:.9rem;}
+  .dev-info small{font-size:.7rem;opacity:.7;}
+  .dev-wa{display:inline-flex;align-items:center;gap:7px;background:#16a34a;color:#fff;text-decoration:none;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.82rem;transition:.2s;min-height:44px;touch-action:manipulation;}
+  .dev-wa:hover{background:#15803d;}
+  .dev-wa svg{width:16px;height:16px;fill:#fff;}
+  .copyright{margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);font-size:.72rem;opacity:.55;line-height:1.6;}
 
-/* ===== نافذة الدخول ===== */
-.modal-overlay{
-    display:none;position:fixed;inset:0;background:rgba(8,5,30,.75);
-    backdrop-filter:blur(6px);z-index:100000;align-items:center;justify-content:center;padding:16px;
-}
-.modal-overlay.show{display:flex;}
-.modal-box{
-    background:linear-gradient(160deg,#241a63,#10204f);
-    border:1px solid var(--card-border);border-radius:22px;padding:28px 24px;
-    width:100%;max-width:370px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);
-    animation:fadeUp .3s ease;
-}
-.modal-box h3{margin:0 0 14px;font-size:19px;}
-.modal-box input[type="password"]{margin-bottom:10px;}
-.modal-box .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:8px;}
-.modal-box .modal-actions .btn{flex:1;}
-.modal-box .modal-error{color:#ffb3bd;font-size:13px;min-height:20px;margin-bottom:6px;}
+  /* FLOATING */
+  .float-wa{position:fixed;bottom:18px;left:18px;z-index:999;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);text-decoration:none;transition:.25s;animation:pulse 2.5s infinite;touch-action:manipulation;}
+  .float-wa:hover{transform:scale(1.1);}
+  .float-wa svg{width:28px;height:28px;fill:#fff;}
+  @keyframes pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.45);}50%{box-shadow:0 8px 24px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.12);}}
+  .to-top{position:fixed;bottom:18px;right:18px;z-index:998;width:46px;height:46px;border-radius:50%;background:var(--primary);color:#fff;border:none;cursor:pointer;display:grid;place-items:center;box-shadow:0 6px 18px rgba(14,116,144,.4);opacity:0;visibility:hidden;transition:.3s;min-height:44px;min-width:44px;touch-action:manipulation;}
+  .to-top.show{opacity:1;visibility:visible;}
+  .to-top:hover{background:var(--primary-dark);}
 
-/* ===== التذييل ===== */
-.site-footer{
-    margin-top:44px;padding:24px 16px 14px;
-    border-top:1px solid var(--card-border);text-align:center;
-}
-.site-footer .footer-dev{font-size:14px;color:var(--text);margin-bottom:12px;}
-.site-footer .footer-dev b{color:var(--amber);}
-.site-footer .footer-whatsapp{
-    display:inline-flex;align-items:center;gap:8px;
-    background:linear-gradient(135deg,#25d366,#0fae5a);color:#fff;border-radius:999px;
-    padding:9px 22px;font-size:14px;font-weight:700;text-decoration:none;direction:ltr;
-    box-shadow:0 8px 22px rgba(37,211,102,.4);transition:.2s;
-}
-.site-footer .footer-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,211,102,.55);}
-.site-footer .footer-whatsapp svg{width:18px;height:18px;fill:#fff;}
-.site-footer .footer-copyright{margin-top:14px;font-size:12px;color:var(--muted);}
-
-/* ===== الاستجابة للشاشات ===== */
-@media (max-width:720px){
-    .tab-nav{border-radius:20px;}
-    .tab-nav button{flex:1 1 45%;padding:10px 8px;font-size:13px;}
-    .route-grid{grid-template-columns:1fr;gap:10px;}
-    .route-arrow{margin:0 auto;transform:rotate(90deg);width:40px;height:40px;}
-    .form-grid{grid-template-columns:1fr;}
-    .add-place-actions .btn{flex:1;}
-    .footer-row{justify-content:center;text-align:center;}
-    table.list-table{font-size:13px;}
-    table.list-table th,table.list-table td{padding:9px 6px;}
-}
-@media (max-width:420px){
-    body{font-size:14px;}
-    .hero-icon{width:62px;height:62px;font-size:30px;}
-    .pagination button{padding:6px 10px;}
-}
-@media (min-width:1200px){
-    .wrap{max-width:1040px;}
-}
-@media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;}
-}
-
-
-/* =====================================================
-   القائمة الجانبية (Sidebar)
-   ===================================================== */
-body{padding:0;}
-.app-shell{display:flex;min-height:100vh;}
-.main{flex:1;min-width:0;padding:clamp(14px,3vw,34px);}
-
-.sidebar{
-    position:sticky;top:0;align-self:flex-start;
-    width:280px;flex-shrink:0;height:100vh;
-    display:flex;flex-direction:column;
-    padding:22px 16px 18px;
-    background:linear-gradient(180deg,rgba(14,9,52,.82),rgba(8,20,60,.82));
-    border-inline-end:1px solid var(--card-border);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    box-shadow:6px 0 30px rgba(0,0,0,.3);
-    z-index:1000;overflow-y:auto;
-}
-.sidebar-brand{
-    display:flex;align-items:center;gap:12px;
-    padding:6px 8px 20px;margin-bottom:14px;
-    border-bottom:1px solid var(--card-border);
-}
-.brand-icon{
-    width:48px;height:48px;border-radius:15px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;font-size:25px;
-    background:var(--grad-warm);box-shadow:0 8px 20px rgba(255,61,154,.45);
-    transform:rotate(-6deg);
-}
-.brand-text h1{
-    margin:0;font-size:20px;line-height:1.25;font-weight:800;
-}
-.brand-text span{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
-
-.side-label{
-    font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);
-    padding:0 10px;margin:14px 0 8px;opacity:.85;
-}
-.side-nav{display:flex;flex-direction:column;gap:6px;}
-.nav-item{
-    --a:#00e5ff;--b:#7c4dff;
-    position:relative;
-    display:flex;align-items:center;gap:12px;width:100%;
-    padding:12px 14px;border:none;border-radius:14px;
-    background:transparent;color:var(--muted);
-    font:inherit;font-size:15px;font-weight:600;text-align:start;cursor:pointer;
-    transition:background .2s,color .2s,transform .15s;
-}
-.nav-item[data-tab="tab-distance"]{--a:#00e5ff;--b:#7c4dff;}
-.nav-item[data-tab="tab-add"]{--a:#ff3d9a;--b:#ff8a00;}
-.nav-item[data-tab="tab-list"]{--a:#22e58b;--b:#00b0ff;}
-.nav-item[data-tab="tab-upload"]{--a:#ffb300;--b:#ff5d73;}
-
-.nav-ico{
-    width:38px;height:38px;border-radius:12px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-    background:rgba(255,255,255,.08);color:var(--a);transition:.2s;
-}
-.nav-ico svg{
-    width:20px;height:20px;fill:none;stroke:currentColor;
-    stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
-}
-.nav-label{flex:1;}
-.nav-badge{
-    font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:999px;
-    background:linear-gradient(135deg,var(--a),var(--b));
-}
-.nav-item:hover{background:rgba(255,255,255,.09);color:#fff;transform:translateX(-3px);}
-.nav-item:hover .nav-ico{background:rgba(255,255,255,.15);}
-.nav-item.active{
-    color:#fff;
-    background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 30%,transparent));
-    box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--a) 55%,transparent),0 8px 22px color-mix(in srgb,var(--b) 25%,transparent);
-}
-.nav-item.active::before{
-    content:"";position:absolute;inset-block:10px;inset-inline-start:-16px;width:5px;
-    border-radius:0 6px 6px 0;background:linear-gradient(var(--a),var(--b));
-}
-[dir="rtl"] .nav-item.active::before{border-radius:6px 0 0 6px;}
-.nav-item.active .nav-ico{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;}
-.nav-item:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
-
-.sidebar-spacer{flex:1;min-height:16px;}
-.sidebar-account{
-    background:var(--card);border:1px solid var(--card-border);
-    border-radius:16px;padding:12px;
-}
-.sidebar-account .side-label{margin:0 0 10px;padding:0;}
-.sidebar #adminBar{
-    display:flex;flex-direction:column;align-items:stretch;gap:8px;margin:0;
-}
-.sidebar #adminBar button{width:100%;padding:9px 12px;font-weight:600;}
-.sidebar #adminBar #btnAdminLogin{background:var(--grad-main);border:none;box-shadow:0 6px 16px rgba(0,176,255,.4);}
-.sidebar #adminBar #btnAdminLogout{background:rgba(255,93,115,.18);border-color:rgba(255,93,115,.5);}
-.sidebar #adminBar .admin-status{justify-content:center;font-size:13px;}
-.sidebar-credit{text-align:center;font-size:11px;color:var(--muted);margin-top:12px;}
-.sidebar-credit b{color:var(--amber);}
-
-/* ===== الشريط العلوي للهاتف ===== */
-.mobile-topbar{
-    display:none;position:sticky;top:0;z-index:900;
-    align-items:center;gap:12px;
-    margin:calc(-1 * clamp(14px,3vw,34px)) calc(-1 * clamp(14px,3vw,34px)) 18px;
-    padding:10px 14px;
-    background:rgba(14,9,52,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--card-border);
-}
-.menu-toggle{
-    width:44px;height:44px;border:none;border-radius:13px;cursor:pointer;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;color:#fff;
-    background:var(--grad-main);box-shadow:0 6px 16px rgba(0,176,255,.45);
-}
-.menu-toggle svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;}
-.topbar-title{font-size:17px;font-weight:800;flex:1;}
-.topbar-icon{font-size:24px;}
-
-.sidebar-overlay{
-    display:none;position:fixed;inset:0;z-index:999;
-    background:rgba(5,3,25,.65);backdrop-filter:blur(3px);
-    opacity:0;transition:opacity .25s;
-}
-body.no-scroll{overflow:hidden;}
-
-@media (max-width:900px){
-    .app-shell{display:block;}
-    .sidebar{
-        position:fixed;top:0;inset-inline-start:0;height:100%;width:min(300px,84vw);
-        transform:translateX(100%);transition:transform .3s ease;
-        box-shadow:none;
-    }
-    [dir="rtl"] .sidebar{transform:translateX(100%);}
-    [dir="ltr"] .sidebar{transform:translateX(-100%);}
-    .sidebar.open{transform:none!important;box-shadow:-10px 0 40px rgba(0,0,0,.6);}
-    .sidebar-overlay{display:block;pointer-events:none;}
-    .sidebar-overlay.show{opacity:1;pointer-events:auto;}
-    .mobile-topbar{display:flex;}
-    .nav-item:hover{transform:none;}
-    .nav-item.active::before{inset-inline-start:-16px;}
-}
-@media (min-width:901px){
-    .sidebar-overlay{display:none!important;}
-}
-
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    .hero{padding:28px 16px 74px;}
+    .grid{grid-template-columns:1fr;}
+    .topbar{justify-content:center;text-align:center;padding:10px 14px;}
+    .brand{font-size:.88rem;}
+    .brand .logo{width:34px;height:34px;font-size:1.05rem;}
+    .top-links a{font-size:.72rem;padding:6px 12px;min-height:34px;}
+    .chip{font-size:.72rem;padding:7px 12px;}
+    .stats{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:-44px;}
+    .stat b{font-size:1.3rem;}
+    .stat span{font-size:.7rem;}
+    .card{padding:16px;}
+    .avatar{width:40px;height:40px;font-size:1rem;}
+    .card-head h3{font-size:.9rem;}
+    .float-wa{width:50px;height:50px;bottom:14px;left:14px;}
+    .float-wa svg{width:26px;height:26px;}
+    .to-top{width:44px;height:44px;bottom:14px;right:14px;}
+  }
+  @media(max-width:380px){
+    .hero h1{font-size:1.25rem;}
+    #searchInput{font-size:.85rem;padding:13px 44px 13px 14px;min-height:48px;}
+    .brand{font-size:.8rem;}
+    .stats{grid-template-columns:repeat(2,1fr);gap:8px;}
+    .stat b{font-size:1.15rem;}
+    .chip{font-size:.68rem;padding:6px 10px;}
+    .card{padding:14px;}
+    .avatar{width:36px;height:36px;font-size:.9rem;}
+    .card-head h3{font-size:.85rem;}
+    .specialty{font-size:.68rem;}
+    .phone{font-size:.78rem;padding:8px;min-height:44px;}
+    .wa{width:44px;height:44px;}
+    .dev-card{padding:10px 14px;}
+    .dev-wa{font-size:.78rem;padding:8px 14px;}
+  }
 </style>
-
 </head>
+
 <body>
-<div class="app-shell">
-<aside class="sidebar" id="sidebar" aria-label="القائمة الرئيسية">
-    <div class="sidebar-brand">
-        <div class="brand-icon" aria-hidden="true">🚚</div>
-        <div class="brand-text">
-            <h1>حساب المسافة</h1>
-            <span>نظام المسافات والأماكن</span>
-        </div>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo">🩺</div>
+      <div>دليل الأطباء<small>خميس مليانة والجزائر</small></div>
     </div>
-
-    <div class="side-label">القائمة الرئيسية</div>
-    <nav class="side-nav">
-        <button type="button" class="tab-btn nav-item active" data-tab="tab-distance"><span class="nav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.5"/></svg></span><span class="nav-label">حساب المسافة</span></button>
-        <button type="button" class="tab-btn nav-item" data-tab="tab-add" id="tabAddBtn" style="display:none;"><span class="nav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span class="nav-label">إضافة مكان جديد</span><span class="nav-badge">مسؤول</span></button>
-        <button type="button" class="tab-btn nav-item" data-tab="tab-list"><span class="nav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></svg></span><span class="nav-label">عرض الأماكن والتعديل</span></button>
-        <button type="button" class="tab-btn nav-item" data-tab="tab-upload" id="tabUploadBtn" style="display:none;"><span class="nav-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></span><span class="nav-label">تحديث قاعدة البيانات</span><span class="nav-badge">مسؤول</span></button>
-    </nav>
-
-    <div class="sidebar-spacer"></div>
-
-    <div class="sidebar-account">
-        <div class="side-label">الحساب</div>
-        <div class="admin-bar" id="adminBar">
-            <button type="button" id="btnAdminLogin">دخول كمسؤول</button>
-        </div>
+    <div class="top-links">
+      <a href="#doctors">قائمة الأطباء</a>
+      <a href="#contact">اتصل بنا</a>
     </div>
-    <div class="sidebar-credit">المطوير: <b>ركاب عبدالقادر</b></div>
-</aside>
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
+  </div>
 
-<main class="main">
-<div class="mobile-topbar">
-    <button type="button" class="menu-toggle" id="btnMenu" aria-label="فتح القائمة" aria-controls="sidebar" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <div class="topbar-title" id="topbarTitle">حساب المسافة</div>
-    <div class="topbar-icon" aria-hidden="true">🚚</div>
+  <div class="hero">
+    <h1>دليل <span>الأطباء والمختصين</span> الشامل</h1>
+    <p>ابحث عن طبيبك بسهولة حسب الولاية، التخصص، أو اسم الحي. أرقام الهاتف والعناوين في مكان واحد.</p>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+      <input type="text" id="searchInput" placeholder="ابحث عن طبيب، تخصص، ولاية، أو حي…" autocomplete="off" inputmode="search">
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b id="statDoctors">0</b><span>طبيب ومختص</span></div>
+  <div class="stat"><b id="statSpecialties">0</b><span>تخصص طبي</span></div>
+  <div class="stat"><b id="statWilayas">0</b><span>ولاية</span></div>
+  <div class="stat"><b id="statPhones">0</b><span>رقم هاتف</span></div>
 </div>
-<div class="wrap">
-    <datalist id="codesList"></datalist>
 
-    <!-- ============ القسم 1: حساب المسافة ============ -->
-    <div class="tab-panel active" id="tab-distance">
-        <form id="distanceForm" class="card">
-            <div class="route-grid">
-                <div class="field">
-                    <label for="lieu_d"><span class="dot dot-from"></span>Code Chargement <small>التحميل</small></label>
-                    <input type="text" id="lieu_d" name="lieu_d" list="codesList" autocomplete="off" placeholder="مثال: 101001">
-                    <div class="code-name" id="nameD"></div>
-                </div>
-                <div class="route-arrow" aria-hidden="true">⇄</div>
-                <div class="field">
-                    <label for="lieu_c"><span class="dot dot-to"></span>Code Dechargement <small>التفريغ</small></label>
-                    <input type="text" id="lieu_c" name="lieu_c" list="codesList" autocomplete="off" placeholder="مثال: 101003">
-                    <div class="code-name" id="nameC"></div>
-                </div>
-            </div>
-            <button type="submit" class="btn-primary">احسب المسافة</button>
-        </form>
-
-        <div id="status" class="status"></div>
-
-        <div id="resultBox" class="result-box">
-            <div class="sub">المسافة بين <b id="rLieuD"></b> و <b id="rLieuC"></b></div>
-            <div class="big-distance"><span id="rDistance">--</span> Km</div>
-        </div>
-
-        <div class="stats" id="statsLine"></div>
-    </div>
-
-    <!-- ============ القسم 2: إضافة مكان جديد ============ -->
-    <div class="tab-panel" id="tab-add">
-        <h2 id="addPlaceTitle">إضافة مكان جديد</h2>
-        <div class="add-place-box">
-            <form id="addPlaceForm">
-                <div class="form-grid">
-                    <div class="field">
-                        <label for="newCode">Code (رقم المكان)</label>
-                        <input type="text" id="newCode" name="newCode" autocomplete="off" placeholder="مثال: 101099">
-                    </div>
-                    <div class="field">
-                        <label for="newName">اسم المكان</label>
-                        <input type="text" id="newName" name="newName" autocomplete="off" placeholder="اسم المكان">
-                    </div>
-                </div>
-                <div class="add-place-actions">
-                    <button type="button" class="btn" id="btnCancelEdit" style="display:none;">إلغاء التعديل</button>
-                    <button type="submit" class="btn" id="btnSubmitPlace">إضافة المكان</button>
-                </div>
-            </form>
-            <div id="addPlaceStatus" class="status"></div>
-        </div>
-    </div>
-
-    <!-- ============ القسم 3: عرض الأماكن والتعديل ============ -->
-    <div class="tab-panel" id="tab-list">
-        <h2>جميع الأماكن</h2>
-
-        <div class="list-toolbar">
-            <input type="search" id="listSearch" placeholder="بحث بالكود أو الاسم...">
-            <button class="btn" id="btnClearSearch">مسح</button>
-        </div>
-
-        <div class="table-scroll">
-            <table class="list-table">
-                <thead>
-                    <tr>
-                        <th>Code</th>
-                        <th>المكان</th>
-                        <th>إجراءات</th>
-                    </tr>
-                </thead>
-                <tbody id="listBody"><tr><td colspan="3" class="loading-msg">جارٍ تحميل البيانات...</td></tr></tbody>
-            </table>
-        </div>
-
-        <div class="footer-row">
-            <div class="info-text" id="listInfo"></div>
-            <div class="pagination" id="paginationBox"></div>
-        </div>
-    </div>
-
-    <!-- ============ القسم 4: تحديث قاعدة البيانات (رفع ملف) ============ -->
-    <div class="tab-panel" id="tab-upload">
-        <h2>تحديث قاعدة البيانات</h2>
-        <div class="upload-box">
-            <p class="upload-help">
-                ارفع ملف <code>data.js</code> جديدًا (بنفس صيغة الملف الحالي، أو الصيغة الخام القادمة من نظام ERP) لتحديث
-                جميع الأكواد والأسماء ومسافات المسارات دفعة واحدة، بدل إضافتها واحدة تلو الأخرى.
-                سيتم التحقق من الملف قبل أي تحديث، ولن يُطبَّق شيء إلا بعد تأكيدك.
-            </p>
-
-            <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="رفع ملف data.js">
-                <input type="file" id="dataFileInput" accept=".js,text/javascript,application/javascript" hidden>
-                <div class="dropzone-icon">⬆️</div>
-                <div class="dropzone-text">اسحب ملف <b>data.js</b> هنا، أو <span class="dropzone-link" id="dropzoneLink">اختر ملفًا من جهازك</span></div>
-                <div class="dropzone-filename" id="dropzoneFilename"></div>
-            </div>
-
-            <div id="uploadStatus" class="status"></div>
-
-            <div id="uploadPreview" class="upload-preview" style="display:none;">
-                <h3>معاينة قبل التأكيد</h3>
-                <ul id="uploadPreviewList"></ul>
-                <div class="add-place-actions">
-                    <button type="button" class="btn" id="btnCancelUpload">إلغاء</button>
-                    <button type="button" class="btn" id="btnConfirmUpload">تأكيد واستبدال البيانات</button>
-                </div>
-            </div>
-
-            <div class="upload-download-row" id="uploadDownloadRow" style="display:none;">
-                <p class="upload-help">
-                    التحديث أعلاه ينطبق على هذا المتصفح فقط. لتحديث الموقع بشكل دائم لجميع المستخدمين،
-                    نزّل الملف الناتج وارفعه ليحل محل <code>data.js</code> في مستودع المشروع على GitHub.
-                </p>
-                <button type="button" class="btn" id="btnDownloadData">⬇ تنزيل data.js المحدَّث</button>
-            </div>
-        </div>
-    </div>
-
-    <footer class="site-footer">
-        <div class="footer-dev">المطوير: <b>ركاب عبدالقادر</b></div>
-        <a class="footer-whatsapp" href="https://wa.me/213552656078" target="_blank" rel="noopener">
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.001 3C9.11 3 3.5 8.611 3.5 15.502c0 2.372.657 4.59 1.797 6.487L3 29l7.201-2.246a12.44 12.44 0 0 0 5.8 1.45h.003c6.891 0 12.5-5.612 12.5-12.503C28.504 8.611 22.893 3 16.001 3zm0 22.7h-.002a10.36 10.36 0 0 1-5.286-1.448l-.379-.225-4.276 1.334 1.36-4.167-.247-.428a10.34 10.34 0 0 1-1.573-5.264c0-5.716 4.653-10.368 10.406-10.368 2.78 0 5.393 1.083 7.36 3.05a10.33 10.33 0 0 1 3.045 7.355c0 5.716-4.653 10.161-10.408 10.161zm5.706-7.626c-.312-.156-1.847-.911-2.133-1.015-.286-.104-.494-.156-.702.156-.208.312-.807 1.015-.99 1.223-.182.208-.364.234-.676.078-.312-.156-1.316-.485-2.507-1.546-.927-.827-1.553-1.848-1.735-2.16-.182-.312-.02-.481.137-.636.14-.14.312-.364.468-.546.156-.182.208-.312.312-.52.104-.208.052-.39-.026-.546-.078-.156-.702-1.69-.962-2.314-.253-.608-.51-.526-.702-.536-.182-.008-.39-.01-.598-.01-.208 0-.546.078-.832.39-.286.312-1.09 1.066-1.09 2.6 0 1.534 1.116 3.016 1.272 3.224.156.208 2.196 3.354 5.32 4.702.744.321 1.324.513 1.777.657.746.238 1.425.204 1.962.124.599-.089 1.847-.755 2.107-1.484.26-.729.26-1.354.182-1.484-.078-.13-.286-.208-.598-.364z"/></svg>
-            <span>واتساب: 0552656078</span>
-        </a>
-        <div class="footer-copyright">© جميع الحقوق محفوظة</div>
-    </footer>
+<div class="filters-container">
+  <section class="filters">
+    <h2>📍 تصفية حسب الولاية</h2>
+    <div class="chips" id="wilayaChips"></div>
+  </section>
+  
+  <section class="filters">
+    <h2>🔎 تصفية حسب التخصص</h2>
+    <div class="chips" id="chips"></div>
+  </section>
 </div>
+
+<main id="doctors">
+  <div class="results-bar">
+    <div class="results-left">
+      <div>النتائج: <b id="resultCount">…</b> طبيب / عيادة</div>
+      <span id="sourceBadge" class="source-badge loading">…</span>
+      <div id="activeFilterLabel"></div>
+    </div>
+    <button id="refreshBtn" class="refresh-btn" title="تحديث البيانات">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.8 1 6.5 2.6"/><polyline points="21 3 21 9 15 9"/></svg>
+    </button>
+  </div>
+  <div class="grid" id="grid"></div>
 </main>
+
+<div class="note">
+  <div class="note-inner">
+    <span>⚠️</span>
+    <div><b>ملاحظة:</b> المعلومات محدّثة من جدول Google Sheets. يُنصح بالاتصال مسبقاً للتأكد من المواعيد. لأي تصحيح، تواصل معنا عبر واتساب.</div>
+  </div>
 </div>
 
-<div class="modal-overlay" id="loginModal">
-    <div class="modal-box">
-        <h3>دخول المسؤول</h3>
-        <div class="modal-error" id="loginError"></div>
-        <input type="password" id="adminPasswordInput" placeholder="كلمة السر" autocomplete="off">
-        <div class="modal-actions">
-            <button type="button" class="btn" id="btnCancelLogin">إلغاء</button>
-            <button type="button" class="btn" id="btnConfirmLogin">دخول</button>
+<footer id="contact">
+  <h3>تطوير وتصميم</h3>
+  <p>صفحة احترافية تخدم سكان الجزائر والمناطق المجاورة.</p>
+  <div class="dev-card">
+    <div class="dev-avatar">رك</div>
+    <div class="dev-info"><b>ركاب عبد القادر</b><small>مطوّر المواقع الإلكترونية</small></div>
+    <a class="dev-wa" href="https://wa.me/213773375427" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.2 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.8 8-8.3 8z"/></svg>
+      0773375427
+    </a>
+  </div>
+  <div class="copyright">© <span id="year"></span> دليل الأطباء — تطوير: ركاب عبد القادر</div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/213773375427" target="_blank" rel="noopener" title="واتساب المطوّر">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.2 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.8 8-8.3 8z"/></svg>
+</a>
+
+<button class="to-top" id="toTop" title="العودة للأعلى">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+</button>
+
+<script>
+/* ==========================================================
+   🔗 رابط Google Sheets (صيغة التصدير CSV)
+   ========================================================== */
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/14hbhgdB51DH6Q0TYIeYTscBG0bkZ5waNqbn5Q_HEBYc/export?format=csv&gid=0";
+
+/* ============ بيانات احتياطية (محدثة لتشمل الولاية) ============ */
+const FALLBACK_DATA = [
+  {n:"داودي", s:"أمراض الكلى والمسالك البولية، عقم الرجال والضعف الجنسي", c:"الكلى والمسالك البولية", a:"حي سيدي معمر، البلوك الأول، قرب الجامع العتيق", p:["0668046804","027566454"], w:"عين الدفلى"},
+  {n:"بغدير بوزيد", s:"طب إعادة التأهيل الحركي", c:"الطب الفيزيائي وإعادة التأهيل", a:"", p:["0773024664"], w:"عين الدفلى"},
+  {n:"س. بوقريعة", s:"طب الأسنان", c:"طب الأسنان", a:"", p:["0798257044"], w:"عين الدفلى"},
+  {n:"عبد الرحيم طالبي", s:"طب الأسنان", c:"طب الأسنان", a:"", p:["0696947910"], w:"عين الدفلى"},
+  {n:"بوكيرة عباسي", s:"طب التوليد وأمراض النساء", c:"النساء والتوليد", a:"", p:["0673238678"], w:"عين الدفلى"},
+  {n:"مصراوي", s:"طب العيون", c:"طب العيون", a:"", p:["027552222","0659350605"], w:"عين الدفلى"},
+  {n:"بوڨروش يزيد", s:"أخصائية في أمراض الدم", c:"أمراض الدم", a:"", p:["0542740365"], w:"عين الدفلى"},
+  {n:"م. اعيوش", s:"أمراض وجراحة الأذن والأنف والحنجرة والحساسية", c:"الأنف والأذن والحنجرة", a:"حي الحرية", p:["027560480"], w:"عين الدفلى"},
+  {n:"رحماني. م", s:"أخصائية نفسانية", c:"النفسية والعصبية", a:"", p:["0555851942"], w:"عين الدفلى"},
+  {n:"يعقوب بوالشحم", s:"طبيب الروماتيزم والعظام والمفاصل", c:"العظام والمفاصل", a:"", p:["0698909909"], w:"عين الدفلى"},
+  {n:"عياد", s:"أمراض الغدد الصماء والسكري", c:"الغدد الصماء والسكري", a:"", p:["0770781655"], w:"عين الدفلى"},
+  {n:"د. بريك. غ", s:"عيادة أمراض الروماتيزم والعظام والمفاصل", c:"العظام والمفاصل", a:"", p:["0670309444"], w:"عين الدفلى"},
+  {n:"عيادة الزهراء — حطابي عمار", s:"التكفل النفسي والأرطفوني المختص", c:"النفسية والعصبية", a:"", p:["0792094769"], w:"عين الدفلى"},
+  {n:"بسكري حمزة", s:"الأمراض النفسية والعصبية", c:"النفسية والعصبية", a:"حي سيدي معمر", p:["0541082163"], w:"عين الدفلى"},
+  {n:"ڨنيش", s:"طب العيون", c:"طب العيون", a:"حي سيدي معمر", p:["027566468"], w:"عين الدفلى"},
+  {n:"ف. مخاطي", s:"طبيبة القلب", c:"أمراض القلب", a:"حي سيدي معمر", p:["0668435888"], w:"عين الدفلى"},
+  {n:"مداني. ر", s:"أمراض النساء والتوليد", c:"النساء والتوليد", a:"", p:["0550216065"], w:"عين الدفلى"},
+  {n:"س. خماش", s:"طب الأطفال، الربو والحساسية", c:"طب الأطفال", a:"", p:["0541960656"], w:"عين الدفلى"},
+  {n:"مروان", s:"طبيبة النساء والتوليد", c:"النساء والتوليد", a:"", p:["027560605"], w:"عين الدفلى"},
+  {n:"بن يحيى", s:"طبيبة النساء والتوليد", c:"النساء والتوليد", a:"", p:["0542572760"], w:"عين الدفلى"},
+  {n:"بوعزدرية سمير", s:"اختصاصي في طب وجراحة العظام والمفاصل", c:"العظام والمفاصل", a:"حي السلام", p:["027568384","0556246991"], w:"عين الدفلى"},
+  {n:"بلحاج ق. أ", s:"الأمراض الصدرية والتنفسية والحساسية", c:"الصدرية والتنفس", a:"", p:[], w:"عين الدفلى"},
+  {n:"البروفيسور م. راحم", s:"جراحة العظام والمفاصل", c:"العظام والمفاصل", a:"حي سيتي مارشي، وسط المدينة", p:["028788899","0771273045"], w:"عين الدفلى"},
+  {n:"طبيبة أسنان — أمراض اللثة", s:"طب الأسنان، مختصة في أمراض اللثة", c:"طب الأسنان", a:"حي سيتي مارشي، وسط المدينة", p:["0556039747"], w:"عين الدفلى"},
+  {n:"نويس. أ", s:"أمراض القلب والشرايين", c:"أمراض القلب", a:"حي السلام", p:["0551703744","0654329388"], w:"عين الدفلى"},
+  {n:"نويزة أناس", s:"طب وجراحة العيون", c:"طب العيون", a:"", p:["0555573093","0552177693"], w:"عين الدفلى"},
+  {n:"نجاري م. ع", s:"مختص في طب وجراحة الأعين", c:"طب العيون", a:"", p:["027567571"], w:"عين الدفلى"},
+  {n:"خلفاوي زوجة علي أوصالح", s:"أمراض القلب والشرايين", c:"أمراض القلب", a:"", p:["027558812","0561004737"], w:"عين الدفلى"},
+  {n:"خرفي محمد", s:"طبيب الجلد", c:"الجلد", a:"", p:["0664582423"], w:"عين الدفلى"},
+  {n:"راحم نصر الدين", s:"أمراض الجهاز الهضمي والكبد", c:"الجهاز الهضمي والكبد", a:"حي سيتي مارشي، وسط المدينة", p:["0774011075","027561949"], w:"عين الدفلى"},
+  {n:"كلال نبيل", s:"اختصاصي في طب الأطفال", c:"طب الأطفال", a:"", p:["0553995472"], w:"عين الدفلى"},
+  {n:"حاج صدوق م. س", s:"أمراض الرئة والتنفس والحساسية", c:"الصدرية والتنفس", a:"", p:["0778618719","0558254330"], w:"عين الدفلى"},
+  {n:"بوهدة رضا", s:"مرض السكري والغدد الصماء", c:"الغدد الصماء والسكري", a:"", p:["0799090761","0560550027"], w:"عين الدفلى"},
+  {n:"واضح", s:"أمراض الروماتيزم والعظام والمفاصل", c:"العظام والمفاصل", a:"", p:["027552154","0772446059"], w:"عين الدفلى"},
+  {n:"فارسي", s:"الطب الفيزيائي وإعادة التأهيل", c:"الطب الفيزيائي وإعادة التأهيل", a:"أمام محطة المسافرين", p:["0551395203"], w:"عين الدفلى"},
+  {n:"رضا حسان", s:"طبيب عام", c:"طب عام", a:"حي النجمة", p:["027566579","0556428351"], w:"عين الدفلى"},
+  {n:"بن رقية", s:"طبيبة الأسنان", c:"طب الأسنان", a:"حي السلام", p:["0555146205"], w:"عين الدفلى"},
+  {n:"عبد النور عباس", s:"طبيب عام — ختان، ECG، حجامة، PRP، هيدرا فيشل، تلقيح", c:"طب عام", a:"حي سيدي معمر", p:["0661421699"], w:"عين الدفلى"},
+  {n:"ف. شرشالي", s:"الطب الداخلي، القلب والضغط الدموي", c:"أمراض القلب", a:"", p:["027568590","0660033703"], w:"عين الدفلى"},
+  {n:"خليف محمد", s:"طبيب أخصائي", c:"طب عام", a:"", p:["027563111"], w:"عين الدفلى"},
+  {n:"وليد عاشور", s:"اختصاصي الأنف والحنجرة", c:"الأنف والأذن والحنجرة", a:"", p:["0552770063"], w:"عين الدفلى"},
+  {n:"بوحرود", s:"طبيبة النساء والتوليد", c:"النساء والتوليد", a:"", p:["0552503602"], w:"عين الدفلى"},
+  {n:"جابر. س", s:"أمراض النساء والتوليد", c:"النساء والتوليد", a:"", p:["0556630222"], w:"عين الدفلى"},
+  {n:"بومدين حسام الدين", s:"اختصاصي المخ والأعصاب والعضلات", c:"النفسية والعصبية", a:"حي السلام", p:["0555611100","027568521"], w:"عين الدفلى"},
+  {n:"مصطفى مخاطري", s:"طب عام", c:"طب عام", a:"", p:["0664881620"], w:"عين الدفلى"},
+  {n:"بناي أ", s:"طب عام", c:"طب عام", a:"", p:["027568433"], w:"عين الدفلى"},
+  {n:"عربوز الهادي", s:"طب وجراحة العظام والمفاصل والروماتيزم", c:"العظام والمفاصل", a:"حي سيدي معمر", p:["0550061120"], w:"عين الدفلى"},
+  {n:"شريفة طيبوني", s:"أمراض الرئة والتنفس", c:"الصدرية والتنفس", a:"حي سيدي معمر، قدام الطاكسيات", p:["0657443440"], w:"عين الدفلى"},
+  {n:"عيادة شاوشي والدكتورة عوفي", s:"طب عام، استعجالات، تغذية", c:"طب عام", a:"حي السلام", p:["027569457","0659090443"], w:"عين الدفلى"},
+  {n:"عيادة الونشريس", s:"مؤسسة استشفائية خاصة — جراحة، ولادة، أشعة 24 ساعة (CNAS/CASNOS)", c:"مؤسسات صحية", a:"حي الحرية + فرع حي القايد (950 مسكن)", p:["027552463","0550910606","0560970892"], w:"عين الدفلى"},
+  {n:"المؤسسة العمومية الاستشفائية", s:"مستشفى عمومي", c:"مؤسسات صحية", a:"خميس مليانة", p:["027559155"], w:"عين الدفلى"},
+  {n:"مركز التصوير الطبي الشفاء", s:"مركز تصوير طبي", c:"التصوير الطبي", a:"", p:["0540831881"], w:"عين الدفلى"},
+  {n:"عيادة البسمة", s:"عيادة طبية", c:"مؤسسات صحية", a:"", p:["0560970892"], w:"عين الدفلى"}
+];
+
+/* ============ أدوات ============ */
+const norm = s => (s||"").replace(/[\u064B-\u0652\u0670\u0640]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/ؤ/g,"و").replace(/ئ/g,"ي").toLowerCase().trim();
+const digits = n => n.replace(/\D/g,"");
+const telHref = n => { let d = digits(n); if(d.startsWith("0")) d = "213"+d.slice(1); return "tel:+"+d; };
+const isMobile = n => /^0[5-7]/.test(digits(n));
+const waHref = n => "https://wa.me/213"+digits(n).slice(1);
+const initial = name => (name.replace(/^(البروفيسور|الدكتور|الدكتورة|الطبيب|الطبيبة|الحكيم|الحكيمة|عيادة)\s+/,"").trim().charAt(0))||"🩺";
+
+/* ============ عناصر DOM ============ */
+const grid        = document.getElementById("grid");
+const chipsBox    = document.getElementById("chips");
+const wilayaChips = document.getElementById("wilayaChips");
+const searchInput = document.getElementById("searchInput");
+const resultCount = document.getElementById("resultCount");
+const filterLabel = document.getElementById("activeFilterLabel");
+const sourceBadge = document.getElementById("sourceBadge");
+const refreshBtn  = document.getElementById("refreshBtn");
+const toTop       = document.getElementById("toTop");
+
+let DATA = [];
+let activeCat = "الكل";
+let activeWilaya = "الكل";
+let query = "";
+
+/* ============ CSV Parser ============ */
+function parseCSV(text) {
+  const rows = []; let row = [], field = "", inQ = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQ) {
+      if (c === '"' && text[i+1] === '"') { field += '"'; i++; }
+      else if (c === '"') inQ = false;
+      else field += c;
+    } else {
+      if (c === '"') inQ = true;
+      else if (c === ',') { row.push(field); field = ""; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ""; }
+      else if (c === '\r') { /* skip */ }
+      else field += c;
+    }
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  return rows;
+}
+
+/* ============ تحميل من Google Sheets ============ */
+async function fetchSheet() {
+  const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
+  if (!res.ok) throw new Error("HTTP " + res.status);
+  let csv = await res.text();
+  if (csv.charCodeAt(0) === 0xFEFF) csv = csv.slice(1);
+  if (csv.trim().startsWith("<")) throw new Error("الرابط يعيد صفحة HTML بدلاً من CSV");
+  const rows = parseCSV(csv);
+  const data = rows.slice(1)
+    .filter(r => r[0] && r[0].trim())
+    .map(r => ({
+      n: (r[0]||"").trim(),
+      s: (r[1]||"").trim(),
+      c: (r[2]||"").trim() || "طب عام",
+      a: (r[3]||"").trim(),
+      p: (r[4]||"").split("/").map(x=>x.trim()).filter(Boolean),
+      w: (r[5]||"").trim() || "غير محددة" // العمود السادس للولاية
+    }));
+  if (!data.length) throw new Error("الجدول فارغ");
+  return data;
+}
+
+/* ============ تحميل البيانات ============ */
+async function loadData() {
+  grid.innerHTML = `<div class="loading"><div class="spinner"></div>جاري تحميل بيانات الأطباء…</div>`;
+  resultCount.textContent = "…";
+  sourceBadge.className = "source-badge loading";
+  sourceBadge.textContent = "…";
+
+  try {
+    DATA = await fetchSheet();
+    sourceBadge.className = "source-badge";
+    sourceBadge.textContent = "✓ محدّث";
+    sourceBadge.title = "البيانات محمّلة من Google Sheets";
+  } catch (e) {
+    console.warn("تعذر تحميل Google Sheets:", e.message);
+    DATA = FALLBACK_DATA;
+    sourceBadge.className = "source-badge local";
+    sourceBadge.textContent = "⚠ محلي";
+    sourceBadge.title = "تعذر الاتصال — تُعرض بيانات محفوظة محلياً";
+  }
+
+  updateStats();
+  buildWilayaChips();
+  buildChips();
+  render();
+}
+
+/* ============ الإحصائيات ============ */
+function updateStats() {
+  document.getElementById("statDoctors").textContent = DATA.length;
+  document.getElementById("statSpecialties").textContent = new Set(DATA.map(d=>d.c)).size;
+  document.getElementById("statWilayas").textContent = new Set(DATA.map(d=>d.w)).size;
+  document.getElementById("statPhones").textContent = DATA.reduce((a,d)=>a+d.p.length,0);
+}
+
+/* ============ فلاتر الولايات ============ */
+function buildWilayaChips() {
+  const counts = {};
+  DATA.forEach(d => counts[d.w] = (counts[d.w]||0)+1);
+  const wilayas = ["الكل", ...Object.keys(counts).sort((a,b)=>counts[b]-counts[a])];
+
+  wilayaChips.innerHTML = wilayas.map(w => {
+    const num = w === "الكل" ? DATA.length : counts[w];
+    return `<button class="chip wilaya${w===activeWilaya?" active":""}" data-wilaya="${w}">${w} <span class="cnt">${num}</span></button>`;
+  }).join("");
+
+  wilayaChips.querySelectorAll(".chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      wilayaChips.querySelectorAll(".chip").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeWilaya = btn.dataset.wilaya;
+      render();
+    });
+  });
+}
+
+/* ============ فلاتر التخصصات ============ */
+function buildChips() {
+  // تصفية التخصصات بناءً على الولاية المختارة حالياً
+  const currentData = activeWilaya === "الكل" ? DATA : DATA.filter(d => d.w === activeWilaya);
+  
+  const counts = {};
+  currentData.forEach(d => counts[d.c] = (counts[d.c]||0)+1);
+  const cats = ["الكل", ...Object.keys(counts).sort((a,b)=>counts[b]-counts[a])];
+
+  if (!cats.includes(activeCat)) activeCat = "الكل";
+
+  chipsBox.innerHTML = cats.map(cat => {
+    const num = cat === "الكل" ? currentData.length : counts[cat];
+    return `<button class="chip${cat===activeCat?" active":""}" data-cat="${cat}">${cat} <span class="cnt">${num}</span></button>`;
+  }).join("");
+
+  chipsBox.querySelectorAll(".chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      chipsBox.querySelectorAll(".chip").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeCat = btn.dataset.cat;
+      render();
+    });
+  });
+}
+
+/* ============ بطاقة ============ */
+function cardHTML(d) {
+  const phones = d.p.length
+    ? d.p.map(ph => `
+      <div class="phone-row">
+        <a class="phone" href="${telHref(ph)}" title="اتصل بـ ${ph}">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          ${ph}
+        </a>
+        ${isMobile(ph) ? `<a class="wa" href="${waHref(ph)}" target="_blank" rel="noopener" title="واتساب"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.2 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.8 8-8.3 8z"/></svg></a>` : ""}
+      </div>`).join("")
+    : `<div class="no-phone">📵 الرقم غير متوفر</div>`;
+
+  return `<article class="card">
+    <div class="card-head">
+      <div class="avatar">${initial(d.n)}</div>
+      <div>
+        <h3>${d.n}</h3>
+        <div class="specialty">${d.s}</div>
+        <div class="tags-row">
+          <span class="tag">${d.c}</span>
+          <span class="tag wilaya-tag">📍 ${d.w}</span>
         </div>
+      </div>
     </div>
-</div>
-
-<!-- ملف البيانات منفصل: يحتوي على codeNamesArr و records -->
-<script src="data.js"></script>
-<script>
-
-// ==================== نظام دخول المسؤول ====================
-(function(){
-    // كلمة السر مخزّنة بترميز Base64 (تصعيب بسيط، وليست حماية حقيقية من جهة الخادم)
-    const ADMIN_PASS_ENC = "cmVrYWJhYmRlbGthZGVyMTk4MUA=";
-    const ADMIN_KEY = "isAdminRekab";
-
-    const adminBar = document.getElementById('adminBar');
-    const btnAdminLogin = document.getElementById('btnAdminLogin');
-    const tabAddBtn = document.getElementById('tabAddBtn');
-    const tabUploadBtn = document.getElementById('tabUploadBtn');
-    const loginModal = document.getElementById('loginModal');
-    const loginError = document.getElementById('loginError');
-    const adminPasswordInput = document.getElementById('adminPasswordInput');
-    const btnCancelLogin = document.getElementById('btnCancelLogin');
-    const btnConfirmLogin = document.getElementById('btnConfirmLogin');
-
-    // احتياط في حال تعذّر الوصول لـ localStorage (مثلاً عند فتح الملف مباشرة file://
-    // أو التصفح الخاص): يبقى الدخول فعّالاً لهذه الجلسة فقط دون أن يتعطّل التطبيق.
-    let adminSessionFallback = false;
-
-    function isAdmin(){
-        try{
-            return localStorage.getItem(ADMIN_KEY) === 'true' || adminSessionFallback;
-        }catch(e){
-            return adminSessionFallback;
-        }
-    }
-
-    function openLoginModal(){
-        loginError.textContent = '';
-        adminPasswordInput.value = '';
-        loginModal.classList.add('show');
-        setTimeout(function(){ adminPasswordInput.focus(); }, 50);
-    }
-    function closeLoginModal(){
-        loginModal.classList.remove('show');
-    }
-
-    function renderAdminBar(){
-        if(isAdmin()){
-            adminBar.innerHTML = '<span class="admin-status">✔ مسجّل كمسؤول</span> <button type="button" id="btnAdminLogout">تسجيل الخروج</button>';
-            document.getElementById('btnAdminLogout').addEventListener('click', function(){
-                adminSessionFallback = false;
-                try{ localStorage.removeItem(ADMIN_KEY); }catch(e){}
-                applyAdminVisibility();
-                renderAdminBar();
-                if(typeof switchTab === 'function') switchTab('tab-distance');
-            });
-        } else {
-            adminBar.innerHTML = '<button type="button" id="btnAdminLogin">دخول كمسؤول</button>';
-            document.getElementById('btnAdminLogin').addEventListener('click', openLoginModal);
-        }
-    }
-
-    function applyAdminVisibility(){
-        tabAddBtn.style.display = isAdmin() ? '' : 'none';
-        if(tabUploadBtn) tabUploadBtn.style.display = isAdmin() ? '' : 'none';
-        // إعادة رسم قائمة الأماكن لإظهار/إخفاء أزرار التعديل حسب صلاحية المستخدم
-        if(typeof renderList === 'function') renderList();
-    }
-
-    btnAdminLogin.addEventListener('click', openLoginModal);
-    btnCancelLogin.addEventListener('click', closeLoginModal);
-    loginModal.addEventListener('click', function(e){
-        if(e.target === loginModal) closeLoginModal();
-    });
-
-    function attemptLogin(){
-        const entered = adminPasswordInput.value;
-        if(entered === atob(ADMIN_PASS_ENC)){
-            adminSessionFallback = true;
-            try{ localStorage.setItem(ADMIN_KEY, 'true'); }catch(e){}
-            closeLoginModal();
-            applyAdminVisibility();
-            renderAdminBar();
-        } else {
-            loginError.textContent = 'كلمة السر غير صحيحة.';
-        }
-    }
-
-    btnConfirmLogin.addEventListener('click', attemptLogin);
-    adminPasswordInput.addEventListener('keydown', function(e){
-        if(e.key === 'Enter') attemptLogin();
-    });
-
-    // إتاحة دوال الإدارة للاستخدام من بقية السكربت (renderList)
-    window.__isAdmin = isAdmin;
-    window.__applyAdminVisibility = applyAdminVisibility;
-
-    renderAdminBar();
-    // تطبيق الإخفاء الأولي فور تحميل الصفحة (سيُعاد تطبيقه لاحقًا بعد renderList الأول)
-    tabAddBtn.style.display = isAdmin() ? '' : 'none';
-    if(tabUploadBtn) tabUploadBtn.style.display = isAdmin() ? '' : 'none';
-})();
-
-// ---------- التبديل بين التبويبات (الأقسام الثلاثة) ----------
-const tabButtons = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
-
-function switchTab(tabId){
-    // حماية إضافية: منع فتح تبويب "إضافة مكان جديد" أو "تحديث قاعدة البيانات" لغير المسؤول حتى لو تم استدعاؤه برمجيًا
-    if((tabId === 'tab-add' || tabId === 'tab-upload') && !(window.__isAdmin && window.__isAdmin())){
-        if(typeof document !== 'undefined'){
-            const modal = document.getElementById('loginModal');
-            if(modal){
-                document.getElementById('loginError').textContent = '';
-                document.getElementById('adminPasswordInput').value = '';
-                modal.classList.add('show');
-            }
-        }
-        return;
-    }
-    tabPanels.forEach(function(panel){
-        panel.classList.toggle('active', panel.id === tabId);
-    });
-    tabButtons.forEach(function(btn){
-        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
-    });
+    ${d.a ? `<div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>${d.a}</span></div>` : ""}
+    <div class="phones">${phones}</div>
+  </article>`;
 }
 
-tabButtons.forEach(function(btn){
-    btn.addEventListener('click', function(){
-        switchTab(btn.getAttribute('data-tab'));
-    });
+/* ============ العرض ============ */
+function render() {
+  const q = norm(query);
+  const filtered = DATA.filter(d => {
+    if (activeWilaya !== "الكل" && d.w !== activeWilaya) return false;
+    if (activeCat !== "الكل" && d.c !== activeCat) return false;
+    if (!q) return true;
+    // البحث يشمل الولاية أيضاً
+    return norm([d.n, d.s, d.c, d.a, d.w, d.p.join(" ")].join(" ")).includes(q);
+  });
+
+  resultCount.textContent = filtered.length;
+  
+  let label = "";
+  if (activeWilaya !== "الكل") label += `الولاية: ${activeWilaya} `;
+  if (activeCat !== "الكل") label += `| التخصص: ${activeCat}`;
+  filterLabel.textContent = label.trim();
+
+  grid.innerHTML = filtered.length
+    ? filtered.map(cardHTML).join("")
+    : `<div class="empty"><div class="ico">🔍</div><b>لا توجد نتائج مطابقة</b>جرّب البحث بكلمة أخرى أو اختر تخصصاً أو ولاية مختلفة.</div>`;
+}
+
+/* ============ الأحداث ============ */
+let debounce;
+searchInput.addEventListener("input", e => {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => { query = e.target.value; render(); }, 160);
 });
 
-const codeNames = {};
-// أسماء الأماكن التفصيلية (أكواد من 6 أرقام) من مصفوفة lieu
-if(typeof lieu !== 'undefined'){
-    lieu.forEach(function(item){
-        if(item[1]) codeNames[item[0]] = item[1];
-    });
-}
-// أسماء المناطق العامة من codeNamesArr (لا تُستبدل الأسماء التفصيلية إن وُجدت مسبقاً)
-codeNamesArr.forEach(function(item){
-    if(!codeNames[item[0]]) codeNames[item[0]] = item[1];
+refreshBtn.addEventListener("click", async () => {
+  refreshBtn.classList.add("loading");
+  await loadData();
+  setTimeout(() => refreshBtn.classList.remove("loading"), 400);
 });
 
-// ---------- الأماكن المضافة يدويًا (تُحفظ محليًا في المتصفح) ----------
-const CUSTOM_PLACES_KEY = 'customPlaces_v1';
-
-function loadCustomPlaces(){
-    try{
-        const raw = localStorage.getItem(CUSTOM_PLACES_KEY);
-        return raw ? JSON.parse(raw) : {};
-    }catch(e){
-        return {};
-    }
-}
-
-function saveCustomPlaces(obj){
-    try{
-        localStorage.setItem(CUSTOM_PLACES_KEY, JSON.stringify(obj));
-        return true;
-    }catch(e){
-        return false;
-    }
-}
-
-let customPlaces = loadCustomPlaces();
-// دمج الأماكن المضافة يدويًا فوق القائمة الأصلية (لها الأولوية)
-Object.keys(customPlaces).forEach(function(code){
-    codeNames[code] = customPlaces[code];
+window.addEventListener("scroll", () => {
+  toTop.classList.toggle("show", window.scrollY > 500);
 });
-
-const distanceMap = {};
-records.forEach(function(r){
-    distanceMap[r[0] + '|' + r[1]] = r[2];
-});
-
-// ---------- تبويب البحث عن مسافة بين كودين ----------
-const datalist = document.getElementById('codesList');
-let dlHtml = '';
-Object.keys(codeNames).forEach(function(code){
-    dlHtml += "<option value='" + code + "'>" + code + " - " + codeNames[code] + "</option>";
-});
-datalist.innerHTML = dlHtml;
-
-document.getElementById('statsLine').textContent =
-    'قاعدة البيانات: ' + records.length + ' مسار بين ' + Object.keys(codeNames).length + ' موقع';
-
-const lieuD = document.getElementById('lieu_d');
-const lieuC = document.getElementById('lieu_c');
-const nameD = document.getElementById('nameD');
-const nameC = document.getElementById('nameC');
-const statusDiv = document.getElementById('status');
-const resultBox = document.getElementById('resultBox');
-const rDistance = document.getElementById('rDistance');
-const rLieuD = document.getElementById('rLieuD');
-const rLieuC = document.getElementById('rLieuC');
-
-function setStatus(type, msg){
-    if(!type){ statusDiv.style.display = 'none'; return; }
-    statusDiv.className = 'status ' + type;
-    statusDiv.textContent = msg;
-}
-
-function showNameHint(input, target){
-    const v = input.value.trim();
-    target.textContent = codeNames[v] ? codeNames[v] : '';
-}
-
-lieuD.addEventListener('input', function(){ showNameHint(lieuD, nameD); });
-lieuC.addEventListener('input', function(){ showNameHint(lieuC, nameC); });
-
-document.getElementById('distanceForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    resultBox.style.display = 'none';
-
-    const a = lieuD.value.trim();
-    const b = lieuC.value.trim();
-
-    if(!a || !b){
-        setStatus('error', 'الرجاء إدخال كودي التحميل والتفريغ.');
-        return;
-    }
-
-    let km = distanceMap[a + '|' + b];
-    let reversed = false;
-
-    if(km === undefined){
-        km = distanceMap[b + '|' + a];
-        reversed = true;
-    }
-
-    if(km === undefined){
-        setStatus('error', 'لا توجد بيانات مسافة مسجّلة بين هذين الكودين في قاعدة البيانات.');
-        return;
-    }
-
-    rLieuD.textContent = a + (codeNames[a] ? ' - ' + codeNames[a] : '');
-    rLieuC.textContent = b + (codeNames[b] ? ' - ' + codeNames[b] : '');
-    rDistance.textContent = km;
-    resultBox.style.display = 'block';
-
-    if(reversed){
-        setStatus('warn', 'تنبيه: لا يوجد سجل مباشر لهذا الاتجاه، تم عرض مسافة الاتجاه المعاكس (' + b + ' → ' + a + ').');
-    } else {
-        setStatus('ok', 'تم العثور على المسافة.');
-    }
-});
-
-// ---------- تبويب عرض جميع الأماكن ----------
-const listBody = document.getElementById('listBody');
-const listInfo = document.getElementById('listInfo');
-const paginationBox = document.getElementById('paginationBox');
-const listSearch = document.getElementById('listSearch');
-const btnClearSearch = document.getElementById('btnClearSearch');
-
-// بناء قائمة الأماكن (Code + الاسم) من كائن codeNames، مرتبة حسب الكود
-const places = Object.keys(codeNames)
-    .map(function(code){ return [code, codeNames[code]]; })
-    .sort(function(x, y){ return x[0].localeCompare(y[0]); });
-
-const PAGE_SIZE = 50;
-let filteredPlaces = places;
-let currentPage = 1;
-
-function escapeHtml(str){
-    const d = document.createElement('div');
-    d.textContent = str;
-    return d.innerHTML;
-}
-
-function applyFilter(query){
-    query = (query || '').trim().toLowerCase();
-    if(!query){
-        filteredPlaces = places;
-    } else {
-        filteredPlaces = places.filter(function(p){
-            const code = p[0], name = (p[1] || '').toLowerCase();
-            return code.toLowerCase().includes(query) || name.includes(query);
-        });
-    }
-    currentPage = 1;
-    renderList();
-}
-
-function renderList(){
-    const totalPages = Math.max(1, Math.ceil(filteredPlaces.length / PAGE_SIZE));
-    if(currentPage > totalPages) currentPage = totalPages;
-    if(currentPage < 1) currentPage = 1;
-
-    const startIdx = (currentPage - 1) * PAGE_SIZE;
-    const pageItems = filteredPlaces.slice(startIdx, startIdx + PAGE_SIZE);
-    const userIsAdmin = !!(window.__isAdmin && window.__isAdmin());
-
-    if(pageItems.length === 0){
-        listBody.innerHTML = "<tr><td colspan='3' style='text-align:center; padding:16px;'>لا توجد نتائج</td></tr>";
-    } else {
-        let rowsHtml = '';
-        pageItems.forEach(function(p){
-            const code = p[0], name = p[1];
-            const codeAttr = escapeHtml(code).replace(/"/g, '&quot;');
-            const actionCell = userIsAdmin
-                ? "<button type='button' class='btn' data-code=\"" + codeAttr + "\" onclick='startEditPlace(this.getAttribute(\"data-code\"))'>تعديل</button>"
-                : "<span style='color:#a9b0d8; font-size:12px;'>—</span>";
-            rowsHtml += "<tr>" +
-                "<td>" + escapeHtml(code) + "</td>" +
-                "<td>" + escapeHtml(name || '') + "</td>" +
-                "<td>" + actionCell + "</td>" +
-                "</tr>";
-        });
-        listBody.innerHTML = rowsHtml;
-    }
-
-    listInfo.textContent = 'عرض ' + (filteredPlaces.length === 0 ? 0 : startIdx + 1) + ' إلى ' +
-        Math.min(startIdx + PAGE_SIZE, filteredPlaces.length) + ' من أصل ' + filteredPlaces.length + ' مكان';
-
-    renderPagination(currentPage, totalPages);
-}
-
-function renderPagination(current, totalPages){
-    let html = '';
-    html += "<button " + (current<=1?'disabled':'') + " onclick='goToPage(" + (current-1) + ")'>&laquo; Préc</button>";
-
-    const start = Math.max(1, current - 2);
-    const end = Math.min(totalPages, current + 2);
-    for(let p = start; p <= end; p++){
-        html += "<button class='" + (p===current?'active':'') + "' onclick='goToPage(" + p + ")'>" + p + "</button>";
-    }
-
-    html += "<button " + (current>=totalPages?'disabled':'') + " onclick='goToPage(" + (current+1) + ")'>Suiv &raquo;</button>";
-    paginationBox.innerHTML = html;
-}
-
-function goToPage(p){
-    currentPage = p;
-    renderList();
-}
-
-listSearch.addEventListener('input', function(){
-    applyFilter(listSearch.value);
-});
-btnClearSearch.addEventListener('click', function(){
-    listSearch.value = '';
-    applyFilter('');
-});
-
-// ---------- إضافة / تعديل مكان ----------
-const addPlaceForm = document.getElementById('addPlaceForm');
-const addPlaceStatus = document.getElementById('addPlaceStatus');
-const addPlaceTitle = document.getElementById('addPlaceTitle');
-const newCodeInput = document.getElementById('newCode');
-const newNameInput = document.getElementById('newName');
-const btnSubmitPlace = document.getElementById('btnSubmitPlace');
-const btnCancelEdit = document.getElementById('btnCancelEdit');
-
-let editingCode = null; // null = وضع إضافة، غير ذلك = وضع تعديل لهذا الكود
-
-function setAddPlaceStatus(type, msg){
-    if(!type){ addPlaceStatus.style.display = 'none'; return; }
-    addPlaceStatus.className = 'status ' + type;
-    addPlaceStatus.textContent = msg;
-}
-
-function enterEditMode(code){
-    editingCode = code;
-    newCodeInput.value = code;
-    newCodeInput.disabled = true;
-    newNameInput.value = codeNames[code] || '';
-    addPlaceTitle.textContent = 'تعديل المكان: ' + code;
-    btnSubmitPlace.textContent = 'حفظ التعديل';
-    btnCancelEdit.style.display = '';
-    setAddPlaceStatus(null);
-    switchTab('tab-add');
-    newNameInput.focus();
-}
-
-function exitEditMode(){
-    editingCode = null;
-    newCodeInput.disabled = false;
-    addPlaceTitle.textContent = 'إضافة مكان جديد';
-    btnSubmitPlace.textContent = 'إضافة المكان';
-    btnCancelEdit.style.display = 'none';
-    addPlaceForm.reset();
-    switchTab('tab-list');
-}
-
-// تُستدعى من زر "تعديل" في جدول الأماكن (انظر renderList)
-function startEditPlace(code){
-    if(!(window.__isAdmin && window.__isAdmin())) return;
-    if(!Object.prototype.hasOwnProperty.call(codeNames, code)) return;
-    enterEditMode(code);
-}
-
-btnCancelEdit.addEventListener('click', function(){
-    exitEditMode();
-    setAddPlaceStatus(null);
-});
-
-addPlaceForm.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    if(!(window.__isAdmin && window.__isAdmin())){
-        setAddPlaceStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.');
-        return;
-    }
-
-    const code = editingCode ? editingCode : newCodeInput.value.trim();
-    const name = newNameInput.value.trim();
-
-    if(!code || !name){
-        setAddPlaceStatus('error', 'الرجاء إدخال الكود واسم المكان.');
-        return;
-    }
-
-    const isUpdate = editingCode !== null || Object.prototype.hasOwnProperty.call(codeNames, code);
-
-    // تحديث القاموس والتخزين المحلي
-    codeNames[code] = name;
-    customPlaces[code] = name;
-    const saved = saveCustomPlaces(customPlaces);
-
-    // تحديث القائمة المنسدلة (datalist) الخاصة بحساب المسافة
-    const escapedCode = code.replace(/'/g, "\\'");
-    let existingOpt = datalist.querySelector("option[value='" + escapedCode + "']");
-    if(!existingOpt){
-        const opt = document.createElement('option');
-        opt.value = code;
-        opt.textContent = code + ' - ' + name;
-        datalist.appendChild(opt);
-    } else {
-        existingOpt.textContent = code + ' - ' + name;
-    }
-
-    // تحديث/إضافة السطر في مصفوفة الأماكن ثم إعادة الترتيب والعرض
-    const idx = places.findIndex(function(p){ return p[0] === code; });
-    if(idx >= 0){
-        places[idx][1] = name;
-    } else {
-        places.push([code, name]);
-    }
-    places.sort(function(x, y){ return x[0].localeCompare(y[0]); });
-
-    document.getElementById('statsLine').textContent =
-        'قاعدة البيانات: ' + records.length + ' مسار بين ' + Object.keys(codeNames).length + ' موقع';
-
-    applyFilter(listSearch.value);
-
-    const wasEditing = editingCode !== null;
-
-    if(!saved){
-        setAddPlaceStatus('warn', 'تم الحفظ لهذه الجلسة فقط، لكن تعذّر حفظه بشكل دائم في هذا المتصفح.');
-    } else if(wasEditing || isUpdate){
-        setAddPlaceStatus('ok', 'تم تحديث اسم المكان بالكود ' + code + ' بنجاح.');
-    } else {
-        setAddPlaceStatus('ok', 'تمت إضافة المكان "' + name + '" بالكود ' + code + ' بنجاح، وسيبقى محفوظًا في هذا المتصفح.');
-    }
-
-    if(wasEditing){
-        exitEditMode();
-    } else {
-        addPlaceForm.reset();
-    }
-});
-
-renderList();
-
-// ---------- تبويب تحديث قاعدة البيانات (رفع ملف data.js) ----------
-(function(){
-    const dropzone = document.getElementById('dropzone');
-    const dropzoneLink = document.getElementById('dropzoneLink');
-    const dropzoneFilename = document.getElementById('dropzoneFilename');
-    const dataFileInput = document.getElementById('dataFileInput');
-    const uploadStatus = document.getElementById('uploadStatus');
-    const uploadPreview = document.getElementById('uploadPreview');
-    const uploadPreviewList = document.getElementById('uploadPreviewList');
-    const btnCancelUpload = document.getElementById('btnCancelUpload');
-    const btnConfirmUpload = document.getElementById('btnConfirmUpload');
-    const uploadDownloadRow = document.getElementById('uploadDownloadRow');
-    const btnDownloadData = document.getElementById('btnDownloadData');
-
-    const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB كحد أقصى معقول لملف بيانات نصي
-    let pendingUpload = null; // { data:{...}, raw:string, fileName:string }
-
-    function setUploadStatus(type, msg){
-        if(!type){ uploadStatus.style.display = 'none'; return; }
-        uploadStatus.className = 'status ' + type;
-        uploadStatus.innerHTML = msg;
-    }
-
-    function resetDropzoneVisual(){
-        dropzone.classList.remove('has-file');
-        dropzoneFilename.textContent = '';
-    }
-
-    function resetUploadFlow(keepStatus){
-        pendingUpload = null;
-        uploadPreview.style.display = 'none';
-        uploadPreviewList.innerHTML = '';
-        uploadDownloadRow.style.display = 'none';
-        dataFileInput.value = '';
-        resetDropzoneVisual();
-        if(!keepStatus) setUploadStatus(null);
-    }
-
-    // يحوّل صيغة "unite" الخام (كما تصل من ERP عبر sync_data.py) لنفس تسمية الموقع المستخدمة في data.js.
-    function renameUniteVariable(content){
-        if(/\bvar\s+unite\s*=/.test(content) && !/\bvar\s+codeNamesArr\s*=|\bconst\s+codeNamesArr\s*=/.test(content)){
-            return content.replace(/var\s+unite\s*=/, 'var codeNamesArr =');
-        }
-        return content;
-    }
-
-    function parseDataFile(content){
-        const src = renameUniteVariable(content);
-
-        // التحقق يتم قبل أي إضافة تلقائية لسطر "records"، حتى لا يظهر اسم متغيّر مفقود
-        // بالخطأ داخل نص مُضاف لاحقًا (مثال: "var records = distance;" حين تكون distance
-        // نفسها غير معرَّفة أصلاً في الملف).
-        ['codeNamesArr', 'lieu', 'distance'].forEach(function(name){
-            const declared = new RegExp('\\b(var|let|const)\\s+' + name + '\\s*=');
-            if(!declared.test(src)){
-                throw new Error('الملف لا يحتوي على المتغيّر المطلوب «' + name + '». تأكّد أنه بنفس صيغة data.js الأصلي.');
-            }
-        });
-
-        // إضافة سطر ربط records بـ distance إن كان ناقصًا — بنفس منطق سكربت المزامنة sync_data.py
-        const finalSrc = /\bvar\s+records\s*=/.test(src) ? src : src.replace(/\s*$/, '') + '\n\nvar records = distance;\n';
-
-        const wrapped = finalSrc + '\n;return { codeNamesArr: (typeof codeNamesArr!=="undefined")?codeNamesArr:undefined, ' +
-            'lieu: (typeof lieu!=="undefined")?lieu:undefined, ' +
-            'distance: (typeof distance!=="undefined")?distance:undefined, ' +
-            'produit: (typeof produit!=="undefined")?produit:undefined, ' +
-            'operation: (typeof operation!=="undefined")?operation:undefined };';
-
-        let result;
-        try{
-            // الملف يُشغَّل داخل دالة منعزلة (Function) وليس eval المباشر، ودون وصول لأي شيء
-            // خارج نطاقه سوى القيم التي يعيدها صراحةً.
-            const runner = new Function(wrapped);
-            result = runner();
-        }catch(e){
-            throw new Error('تعذّر قراءة محتوى الملف: يبدو أنه لا يحتوي على كود JavaScript صحيح (' + e.message + ').');
-        }
-
-        if(!Array.isArray(result.codeNamesArr) || result.codeNamesArr.length === 0){
-            throw new Error('قائمة المناطق العامة (codeNamesArr) فارغة أو غير صحيحة داخل الملف.');
-        }
-        if(!Array.isArray(result.lieu) || result.lieu.length === 0){
-            throw new Error('قائمة الأماكن التفصيلية (lieu) فارغة أو غير صحيحة داخل الملف.');
-        }
-        if(!Array.isArray(result.distance) || result.distance.length === 0){
-            throw new Error('قائمة مسافات المسارات (distance) فارغة أو غير صحيحة داخل الملف.');
-        }
-
-        return { data: result, raw: finalSrc };
-    }
-
-    function renderPreview(fileName, sizeKb, parsed){
-        const d = parsed.data;
-        const rows = [
-            ['اسم الملف', fileName],
-            ['حجم الملف', sizeKb + ' KB'],
-            ['المناطق العامة', d.codeNamesArr.length.toLocaleString('en-US')],
-            ['الأماكن التفصيلية', d.lieu.length.toLocaleString('en-US')],
-            ['مسارات المسافة', d.distance.length.toLocaleString('en-US')],
-        ];
-        if(Array.isArray(d.produit)) rows.push(['المنتجات', d.produit.length.toLocaleString('en-US')]);
-        if(Array.isArray(d.operation)) rows.push(['أنواع العمليات', d.operation.length.toLocaleString('en-US')]);
-
-        uploadPreviewList.innerHTML = rows.map(function(r){
-            return '<li>' + r[0] + ': <b>' + r[1] + '</b></li>';
-        }).join('');
-        uploadPreview.style.display = 'block';
-    }
-
-    function handleFile(file){
-        if(!(window.__isAdmin && window.__isAdmin())){
-            setUploadStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.');
-            return;
-        }
-        resetUploadFlow(false);
-
-        if(!/\.(js|txt)$/i.test(file.name)){
-            setUploadStatus('error', 'صيغة الملف غير مدعومة. الرجاء رفع ملف بامتداد .js (نفس صيغة data.js).');
-            return;
-        }
-        if(file.size > MAX_FILE_SIZE){
-            setUploadStatus('error', 'حجم الملف كبير جدًا (الحد الأقصى 15 MB).');
-            return;
-        }
-
-        dropzone.classList.add('has-file');
-        dropzoneFilename.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
-        setUploadStatus('warn', '<span class="spinner-inline"></span> جارٍ التحقق من الملف...');
-
-        const reader = new FileReader();
-        reader.onerror = function(){
-            setUploadStatus('error', 'تعذّرت قراءة الملف من الجهاز. حاول مرة أخرى.');
-        };
-        reader.onload = function(){
-            try{
-                const parsed = parseDataFile(String(reader.result));
-                pendingUpload = { data: parsed.data, raw: parsed.raw, fileName: file.name };
-                setUploadStatus('ok', 'الملف صالح. راجع الملخّص أدناه ثم اضغط "تأكيد واستبدال البيانات".');
-                renderPreview(file.name, (file.size / 1024).toFixed(1), parsed);
-            }catch(err){
-                pendingUpload = null;
-                setUploadStatus('error', err.message);
-            }
-        };
-        reader.readAsText(file, 'utf-8');
-    }
-
-    dropzoneLink.addEventListener('click', function(e){
-        e.stopPropagation();
-        dataFileInput.click();
-    });
-    dropzone.addEventListener('click', function(){ dataFileInput.click(); });
-    dropzone.addEventListener('keydown', function(e){
-        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); dataFileInput.click(); }
-    });
-    dataFileInput.addEventListener('change', function(){
-        if(dataFileInput.files && dataFileInput.files[0]) handleFile(dataFileInput.files[0]);
-    });
-
-    ['dragenter', 'dragover'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){
-            e.preventDefault(); e.stopPropagation();
-            dropzone.classList.add('dragover');
-        });
-    });
-    ['dragleave', 'dragend'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){
-            e.preventDefault(); e.stopPropagation();
-            dropzone.classList.remove('dragover');
-        });
-    });
-    dropzone.addEventListener('drop', function(e){
-        e.preventDefault(); e.stopPropagation();
-        dropzone.classList.remove('dragover');
-        if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
-    });
-
-    btnCancelUpload.addEventListener('click', function(){
-        resetUploadFlow(false);
-    });
-
-    btnConfirmUpload.addEventListener('click', function(){
-        if(!pendingUpload){ return; }
-        const confirmed = window.confirm(
-            'سيتم استبدال بيانات المسافات والأماكن الحالية بالكامل بمحتوى الملف المرفوع "' +
-            pendingUpload.fileName + '". هذا الإجراء لا يمكن التراجع عنه في هذه الجلسة. هل تريد المتابعة؟'
-        );
-        if(!confirmed) return;
-
-        try{
-            applyUploadedData(pendingUpload.data);
-            setUploadStatus('ok', 'تم تحديث البيانات في هذه الصفحة بنجاح (' + records.length + ' مسار، ' +
-                Object.keys(codeNames).length + ' موقع). لتحديث الموقع بشكل دائم للجميع نزّل الملف أدناه وارفعه على GitHub.');
-            uploadPreview.style.display = 'none';
-            uploadDownloadRow.style.display = 'block';
-        }catch(err){
-            setUploadStatus('error', 'حدث خطأ أثناء تطبيق البيانات: ' + err.message);
-        }
-    });
-
-    btnDownloadData.addEventListener('click', function(){
-        if(!pendingUpload) return;
-        const blob = new Blob([pendingUpload.raw], { type: 'text/javascript;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'data.js';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
-    });
-
-    // يستبدل محتوى المصفوفات الحيّة في الصفحة (مع الحفاظ على نفس المراجع، بما أن records === distance)
-    function applyUploadedData(newData){
-        codeNamesArr.length = 0;
-        Array.prototype.push.apply(codeNamesArr, newData.codeNamesArr);
-
-        lieu.length = 0;
-        Array.prototype.push.apply(lieu, newData.lieu);
-
-        distance.length = 0;
-        Array.prototype.push.apply(distance, newData.distance);
-        // records يشير لنفس مصفوفة distance، فيُحدَّث تلقائيًا معها
-
-        if(Array.isArray(newData.produit) && typeof produit !== 'undefined'){
-            produit.length = 0;
-            Array.prototype.push.apply(produit, newData.produit);
-        }
-        if(Array.isArray(newData.operation) && typeof operation !== 'undefined'){
-            operation.length = 0;
-            Array.prototype.push.apply(operation, newData.operation);
-        }
-
-        // إعادة بناء الحالة المشتقة: قاموس الأسماء، القائمة المنسدلة، خريطة المسافات، وقائمة الأماكن
-        Object.keys(codeNames).forEach(function(k){ delete codeNames[k]; });
-        lieu.forEach(function(item){ if(item[1]) codeNames[item[0]] = item[1]; });
-        codeNamesArr.forEach(function(item){ if(!codeNames[item[0]]) codeNames[item[0]] = item[1]; });
-        Object.keys(customPlaces).forEach(function(code){ codeNames[code] = customPlaces[code]; });
-
-        Object.keys(distanceMap).forEach(function(k){ delete distanceMap[k]; });
-        records.forEach(function(r){ distanceMap[r[0] + '|' + r[1]] = r[2]; });
-
-        let dlHtml = '';
-        Object.keys(codeNames).forEach(function(code){
-            dlHtml += "<option value='" + code + "'>" + code + " - " + codeNames[code] + "</option>";
-        });
-        datalist.innerHTML = dlHtml;
-
-        places.length = 0;
-        Array.prototype.push.apply(places, Object.keys(codeNames)
-            .map(function(code){ return [code, codeNames[code]]; })
-            .sort(function(x, y){ return x[0].localeCompare(y[0]); }));
-
-        document.getElementById('statsLine').textContent =
-            'قاعدة البيانات: ' + records.length + ' مسار بين ' + Object.keys(codeNames).length + ' موقع';
-
-        applyFilter(listSearch.value);
-    }
-})();
+toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+/* ============ تشغيل ============ */
+document.getElementById("year").textContent = new Date().getFullYear();
+loadData();
 </script>
-   <script>
-    // تعطيل النقر بزر الماوس الأيمن
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
 
-    // تعطيل التحديد
-    document.onselectstart = function () {
-        return false;
-    };
-
-    // تعطيل اختصارات لوحة المفاتيح مثل Ctrl+C
-    document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
-            e.preventDefault();
-        }
-    });
-
-</script>
-<script>
-// ---------- القائمة الجانبية: فتح/إغلاق على الهاتف ومزامنة عنوان الشريط العلوي ----------
-(function(){
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    const btnMenu = document.getElementById('btnMenu');
-    const title = document.getElementById('topbarTitle');
-    if(!sidebar || !overlay || !btnMenu) return;
-
-    function openMenu(){
-        sidebar.classList.add('open');
-        overlay.classList.add('show');
-        document.body.classList.add('no-scroll');
-        btnMenu.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu(){
-        sidebar.classList.remove('open');
-        overlay.classList.remove('show');
-        document.body.classList.remove('no-scroll');
-        btnMenu.setAttribute('aria-expanded', 'false');
-    }
-    btnMenu.addEventListener('click', function(){
-        sidebar.classList.contains('open') ? closeMenu() : openMenu();
-    });
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function(e){
-        if(e.key === 'Escape') closeMenu();
-    });
-    window.addEventListener('resize', function(){
-        if(window.innerWidth > 900) closeMenu();
-    });
-
-    const navButtons = document.querySelectorAll('.tab-btn');
-    function syncTitle(){
-        const active = document.querySelector('.tab-btn.active .nav-label');
-        if(active && title) title.textContent = active.textContent;
-    }
-    navButtons.forEach(function(b){
-        b.addEventListener('click', function(){
-            closeMenu();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        // switchTab() قد تُستدعى برمجيًا (تعديل مكان، تسجيل خروج): نراقب تغيّر الفئة لتحديث العنوان
-        new MutationObserver(syncTitle).observe(b, { attributes: true, attributeFilter: ['class'] });
-    });
-    syncTitle();
-})();
-</script>
 </body>
 </html>
