@@ -397,6 +397,91 @@ body.no-scroll{overflow:hidden;}
 @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;}
 }
+
+    /* ===================================================================
+   إصلاحات توافق الهاتف — النصوص البيضاء التي لا تظهر
+   =================================================================== */
+
+/* 1) منع مشكلة iOS Safari مع الخلفية الثابتة */
+body{
+    background-attachment:scroll !important;
+    background-color:var(--bg-1) !important;
+}
+
+/* 2) النصوص المتدرجة → نجعلها بيضاء صلبة افتراضيًا (تظهر دائمًا) */
+h1{
+    background:none !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+    text-shadow:0 2px 14px rgba(0,229,255,.35);
+}
+.stat-card .stat-num{
+    background:none !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+    text-shadow:0 2px 10px rgba(0,229,255,.35);
+}
+.brand-text h1{
+    text-shadow:0 1px 8px rgba(255,61,154,.5);
+}
+
+/* 3) نُعيد تأثير التدرج فقط على أجهزة الحاسوب الداعمة (شاشة كبيرة + فأرة) */
+@media (hover:hover) and (pointer:fine) and (min-width:901px){
+    @supports ((-webkit-background-clip:text) and (-webkit-text-fill-color:transparent)){
+        h1{
+            background:linear-gradient(90deg,#fff,#7df3ff 50%,#ff9ad0) !important;
+            -webkit-background-clip:text !important;
+            background-clip:text !important;
+            -webkit-text-fill-color:transparent !important;
+            color:transparent !important;
+            text-shadow:none;
+        }
+        .stat-card .stat-num{
+            background:linear-gradient(90deg,#fff,#7df3ff) !important;
+            -webkit-background-clip:text !important;
+            background-clip:text !important;
+            -webkit-text-fill-color:transparent !important;
+            color:transparent !important;
+            text-shadow:none;
+        }
+    }
+}
+
+/* 4) إصلاح Autofill (الملء التلقائي) — كان يجعل النص أبيض على خلفية بيضاء */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-text-fill-color:#fff !important;
+    -webkit-box-shadow:0 0 0 1000px rgba(8,6,32,.9) inset !important;
+    transition:background-color 5000s ease-in-out 0s !important;
+    caret-color:#fff !important;
+}
+
+/* 5) ضمان ظهور النص داخل جميع الحقول */
+input[type="text"],
+input[type="search"],
+input[type="password"]{
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+    caret-color:#00e5ff !important;
+}
+
+/* 6) تعزيز وضوح أسماء الأماكن والنتائج على الشاشات الصغيرة */
+.place-name{
+    color:#fff !important;
+    text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+.place-code{
+    text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+.route-point-code,
+.route-line-distance,
+.route-line-distance small,
+.place-card .edit-btn{
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+}
 </style>
 </head>
 <body>
