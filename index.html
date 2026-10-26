@@ -849,7 +849,7 @@ renderList();
         const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`;
         
         // 1. جلب SHA للملف الحالي (مطلوب للتحديث)
-        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } });
+        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } });
         let sha = null;
         if (getRes.ok) {
             const data = await getRes.json();
@@ -861,7 +861,7 @@ renderList();
         // 2. رفع الملف الجديد
         const putRes = await fetch(apiUrl, {
             method: 'PUT',
-            headers: { 'Authorization': `token ${cfg.token}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+            headers: { 'Authorization': `Bearer ${cfg.token}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
             body: JSON.stringify({
                 message: 'تحديث data.js عبر لوحة التحكم',
                 content: btoa(unescape(encodeURIComponent(content))), // Base64 UTF-8
