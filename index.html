@@ -399,56 +399,39 @@ body.no-scroll{overflow:hidden;}
     *{animation:none!important;transition:none!important;}
 }
 
-    /* ===================================================================
-   إصلاحات توافق الهاتف — النصوص البيضاء التي لا تظهر
+/* ===================================================================
+   إصلاحات توافق الهاتف — النصوص البيضاء والخلفيات
    =================================================================== */
-
-/* 1) منع مشكلة iOS Safari مع الخلفية الثابتة */
+html, body {
+    background-color: #0f0a2e !important;
+    background-image: none !important; 
+    color: #ffffff !important;
+}
 body{
     background-attachment:scroll !important;
-    background-color:var(--bg-1) !important;
 }
-
-/* 2) النصوص المتدرجة → نجعلها بيضاء صلبة افتراضيًا (تظهر دائمًا) */
-h1{
+h1, h2{
     background:none !important;
     color:#fff !important;
     -webkit-text-fill-color:#fff !important;
     text-shadow:0 2px 14px rgba(0,229,255,.35);
 }
-.stat-card .stat-num{
-    background:none !important;
-    color:#fff !important;
-    -webkit-text-fill-color:#fff !important;
-    text-shadow:0 2px 10px rgba(0,229,255,.35);
+.stat-card {
+    background: #18123a !important;
+    border: 1px solid #2d2368 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-.brand-text h1{
-    text-shadow:0 1px 8px rgba(255,61,154,.5);
+.stat-card.warm { background: #2a0f2c !important; border-color: #5c1c49 !important; }
+.stat-card.cool { background: #0a2936 !important; border-color: #145b55 !important; }
+.stat-card .stat-num {
+    background: none !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,229,255,.35);
 }
+.stat-card .stat-lbl { color: #c4c9eb !important; font-weight: 700 !important; }
+.brand-text h1{ text-shadow:0 1px 8px rgba(255,61,154,.5); }
 
-/* 3) نُعيد تأثير التدرج فقط على أجهزة الحاسوب الداعمة (شاشة كبيرة + فأرة) */
-@media (hover:hover) and (pointer:fine) and (min-width:901px){
-    @supports ((-webkit-background-clip:text) and (-webkit-text-fill-color:transparent)){
-        h1{
-            background:linear-gradient(90deg,#fff,#7df3ff 50%,#ff9ad0) !important;
-            -webkit-background-clip:text !important;
-            background-clip:text !important;
-            -webkit-text-fill-color:transparent !important;
-            color:transparent !important;
-            text-shadow:none;
-        }
-        .stat-card .stat-num{
-            background:linear-gradient(90deg,#fff,#7df3ff) !important;
-            -webkit-background-clip:text !important;
-            background-clip:text !important;
-            -webkit-text-fill-color:transparent !important;
-            color:transparent !important;
-            text-shadow:none;
-        }
-    }
-}
-
-/* 4) إصلاح Autofill (الملء التلقائي) — كان يجعل النص أبيض على خلفية بيضاء */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -458,28 +441,53 @@ input:-webkit-autofill:active{
     transition:background-color 5000s ease-in-out 0s !important;
     caret-color:#fff !important;
 }
-
-/* 5) ضمان ظهور النص داخل جميع الحقول */
-input[type="text"],
-input[type="search"],
-input[type="password"]{
+input[type="text"], input[type="search"], input[type="password"]{
     color:#fff !important;
     -webkit-text-fill-color:#fff !important;
     caret-color:#00e5ff !important;
 }
+.list-toolbar input[type="search"] {
+    background: #151130 !important;
+    border: 2px solid #2d2368 !important;
+}
+.list-toolbar input[type="search"]::placeholder { color: #8b93ba !important; }
+.list-toolbar .btn {
+    background: #2d2368 !important;
+    border: 1px solid #423596 !important;
+    color: #ffffff !important;
+}
+.list-toolbar .btn.active {
+    background: linear-gradient(135deg, #7c4dff, #00b0ff) !important;
+    border-color: transparent !important;
+}
 
-/* 6) تعزيز وضوح أسماء الأماكن والنتائج على الشاشات الصغيرة */
-.place-name{
-    color:#fff !important;
-    text-shadow:0 1px 3px rgba(0,0,0,.4);
+.place-card {
+    background: #151130 !important;
+    border: 1px solid #2d2368 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-.place-code{
-    text-shadow:0 1px 3px rgba(0,0,0,.4);
+.place-card:hover {
+    background: #1a1640 !important; 
+    border-color: #00e5ff !important;
 }
-.route-point-code,
-.route-line-distance,
-.route-line-distance small,
-.place-card .edit-btn{
+.place-name {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-top: 6px;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+.place-code {
+    color: #ffb300 !important;
+    background: rgba(255, 179, 0, 0.15) !important;
+    padding: 4px 10px !important;
+    border-radius: 8px !important;
+    display: inline-block !important;
+    width: max-content !important;
+    font-size: 14px !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+.route-point-code, .route-line-distance, .route-line-distance small, .place-card .edit-btn {
     color:#fff !important;
     -webkit-text-fill-color:#fff !important;
 }
@@ -1060,34 +1068,50 @@ renderList();
         resetDropzoneVisual();
         if(!keepStatus) setUploadStatus(null);
     }
-    function renameUniteVariable(content){
-        if(/\bvar\s+unite\s*=/.test(content) && !/\bvar\s+codeNamesArr\s*=|\bconst\s+codeNamesArr\s*=/.test(content)){
-            return content.replace(/var\s+unite\s*=/, 'var codeNamesArr =');
-        }
-        return content;
-    }
+    
+    // --- كود قراءة الملف المحسّن (يدعم var, let, const) ---
     function parseDataFile(content){
-        const src = renameUniteVariable(content);
-        ['codeNamesArr', 'lieu', 'distance'].forEach(function(name){
-            const declared = new RegExp('\\b(var|let|const)\\s+' + name + '\\s*=');
-            if(!declared.test(src)) throw new Error('الملف لا يحتوي على المتغيّر المطلوب «' + name + '».');
-        });
-        const finalSrc = /\bvar\s+records\s*=/.test(src) ? src : src.replace(/\s*$/, '') + '\n\nvar records = distance;\n';
-        const wrapped = finalSrc + '\n;return { codeNamesArr: (typeof codeNamesArr!=="undefined")?codeNamesArr:undefined, ' +
-            'lieu: (typeof lieu!=="undefined")?lieu:undefined, ' +
-            'distance: (typeof distance!=="undefined")?distance:undefined, ' +
-            'produit: (typeof produit!=="undefined")?produit:undefined, ' +
-            'operation: (typeof operation!=="undefined")?operation:undefined };';
+        let src = content;
+        if(/\b(var|let|const)\s+unite\s*=/.test(src) && !/\b(var|let|const)\s+codeNamesArr\s*=/.test(src)){
+            src = src.replace(/\b(var|let|const)\s+unite\s*=/, function(match, p1) {
+                return p1 + ' codeNamesArr =';
+            });
+        }
+        if(!/\b(var|let|const)\s+records\s*=/.test(src) && /\b(var|let|const)\s+distance\s*=/.test(src)) {
+            src += '\nvar records = distance;\n';
+        }
+
+        const wrapped = src + '\n;return { ' +
+            'codeNamesArr: typeof codeNamesArr !== "undefined" ? codeNamesArr : undefined, ' +
+            'lieu: typeof lieu !== "undefined" ? lieu : undefined, ' +
+            'distance: typeof distance !== "undefined" ? distance : undefined, ' +
+            'records: typeof records !== "undefined" ? records : undefined, ' +
+            'produit: typeof produit !== "undefined" ? produit : undefined, ' +
+            'operation: typeof operation !== "undefined" ? operation : undefined };';
+
         let result;
         try{
             const runner = new Function(wrapped);
             result = runner();
-        }catch(e){ throw new Error('تعذّر قراءة محتوى الملف (' + e.message + ').'); }
-        if(!Array.isArray(result.codeNamesArr) || result.codeNamesArr.length === 0) throw new Error('قائمة codeNamesArr فارغة أو غير صحيحة.');
-        if(!Array.isArray(result.lieu) || result.lieu.length === 0) throw new Error('قائمة lieu فارغة أو غير صحيحة.');
-        if(!Array.isArray(result.distance) || result.distance.length === 0) throw new Error('قائمة distance فارغة أو غير صحيحة.');
-        return { data: result, raw: finalSrc };
+        }catch(e){
+            throw new Error('تعذّر قراءة محتوى الملف (' + e.message + ').');
+        }
+
+        if(!Array.isArray(result.codeNamesArr) || result.codeNamesArr.length === 0){
+            throw new Error('قائمة المناطق العامة (codeNamesArr أو unite) فارغة أو غير صحيحة.');
+        }
+        if(!Array.isArray(result.lieu) || result.lieu.length === 0){
+            throw new Error('قائمة الأماكن التفصيلية (lieu) فارغة أو غير صحيحة.');
+        }
+        const distArr = result.distance || result.records;
+        if(!Array.isArray(distArr) || distArr.length === 0){
+            throw new Error('قائمة مسافات المسارات (distance أو records) فارغة أو غير صحيحة.');
+        }
+        result.distance = distArr;
+        result.records = result.records || distArr;
+        return { data: result, raw: src };
     }
+    
     function renderPreview(fileName, sizeKb, parsed){
         const d = parsed.data;
         const rows = [
@@ -1184,31 +1208,52 @@ renderList();
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
     });
+    
+    // --- تطبيق البيانات المحسّن (مسح القديم والانتقال للقائمة) ---
     function applyUploadedData(newData){
+        customPlaces = {};
+        try { localStorage.removeItem(CUSTOM_PLACES_KEY); } catch(e){}
+
         codeNamesArr.length = 0;
         Array.prototype.push.apply(codeNamesArr, newData.codeNamesArr);
+
         lieu.length = 0;
         Array.prototype.push.apply(lieu, newData.lieu);
-        distance.length = 0;
-        Array.prototype.push.apply(distance, newData.distance);
+
+        if (typeof distance !== 'undefined') {
+            distance.length = 0;
+            Array.prototype.push.apply(distance, newData.distance);
+        }
+        if (typeof records !== 'undefined') {
+            records.length = 0;
+            Array.prototype.push.apply(records, newData.records);
+        }
+
         if(Array.isArray(newData.produit) && typeof produit !== 'undefined'){
             produit.length = 0; Array.prototype.push.apply(produit, newData.produit);
         }
         if(Array.isArray(newData.operation) && typeof operation !== 'undefined'){
             operation.length = 0; Array.prototype.push.apply(operation, newData.operation);
         }
+
         Object.keys(codeNames).forEach(function(k){ delete codeNames[k]; });
         lieu.forEach(function(item){ if(item[1]) codeNames[item[0]] = item[1]; });
         codeNamesArr.forEach(function(item){ if(!codeNames[item[0]]) codeNames[item[0]] = item[1]; });
-        Object.keys(customPlaces).forEach(function(code){ codeNames[code] = customPlaces[code]; });
+
         Object.keys(distanceMap).forEach(function(k){ delete distanceMap[k]; });
         records.forEach(function(r){ distanceMap[r[0] + '|' + r[1]] = r[2]; });
+
         rebuildDatalist();
         places.length = 0;
         Array.prototype.push.apply(places, Object.keys(codeNames)
             .map(function(code){ return [code, codeNames[code]]; })
             .sort(function(x, y){ return x[0].localeCompare(y[0]); }));
+
         applyFilter(listSearch.value);
+
+        if (typeof switchTab === 'function') {
+            switchTab('tab-list');
+        }
     }
 })();
 </script>
