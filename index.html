@@ -281,7 +281,9 @@ body.no-scroll{overflow:hidden;}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-/* إصلاحات توافق الهاتف */
+/* ===================================================================
+   إصلاحات توافق الهاتف — النصوص البيضاء والخلفيات
+   =================================================================== */
 html, body { background-color: #0f0a2e !important; background-image: none !important; color: #ffffff !important; }
 body{ background-attachment:scroll !important; }
 h1, h2{ background:none !important; color:#fff !important; -webkit-text-fill-color:#fff !important; text-shadow:0 2px 14px rgba(0,229,255,.35); }
@@ -484,9 +486,9 @@ input[type="text"], input[type="search"], input[type="password"]{ color:#fff !im
         <label style="text-align:right; font-size:13px; margin-bottom:8px;">GitHub Token (صلاحية repo)</label>
         <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
         <label style="text-align:right; font-size:13px; margin-bottom:8px;">اسم المستخدم (Owner)</label>
-        <input type="text" id="ghOwner" placeholder="مثال: RekabAbdelkader">
+        <input type="text" id="ghOwner" placeholder="مثال: ikraakhemis-maker">
         <label style="text-align:right; font-size:13px; margin-bottom:8px;">اسم المستودع (Repo)</label>
-        <input type="text" id="ghRepo" placeholder="مثال: distance-app">
+        <input type="text" id="ghRepo" placeholder="مثال: dis">
         <label style="text-align:right; font-size:13px; margin-bottom:8px;">مسار الملف (Path)</label>
         <input type="text" id="ghPath" placeholder="data.js" value="data.js">
         
@@ -511,8 +513,8 @@ function saveGhConfig(cfg) {
 document.getElementById('btnOpenSettings').addEventListener('click', function(){
     const cfg = getGhConfig();
     document.getElementById('ghToken').value = cfg.token || '';
-    document.getElementById('ghOwner').value = cfg.owner || '';
-    document.getElementById('ghRepo').value = cfg.repo || '';
+    document.getElementById('ghOwner').value = cfg.owner || 'ikraakhemis-maker';
+    document.getElementById('ghRepo').value = cfg.repo || 'dis';
     document.getElementById('ghPath').value = cfg.path || 'data.js';
     document.getElementById('settingsError').textContent = '';
     document.getElementById('settingsModal').classList.add('show');
