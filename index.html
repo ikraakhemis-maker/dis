@@ -120,111 +120,43 @@ input:disabled{opacity:.55;}
     background:linear-gradient(135deg,rgba(124,77,255,.35),rgba(0,229,255,.25));
     animation:fadeUp .4s ease;
 }
-.route-visual{
-    display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;
-}
-.route-point{
-    background:rgba(8,6,32,.5);border:1px solid var(--card-border);
-    border-radius:16px;padding:16px 12px;
-}
-.route-point-icon{
-    width:54px;height:54px;margin:0 auto 10px;border-radius:16px;
-    display:flex;align-items:center;justify-content:center;font-size:26px;
-}
+.route-visual{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;}
+.route-point{background:rgba(8,6,32,.5);border:1px solid var(--card-border);border-radius:16px;padding:16px 12px;}
+.route-point-icon{width:54px;height:54px;margin:0 auto 10px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;}
 .route-point-icon.from{background:linear-gradient(135deg,rgba(0,229,255,.25),rgba(0,176,255,.25));box-shadow:0 6px 18px rgba(0,229,255,.3);}
 .route-point-icon.to{background:linear-gradient(135deg,rgba(255,61,154,.25),rgba(255,138,0,.25));box-shadow:0 6px 18px rgba(255,61,154,.3);}
 .route-point-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
 .route-point-code{font-size:16px;font-weight:800;line-height:1.4;word-break:break-word;}
-.route-line{
-    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    min-width:130px;
-}
-.route-line::before{
-    content:"";position:absolute;top:50%;left:0;right:0;height:3px;
-    background:repeating-linear-gradient(90deg,var(--cyan) 0 10px,transparent 10px 18px);
-    transform:translateY(-50%);opacity:.5;
-}
-.route-line-distance{
-    position:relative;z-index:2;
-    background:linear-gradient(90deg,#7c4dff,#00e5ff);
-    padding:10px 18px;border-radius:999px;
-    font-size:26px;font-weight:900;color:#fff;
-    box-shadow:0 8px 22px rgba(0,176,255,.5);
-    white-space:nowrap;
-}
+.route-line{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:130px;}
+.route-line::before{content:"";position:absolute;top:50%;left:0;right:0;height:3px;background:repeating-linear-gradient(90deg,var(--cyan) 0 10px,transparent 10px 18px);transform:translateY(-50%);opacity:.5;}
+.route-line-distance{position:relative;z-index:2;background:linear-gradient(90deg,#7c4dff,#00e5ff);padding:10px 18px;border-radius:999px;font-size:26px;font-weight:900;color:#fff;box-shadow:0 8px 22px rgba(0,176,255,.5);white-space:nowrap;}
 .route-line-distance small{font-size:12px;font-weight:700;opacity:.85;margin-inline-start:2px;}
-.stats{text-align:center;font-size:13px;color:var(--muted);margin-top:18px;}
 
 /* ===== شريط الإحصائيات ===== */
-.stats-bar{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:12px;margin-bottom:18px;
-}
-.stat-card{
-    background:linear-gradient(135deg,rgba(124,77,255,.22),rgba(0,229,255,.15));
-    border:1px solid var(--card-border);border-radius:16px;
-    padding:16px 18px;display:flex;flex-direction:column;gap:4px;
-    backdrop-filter:blur(8px);
-}
-.stat-card .stat-num{font-size:clamp(22px,4vw,30px);font-weight:900;
-    background:linear-gradient(90deg,#fff,#7df3ff);
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px;}
+.stat-card{background:linear-gradient(135deg,rgba(124,77,255,.22),rgba(0,229,255,.15));border:1px solid var(--card-border);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;backdrop-filter:blur(8px);}
+.stat-card .stat-num{font-size:clamp(22px,4vw,30px);font-weight:900;background:linear-gradient(90deg,#fff,#7df3ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
 .stat-card .stat-lbl{font-size:12px;color:var(--muted);font-weight:600;}
 .stat-card.warm{background:linear-gradient(135deg,rgba(255,61,154,.22),rgba(255,138,0,.15));}
 .stat-card.cool{background:linear-gradient(135deg,rgba(34,229,139,.2),rgba(0,229,255,.15));}
 
-/* ===== قائمة الأماكن (بطاقات شبكية) ===== */
-.list-toolbar{
-    display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;
-}
+/* ===== قائمة الأماكن ===== */
+.list-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
 .list-toolbar input[type=search]{flex:1;min-width:200px;text-align:start;padding-inline-start:16px;}
-
-.places-grid{
-    display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:12px;margin-bottom:18px;
-}
-.place-card{
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-    border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;
-    transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;
-    position:relative;
-}
-.place-card:hover{
-    background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.45);
-    transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,229,255,.25);
-}
-.place-card .place-code{
-    font-size:13px;font-weight:800;color:var(--amber);
-    direction:ltr;letter-spacing:1px;
-    display:inline-flex;align-items:center;gap:6px;
-}
+.places-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-bottom:18px;}
+.place-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;position:relative;}
+.place-card:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.45);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,229,255,.25);}
+.place-card .place-code{font-size:13px;font-weight:800;color:var(--amber);direction:ltr;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;}
 .place-card .place-code::before{content:"#";opacity:.6;}
-.place-card .place-name{
-    font-size:16px;color:#fff;font-weight:700;line-height:1.4;
-    word-break:break-word;min-height:22px;
-}
-.place-card .edit-btn{
-    align-self:flex-start;margin-top:6px;
-    font-size:12px;padding:6px 14px;border-radius:999px;
-    background:var(--grad-warm);color:#fff;border:none;cursor:pointer;
-    font-weight:700;transition:transform .15s,box-shadow .2s;
-}
+.place-card .place-name{font-size:16px;color:#fff;font-weight:700;line-height:1.4;word-break:break-word;min-height:22px;}
+.place-card .edit-btn{align-self:flex-start;margin-top:6px;font-size:12px;padding:6px 14px;border-radius:999px;background:var(--grad-warm);color:#fff;border:none;cursor:pointer;font-weight:700;transition:transform .15s,box-shadow .2s;}
 .place-card .edit-btn:hover{transform:scale(1.05);box-shadow:0 6px 16px rgba(255,61,154,.4);}
-.empty-msg{
-    grid-column:1/-1;text-align:center;padding:44px 16px;
-    color:var(--muted);font-size:15px;
-    background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.15);border-radius:16px;
-}
+.empty-msg{grid-column:1/-1;text-align:center;padding:44px 16px;color:var(--muted);font-size:15px;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.15);border-radius:16px;}
 
-.footer-row{
-    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;
-}
+.footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;}
 .info-text{font-size:13px;color:var(--muted);font-weight:600;}
 .pagination{display:flex;gap:6px;flex-wrap:wrap;}
-.pagination button{
-    background:var(--card);color:var(--text);border:1px solid var(--card-border);
-    border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;
-}
+.pagination button{background:var(--card);color:var(--text);border:1px solid var(--card-border);border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;}
 .pagination button.active{background:var(--grad-main);border-color:transparent;font-weight:800;}
 .pagination button:hover:not(.active):not(:disabled){background:rgba(255,255,255,.2);}
 .pagination button:disabled{opacity:.35;cursor:not-allowed;}
@@ -237,11 +169,7 @@ input:disabled{opacity:.55;}
 .upload-box{padding:clamp(16px,3.5vw,28px);}
 .upload-help{font-size:14px;color:var(--muted);line-height:1.9;margin:0 0 16px;}
 .upload-help code{background:rgba(0,229,255,.15);color:var(--cyan);padding:2px 10px;border-radius:6px;direction:ltr;display:inline-block;}
-.dropzone{
-    border:2px dashed rgba(255,255,255,.3);border-radius:16px;
-    padding:clamp(28px,6vw,46px) 16px;text-align:center;cursor:pointer;
-    background:rgba(8,6,32,.35);transition:.2s;
-}
+.dropzone{border:2px dashed rgba(255,255,255,.3);border-radius:16px;padding:clamp(28px,6vw,46px) 16px;text-align:center;cursor:pointer;background:rgba(8,6,32,.35);transition:.2s;}
 .dropzone:hover,.dropzone:focus{border-color:var(--cyan);background:rgba(0,229,255,.1);outline:none;}
 .dropzone.dragover{border-color:var(--pink);background:rgba(255,61,154,.15);transform:scale(1.01);}
 .dropzone.has-file{border-color:var(--green);background:rgba(34,229,139,.12);}
@@ -251,26 +179,19 @@ input:disabled{opacity:.55;}
 .dropzone-filename{margin-top:12px;font-size:13px;color:var(--green);direction:ltr;word-break:break-all;}
 .upload-preview{margin-top:20px;border-top:1px solid var(--card-border);padding-top:18px;}
 .upload-preview h3{font-size:16px;margin:0 0 14px;}
-.upload-preview ul{list-style:none;margin:0;padding:0;font-size:14px;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+.upload-preview ul{list-style:none;margin:0;padding:0;font-size:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
 .upload-preview ul li{background:rgba(255,255,255,.07);border:1px solid var(--card-border);border-radius:12px;padding:12px 14px;}
 .upload-preview ul li b{color:var(--amber);}
 .upload-download-row{margin-top:20px;border-top:1px solid var(--card-border);padding-top:18px;}
-.spinner-inline{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);
-    border-top-color:var(--amber);border-radius:50%;animation:spin .7s linear infinite;
-    margin-inline-end:8px;vertical-align:-2px;}
+.spinner-inline{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:var(--amber);border-radius:50%;animation:spin .7s linear infinite;margin-inline-end:8px;vertical-align:-2px;}
 @keyframes spin{to{transform:rotate(360deg);}}
 
-/* ===== نافذة الدخول ===== */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,5,30,.75);
-    backdrop-filter:blur(6px);z-index:100000;align-items:center;justify-content:center;padding:16px;}
+/* ===== نافذة الدخول والإعدادات ===== */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,5,30,.75);backdrop-filter:blur(6px);z-index:100000;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.show{display:flex;}
-.modal-box{background:linear-gradient(160deg,#241a63,#10204f);
-    border:1px solid var(--card-border);border-radius:22px;padding:30px 24px;
-    width:100%;max-width:380px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);
-    animation:fadeUp .3s ease;}
+.modal-box{background:linear-gradient(160deg,#241a63,#10204f);border:1px solid var(--card-border);border-radius:22px;padding:30px 24px;width:100%;max-width:420px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:fadeUp .3s ease;}
 .modal-box h3{margin:0 0 16px;font-size:19px;}
-.modal-box input[type="password"]{margin-bottom:10px;}
+.modal-box input[type="password"], .modal-box input[type="text"]{margin-bottom:10px;}
 .modal-box .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:8px;}
 .modal-box .modal-actions .btn{flex:1;}
 .modal-box .modal-error{color:#ffb3bd;font-size:13px;min-height:20px;margin-bottom:6px;}
@@ -279,60 +200,33 @@ input:disabled{opacity:.55;}
 .site-footer{margin-top:44px;padding:26px 16px 16px;border-top:1px solid var(--card-border);text-align:center;}
 .site-footer .footer-dev{font-size:14px;color:var(--text);margin-bottom:14px;}
 .site-footer .footer-dev b{color:var(--amber);}
-.site-footer .footer-whatsapp{
-    display:inline-flex;align-items:center;gap:8px;
-    background:linear-gradient(135deg,#25d366,#0fae5a);color:#fff;border-radius:999px;
-    padding:10px 24px;font-size:14px;font-weight:700;text-decoration:none;direction:ltr;
-    box-shadow:0 8px 22px rgba(37,211,102,.4);transition:.2s;
-}
+.site-footer .footer-whatsapp{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25d366,#0fae5a);color:#fff;border-radius:999px;padding:10px 24px;font-size:14px;font-weight:700;text-decoration:none;direction:ltr;box-shadow:0 8px 22px rgba(37,211,102,.4);transition:.2s;}
 .site-footer .footer-whatsapp:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(37,211,102,.55);}
 .site-footer .footer-whatsapp svg{width:18px;height:18px;fill:#fff;}
 .site-footer .footer-copyright{margin-top:16px;font-size:12px;color:var(--muted);}
 
 /* ===== القائمة الجانبية ===== */
 body{padding:0;}
-.sidebar{
-    position:sticky;top:0;align-self:flex-start;
-    width:280px;flex-shrink:0;height:100vh;
-    display:flex;flex-direction:column;padding:22px 16px 18px;
-    background:linear-gradient(180deg,rgba(14,9,52,.85),rgba(8,20,60,.85));
-    border-inline-end:1px solid var(--card-border);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    box-shadow:6px 0 30px rgba(0,0,0,.3);z-index:1000;overflow-y:auto;
-}
+.sidebar{position:sticky;top:0;align-self:flex-start;width:280px;flex-shrink:0;height:100vh;display:flex;flex-direction:column;padding:22px 16px 18px;background:linear-gradient(180deg,rgba(14,9,52,.85),rgba(8,20,60,.85));border-inline-end:1px solid var(--card-border);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:6px 0 30px rgba(0,0,0,.3);z-index:1000;overflow-y:auto;}
 .sidebar-brand{display:flex;align-items:center;gap:12px;padding:6px 8px 20px;margin-bottom:14px;border-bottom:1px solid var(--card-border);}
-.brand-icon{width:48px;height:48px;border-radius:15px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;font-size:25px;
-    background:var(--grad-warm);box-shadow:0 8px 20px rgba(255,61,154,.45);transform:rotate(-6deg);}
+.brand-icon{width:48px;height:48px;border-radius:15px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:25px;background:var(--grad-warm);box-shadow:0 8px 20px rgba(255,61,154,.45);transform:rotate(-6deg);}
 .brand-text h1{margin:0;font-size:19px;line-height:1.25;font-weight:900;}
 .brand-text span{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
-.side-label{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);
-    padding:0 10px;margin:14px 0 8px;opacity:.85;}
+.side-label{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);padding:0 10px;margin:14px 0 8px;opacity:.85;}
 .side-nav{display:flex;flex-direction:column;gap:6px;}
-.nav-item{--a:#00e5ff;--b:#7c4dff;position:relative;
-    display:flex;align-items:center;gap:12px;width:100%;
-    padding:12px 14px;border:none;border-radius:14px;
-    background:transparent;color:var(--muted);
-    font:inherit;font-size:15px;font-weight:700;text-align:start;cursor:pointer;
-    transition:background .2s,color .2s,transform .15s;}
+.nav-item{--a:#00e5ff;--b:#7c4dff;position:relative;display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:none;border-radius:14px;background:transparent;color:var(--muted);font:inherit;font-size:15px;font-weight:700;text-align:start;cursor:pointer;transition:background .2s,color .2s,transform .15s;}
 .nav-item[data-tab="tab-distance"]{--a:#00e5ff;--b:#7c4dff;}
 .nav-item[data-tab="tab-add"]{--a:#ff3d9a;--b:#ff8a00;}
 .nav-item[data-tab="tab-list"]{--a:#22e58b;--b:#00b0ff;}
 .nav-item[data-tab="tab-upload"]{--a:#ffb300;--b:#ff5d73;}
-.nav-ico{width:38px;height:38px;border-radius:12px;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;
-    background:rgba(255,255,255,.08);color:var(--a);transition:.2s;}
+.nav-ico{width:38px;height:38px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:var(--a);transition:.2s;}
 .nav-ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 .nav-label{flex:1;}
-.nav-badge{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:999px;
-    background:linear-gradient(135deg,var(--a),var(--b));}
+.nav-badge{font-size:10px;font-weight:700;color:#fff;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,var(--a),var(--b));}
 .nav-item:hover{background:rgba(255,255,255,.09);color:#fff;transform:translateX(-3px);}
 .nav-item:hover .nav-ico{background:rgba(255,255,255,.15);}
-.nav-item.active{color:#fff;
-    background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 30%,transparent));
-    box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--a) 55%,transparent),0 8px 22px color-mix(in srgb,var(--b) 25%,transparent);}
-.nav-item.active::before{content:"";position:absolute;inset-block:10px;inset-inline-start:-16px;width:5px;
-    border-radius:0 6px 6px 0;background:linear-gradient(var(--a),var(--b));}
+.nav-item.active{color:#fff;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 30%,transparent),color-mix(in srgb,var(--b) 30%,transparent));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--a) 55%,transparent),0 8px 22px color-mix(in srgb,var(--b) 25%,transparent);}
+.nav-item.active::before{content:"";position:absolute;inset-block:10px;inset-inline-start:-16px;width:5px;border-radius:0 6px 6px 0;background:linear-gradient(var(--a),var(--b));}
 [dir="rtl"] .nav-item.active::before{border-radius:6px 0 0 6px;}
 .nav-item.active .nav-ico{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;}
 .sidebar-spacer{flex:1;min-height:16px;}
@@ -347,25 +241,17 @@ body{padding:0;}
 .sidebar-credit b{color:var(--amber);}
 
 /* ===== الشريط العلوي للهاتف ===== */
-.mobile-topbar{display:none;position:sticky;top:0;z-index:900;align-items:center;gap:12px;
-    margin:calc(-1 * clamp(14px,3vw,34px)) calc(-1 * clamp(14px,3vw,34px)) 18px;
-    padding:10px 14px;background:rgba(14,9,52,.85);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--card-border);}
-.menu-toggle{width:44px;height:44px;border:none;border-radius:13px;cursor:pointer;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;color:#fff;
-    background:var(--grad-main);box-shadow:0 6px 16px rgba(0,176,255,.45);}
+.mobile-topbar{display:none;position:sticky;top:0;z-index:900;align-items:center;gap:12px;margin:calc(-1 * clamp(14px,3vw,34px)) calc(-1 * clamp(14px,3vw,34px)) 18px;padding:10px 14px;background:rgba(14,9,52,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--card-border);}
+.menu-toggle{width:44px;height:44px;border:none;border-radius:13px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--grad-main);box-shadow:0 6px 16px rgba(0,176,255,.45);}
 .menu-toggle svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;}
 .topbar-title{font-size:17px;font-weight:800;flex:1;}
 .topbar-icon{font-size:24px;}
-.sidebar-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,3,25,.65);
-    backdrop-filter:blur(3px);opacity:0;transition:opacity .25s;}
+.sidebar-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,3,25,.65);backdrop-filter:blur(3px);opacity:0;transition:opacity .25s;}
 body.no-scroll{overflow:hidden;}
 
 @media (max-width:900px){
     .app-shell{display:block;}
-    .sidebar{position:fixed;top:0;inset-inline-start:0;height:100%;width:min(300px,84vw);
-        transform:translateX(100%);transition:transform .3s ease;box-shadow:none;}
+    .sidebar{position:fixed;top:0;inset-inline-start:0;height:100%;width:min(300px,84vw);transform:translateX(100%);transition:transform .3s ease;box-shadow:none;}
     [dir="ltr"] .sidebar{transform:translateX(-100%);}
     .sidebar.open{transform:none!important;box-shadow:-10px 0 40px rgba(0,0,0,.6);}
     .sidebar-overlay{display:block;pointer-events:none;}
@@ -381,9 +267,7 @@ body.no-scroll{overflow:hidden;}
     .form-grid{grid-template-columns:1fr;}
     .route-visual{grid-template-columns:1fr;gap:10px;}
     .route-line{min-width:0;min-height:70px;}
-    .route-line::before{top:0;bottom:0;left:50%;right:auto;width:3px;height:auto;
-        background:repeating-linear-gradient(180deg,var(--cyan) 0 10px,transparent 10px 18px);
-        transform:translateX(-50%);}
+    .route-line::before{top:0;bottom:0;left:50%;right:auto;width:3px;height:auto;background:repeating-linear-gradient(180deg,var(--cyan) 0 10px,transparent 10px 18px);transform:translateX(-50%);}
     .add-place-actions .btn{flex:1;}
     .footer-row{justify-content:center;text-align:center;}
     .places-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;}
@@ -395,102 +279,29 @@ body.no-scroll{overflow:hidden;}
     .brand-icon{width:42px;height:42px;font-size:22px;}
     .pagination button{padding:7px 11px;}
 }
-@media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;}
-}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
 
-/* ===================================================================
-   إصلاحات توافق الهاتف — النصوص البيضاء والخلفيات
-   =================================================================== */
-html, body {
-    background-color: #0f0a2e !important;
-    background-image: none !important; 
-    color: #ffffff !important;
-}
-body{
-    background-attachment:scroll !important;
-}
-h1, h2{
-    background:none !important;
-    color:#fff !important;
-    -webkit-text-fill-color:#fff !important;
-    text-shadow:0 2px 14px rgba(0,229,255,.35);
-}
-.stat-card {
-    background: #18123a !important;
-    border: 1px solid #2d2368 !important;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
+/* إصلاحات توافق الهاتف */
+html, body { background-color: #0f0a2e !important; background-image: none !important; color: #ffffff !important; }
+body{ background-attachment:scroll !important; }
+h1, h2{ background:none !important; color:#fff !important; -webkit-text-fill-color:#fff !important; text-shadow:0 2px 14px rgba(0,229,255,.35); }
+.stat-card { background: #18123a !important; border: 1px solid #2d2368 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 .stat-card.warm { background: #2a0f2c !important; border-color: #5c1c49 !important; }
 .stat-card.cool { background: #0a2936 !important; border-color: #145b55 !important; }
-.stat-card .stat-num {
-    background: none !important;
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    text-shadow: 0 2px 10px rgba(0,229,255,.35);
-}
+.stat-card .stat-num { background: none !important; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; text-shadow: 0 2px 10px rgba(0,229,255,.35); }
 .stat-card .stat-lbl { color: #c4c9eb !important; font-weight: 700 !important; }
 .brand-text h1{ text-shadow:0 1px 8px rgba(255,61,154,.5); }
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active{
-    -webkit-text-fill-color:#fff !important;
-    -webkit-box-shadow:0 0 0 1000px rgba(8,6,32,.9) inset !important;
-    transition:background-color 5000s ease-in-out 0s !important;
-    caret-color:#fff !important;
-}
-input[type="text"], input[type="search"], input[type="password"]{
-    color:#fff !important;
-    -webkit-text-fill-color:#fff !important;
-    caret-color:#00e5ff !important;
-}
-.list-toolbar input[type="search"] {
-    background: #151130 !important;
-    border: 2px solid #2d2368 !important;
-}
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{ -webkit-text-fill-color:#fff !important; -webkit-box-shadow:0 0 0 1000px rgba(8,6,32,.9) inset !important; transition:background-color 5000s ease-in-out 0s !important; caret-color:#fff !important; }
+input[type="text"], input[type="search"], input[type="password"]{ color:#fff !important; -webkit-text-fill-color:#fff !important; caret-color:#00e5ff !important; }
+.list-toolbar input[type="search"] { background: #151130 !important; border: 2px solid #2d2368 !important; }
 .list-toolbar input[type="search"]::placeholder { color: #8b93ba !important; }
-.list-toolbar .btn {
-    background: #2d2368 !important;
-    border: 1px solid #423596 !important;
-    color: #ffffff !important;
-}
-.list-toolbar .btn.active {
-    background: linear-gradient(135deg, #7c4dff, #00b0ff) !important;
-    border-color: transparent !important;
-}
-
-.place-card {
-    background: #151130 !important;
-    border: 1px solid #2d2368 !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.place-card:hover {
-    background: #1a1640 !important; 
-    border-color: #00e5ff !important;
-}
-.place-name {
-    color: #ffffff !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    margin-top: 6px;
-    text-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-.place-code {
-    color: #ffb300 !important;
-    background: rgba(255, 179, 0, 0.15) !important;
-    padding: 4px 10px !important;
-    border-radius: 8px !important;
-    display: inline-block !important;
-    width: max-content !important;
-    font-size: 14px !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-.route-point-code, .route-line-distance, .route-line-distance small, .place-card .edit-btn {
-    color:#fff !important;
-    -webkit-text-fill-color:#fff !important;
-}
+.list-toolbar .btn { background: #2d2368 !important; border: 1px solid #423596 !important; color: #ffffff !important; }
+.list-toolbar .btn.active { background: linear-gradient(135deg, #7c4dff, #00b0ff) !important; border-color: transparent !important; }
+.place-card { background: #151130 !important; border: 1px solid #2d2368 !important; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+.place-card:hover { background: #1a1640 !important; border-color: #00e5ff !important; }
+.place-name { color: #ffffff !important; font-size: 16px !important; font-weight: 700 !important; margin-top: 6px; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.place-code { color: #ffb300 !important; background: rgba(255, 179, 0, 0.15) !important; padding: 4px 10px !important; border-radius: 8px !important; display: inline-block !important; width: max-content !important; font-size: 14px !important; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+.route-point-code, .route-line-distance, .route-line-distance small, .place-card .edit-btn { color:#fff !important; -webkit-text-fill-color:#fff !important; }
 </style>
 </head>
 <body>
@@ -528,7 +339,7 @@ input[type="text"], input[type="search"], input[type="password"]{
 <div class="wrap">
     <datalist id="codesList"></datalist>
 
-    <!-- ============ القسم 1: حساب المسافة ============ -->
+    <!-- القسم 1: حساب المسافة -->
     <div class="tab-panel active" id="tab-distance">
         <form id="distanceForm" class="card">
             <div class="route-grid">
@@ -568,53 +379,34 @@ input[type="text"], input[type="search"], input[type="password"]{
         </div>
     </div>
 
-    <!-- ============ القسم 2: عرض الأماكن ============ -->
+    <!-- القسم 2: عرض الأماكن -->
     <div class="tab-panel" id="tab-list">
         <h2>جميع الأماكن</h2>
-
         <div class="stats-bar">
-            <div class="stat-card">
-                <div class="stat-num" id="statPlaces">0</div>
-                <div class="stat-lbl">📍 عدد الأماكن</div>
-            </div>
-            <div class="stat-card warm">
-                <div class="stat-num" id="statRoutes">0</div>
-                <div class="stat-lbl">🛣️ عدد المسارات</div>
-            </div>
-            <div class="stat-card cool">
-                <div class="stat-num" id="statShown">0</div>
-                <div class="stat-lbl">👁️ المعروضة الآن</div>
-            </div>
+            <div class="stat-card"><div class="stat-num" id="statPlaces">0</div><div class="stat-lbl">📍 عدد الأماكن</div></div>
+            <div class="stat-card warm"><div class="stat-num" id="statRoutes">0</div><div class="stat-lbl">🛣️ عدد المسارات</div></div>
+            <div class="stat-card cool"><div class="stat-num" id="statShown">0</div><div class="stat-lbl">👁️ المعروضة الآن</div></div>
         </div>
-
         <div class="list-toolbar">
             <input type="search" id="listSearch" placeholder="🔍 بحث بالكود أو الاسم...">
             <button class="btn" id="btnClearSearch">مسح</button>
             <button class="btn" id="btnToggleShowAll">عرض الكل</button>
         </div>
-
         <div id="listBody" class="places-grid"></div>
-
         <div class="footer-row">
             <div class="info-text" id="listInfo"></div>
             <div class="pagination" id="paginationBox"></div>
         </div>
     </div>
 
-    <!-- ============ القسم 3: إضافة مكان ============ -->
+    <!-- القسم 3: إضافة مكان -->
     <div class="tab-panel" id="tab-add">
         <h2 id="addPlaceTitle">إضافة مكان جديد</h2>
         <div class="add-place-box">
             <form id="addPlaceForm">
                 <div class="form-grid">
-                    <div class="field">
-                        <label for="newCode">Code (رقم المكان)</label>
-                        <input type="text" id="newCode" name="newCode" autocomplete="off" placeholder="مثال: 101099">
-                    </div>
-                    <div class="field">
-                        <label for="newName">اسم المكان</label>
-                        <input type="text" id="newName" name="newName" autocomplete="off" placeholder="اسم المكان">
-                    </div>
+                    <div class="field"><label for="newCode">Code (رقم المكان)</label><input type="text" id="newCode" name="newCode" autocomplete="off" placeholder="مثال: 101099"></div>
+                    <div class="field"><label for="newName">اسم المكان</label><input type="text" id="newName" name="newName" autocomplete="off" placeholder="اسم المكان"></div>
                 </div>
                 <div class="add-place-actions">
                     <button type="button" class="btn" id="btnCancelEdit" style="display:none;">إلغاء التعديل</button>
@@ -625,14 +417,18 @@ input[type="text"], input[type="search"], input[type="password"]{
         </div>
     </div>
 
-    <!-- ============ القسم 4: تحديث قاعدة البيانات ============ -->
+    <!-- القسم 4: تحديث قاعدة البيانات -->
     <div class="tab-panel" id="tab-upload">
         <h2>تحديث قاعدة البيانات</h2>
         <div class="upload-box">
             <p class="upload-help">
-                ارفع ملف <code>data.js</code> جديدًا (بنفس صيغة الملف الحالي، أو الصيغة الخام من نظام ERP) لتحديث جميع الأكواد والأسماء ومسافات المسارات دفعة واحدة.
-                سيتم التحقق من الملف قبل أي تحديث، ولن يُطبَّق شيء إلا بعد تأكيدك.
+                ارفع ملف <code>data.js</code> جديدًا لتحديث جميع الأكواد والأسماء دفعة واحدة.
+                <br><b style="color:var(--amber)">ملاحظة هامة:</b> لتحديث الموقع بشكل دائم لجميع المستخدمين، يجب ربط الحساب بـ GitHub من الإعدادات.
             </p>
+            <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap;">
+                <button type="button" class="btn" id="btnOpenSettings">⚙️ إعدادات GitHub (للمسؤول)</button>
+            </div>
+            
             <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="رفع ملف data.js">
                 <input type="file" id="dataFileInput" accept=".js,text/javascript,application/javascript" hidden>
                 <div class="dropzone-icon">⬆️</div>
@@ -649,10 +445,7 @@ input[type="text"], input[type="search"], input[type="password"]{
                 </div>
             </div>
             <div class="upload-download-row" id="uploadDownloadRow" style="display:none;">
-                <p class="upload-help">
-                    التحديث أعلاه ينطبق على هذا المتصفح فقط. لتحديث الموقع بشكل دائم لجميع المستخدمين،
-                    نزّل الملف الناتج وارفعه ليحل محل <code>data.js</code> في مستودع المشروع على GitHub.
-                </p>
+                <p class="upload-help">التحديث تم في المتصفح الحالي. لتحديثه للجميع، قم بتنزيل الملف واستبداله في GitHub يدوياً، أو استخدم إعدادات GitHub بالأعلى للحفظ التلقائي.</p>
                 <button type="button" class="btn" id="btnDownloadData">⬇ تنزيل data.js المحدَّث</button>
             </div>
         </div>
@@ -670,6 +463,7 @@ input[type="text"], input[type="search"], input[type="password"]{
 </main>
 </div>
 
+<!-- نافذة الدخول -->
 <div class="modal-overlay" id="loginModal">
     <div class="modal-box">
         <h3>دخول المسؤول</h3>
@@ -682,8 +476,64 @@ input[type="text"], input[type="search"], input[type="password"]{
     </div>
 </div>
 
+<!-- نافذة إعدادات GitHub -->
+<div class="modal-overlay" id="settingsModal">
+    <div class="modal-box">
+        <h3>إعدادات GitHub للحفظ التلقائي</h3>
+        <div class="modal-error" id="settingsError"></div>
+        <label style="text-align:right; font-size:13px; margin-bottom:8px;">GitHub Token (صلاحية repo)</label>
+        <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+        <label style="text-align:right; font-size:13px; margin-bottom:8px;">اسم المستخدم (Owner)</label>
+        <input type="text" id="ghOwner" placeholder="مثال: RekabAbdelkader">
+        <label style="text-align:right; font-size:13px; margin-bottom:8px;">اسم المستودع (Repo)</label>
+        <input type="text" id="ghRepo" placeholder="مثال: distance-app">
+        <label style="text-align:right; font-size:13px; margin-bottom:8px;">مسار الملف (Path)</label>
+        <input type="text" id="ghPath" placeholder="data.js" value="data.js">
+        
+        <div class="modal-actions" style="margin-top:20px;">
+            <button type="button" class="btn" id="btnCancelSettings">إلغاء</button>
+            <button type="button" class="btn" id="btnSaveSettings">حفظ الإعدادات</button>
+        </div>
+    </div>
+</div>
+
 <script src="data.js"></script>
 <script>
+// ==================== إعدادات GitHub ====================
+const GH_CONFIG_KEY = "ghConfigRekab";
+function getGhConfig() {
+    try { return JSON.parse(localStorage.getItem(GH_CONFIG_KEY)) || {}; } catch(e){ return {}; }
+}
+function saveGhConfig(cfg) {
+    localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(cfg));
+}
+// فتح وإغلاق نافذة الإعدادات
+document.getElementById('btnOpenSettings').addEventListener('click', function(){
+    const cfg = getGhConfig();
+    document.getElementById('ghToken').value = cfg.token || '';
+    document.getElementById('ghOwner').value = cfg.owner || '';
+    document.getElementById('ghRepo').value = cfg.repo || '';
+    document.getElementById('ghPath').value = cfg.path || 'data.js';
+    document.getElementById('settingsError').textContent = '';
+    document.getElementById('settingsModal').classList.add('show');
+});
+document.getElementById('btnCancelSettings').addEventListener('click', function(){
+    document.getElementById('settingsModal').classList.remove('show');
+});
+document.getElementById('btnSaveSettings').addEventListener('click', function(){
+    const token = document.getElementById('ghToken').value.trim();
+    const owner = document.getElementById('ghOwner').value.trim();
+    const repo = document.getElementById('ghRepo').value.trim();
+    const path = document.getElementById('ghPath').value.trim() || 'data.js';
+    if(!token || !owner || !repo) {
+        document.getElementById('settingsError').textContent = 'الرجاء ملء جميع الحقول المطلوبة.';
+        return;
+    }
+    saveGhConfig({ token, owner, repo, path });
+    document.getElementById('settingsModal').classList.remove('show');
+    alert('تم حفظ إعدادات GitHub بنجاح!');
+});
+
 // ==================== نظام دخول المسؤول ====================
 (function(){
     const ADMIN_PASS_ENC = "cmVrYWJhYmRlbGthZGVyMTk4MUA=";
@@ -746,56 +596,38 @@ input[type="text"], input[type="search"], input[type="password"]{
     if(tabUploadBtn) tabUploadBtn.style.display = isAdmin() ? '' : 'none';
 })();
 
-// ---------- التبديل بين التبويبات ----------
+// التبديل بين التبويبات
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
-
 function switchTab(tabId){
     if((tabId === 'tab-add' || tabId === 'tab-upload') && !(window.__isAdmin && window.__isAdmin())){
         const modal = document.getElementById('loginModal');
-        if(modal){
-            document.getElementById('loginError').textContent = '';
-            document.getElementById('adminPasswordInput').value = '';
-            modal.classList.add('show');
-        }
+        if(modal){ document.getElementById('loginError').textContent = ''; document.getElementById('adminPasswordInput').value = ''; modal.classList.add('show'); }
         return;
     }
     tabPanels.forEach(function(p){ p.classList.toggle('active', p.id === tabId); });
     tabButtons.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === tabId); });
 }
-tabButtons.forEach(function(btn){
-    btn.addEventListener('click', function(){ switchTab(btn.getAttribute('data-tab')); });
-});
+tabButtons.forEach(function(btn){ btn.addEventListener('click', function(){ switchTab(btn.getAttribute('data-tab')); }); });
 
+// تجهيز البيانات
 const codeNames = {};
-if(typeof lieu !== 'undefined'){
-    lieu.forEach(function(item){ if(item[1]) codeNames[item[0]] = item[1]; });
-}
+if(typeof lieu !== 'undefined'){ lieu.forEach(function(item){ if(item[1]) codeNames[item[0]] = item[1]; }); }
 codeNamesArr.forEach(function(item){ if(!codeNames[item[0]]) codeNames[item[0]] = item[1]; });
 
-// ---------- الأماكن المضافة يدويًا ----------
 const CUSTOM_PLACES_KEY = 'customPlaces_v1';
-function loadCustomPlaces(){
-    try{ const raw = localStorage.getItem(CUSTOM_PLACES_KEY); return raw ? JSON.parse(raw) : {}; }
-    catch(e){ return {}; }
-}
-function saveCustomPlaces(obj){
-    try{ localStorage.setItem(CUSTOM_PLACES_KEY, JSON.stringify(obj)); return true; }
-    catch(e){ return false; }
-}
+function loadCustomPlaces(){ try{ const raw = localStorage.getItem(CUSTOM_PLACES_KEY); return raw ? JSON.parse(raw) : {}; }catch(e){ return {}; } }
+function saveCustomPlaces(obj){ try{ localStorage.setItem(CUSTOM_PLACES_KEY, JSON.stringify(obj)); return true; }catch(e){ return false; } }
 let customPlaces = loadCustomPlaces();
 Object.keys(customPlaces).forEach(function(code){ codeNames[code] = customPlaces[code]; });
 
 const distanceMap = {};
 records.forEach(function(r){ distanceMap[r[0] + '|' + r[1]] = r[2]; });
 
-// ---------- تبويب حساب المسافة ----------
 const datalist = document.getElementById('codesList');
 function rebuildDatalist(){
     let dlHtml = '';
-    Object.keys(codeNames).forEach(function(code){
-        dlHtml += "<option value='" + code + "'>" + code + " - " + codeNames[code] + "</option>";
-    });
+    Object.keys(codeNames).forEach(function(code){ dlHtml += "<option value='" + code + "'>" + code + " - " + codeNames[code] + "</option>"; });
     datalist.innerHTML = dlHtml;
 }
 rebuildDatalist();
@@ -810,39 +642,26 @@ const rDistance = document.getElementById('rDistance');
 const rLieuD = document.getElementById('rLieuD');
 const rLieuC = document.getElementById('rLieuC');
 
-function setStatus(type, msg){
-    if(!type){ statusDiv.style.display = 'none'; return; }
-    statusDiv.className = 'status ' + type;
-    statusDiv.textContent = msg;
-}
-function showNameHint(input, target){
-    const v = input.value.trim();
-    target.textContent = codeNames[v] ? codeNames[v] : '';
-}
+function setStatus(type, msg){ if(!type){ statusDiv.style.display = 'none'; return; } statusDiv.className = 'status ' + type; statusDiv.textContent = msg; }
+function showNameHint(input, target){ const v = input.value.trim(); target.textContent = codeNames[v] ? codeNames[v] : ''; }
 lieuD.addEventListener('input', function(){ showNameHint(lieuD, nameD); });
 lieuC.addEventListener('input', function(){ showNameHint(lieuC, nameC); });
 
 document.getElementById('distanceForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    resultBox.style.display = 'none';
+    e.preventDefault(); resultBox.style.display = 'none';
     const a = lieuD.value.trim(), b = lieuC.value.trim();
     if(!a || !b){ setStatus('error', 'الرجاء إدخال كودي التحميل والتفريغ.'); return; }
-    let km = distanceMap[a + '|' + b];
-    let reversed = false;
+    let km = distanceMap[a + '|' + b]; let reversed = false;
     if(km === undefined){ km = distanceMap[b + '|' + a]; reversed = true; }
-    if(km === undefined){
-        setStatus('error', 'لا توجد بيانات مسافة مسجّلة بين هذين الكودين في قاعدة البيانات.');
-        return;
-    }
+    if(km === undefined){ setStatus('error', 'لا توجد بيانات مسافة مسجّلة بين هذين الكودين.'); return; }
     rLieuD.textContent = a + (codeNames[a] ? ' - ' + codeNames[a] : '');
     rLieuC.textContent = b + (codeNames[b] ? ' - ' + codeNames[b] : '');
-    rDistance.textContent = km;
-    resultBox.style.display = 'block';
-    if(reversed) setStatus('warn', 'تنبيه: لا يوجد سجل مباشر لهذا الاتجاه، تم عرض مسافة الاتجاه المعاكس (' + b + ' → ' + a + ').');
+    rDistance.textContent = km; resultBox.style.display = 'block';
+    if(reversed) setStatus('warn', 'تنبيه: تم عرض مسافة الاتجاه المعاكس.');
     else setStatus('ok', 'تم العثور على المسافة.');
 });
 
-// ---------- تبويب عرض الأماكن ----------
+// عرض الأماكن
 const listBody = document.getElementById('listBody');
 const listInfo = document.getElementById('listInfo');
 const paginationBox = document.getElementById('paginationBox');
@@ -853,104 +672,57 @@ const statPlaces = document.getElementById('statPlaces');
 const statRoutes = document.getElementById('statRoutes');
 const statShown = document.getElementById('statShown');
 
-const places = Object.keys(codeNames)
-    .map(function(code){ return [code, codeNames[code]]; })
-    .sort(function(x, y){ return x[0].localeCompare(y[0]); });
+const places = Object.keys(codeNames).map(function(code){ return [code, codeNames[code]]; }).sort(function(x, y){ return x[0].localeCompare(y[0]); });
+const PAGE_SIZE = 60; let filteredPlaces = places; let currentPage = 1; let showAll = false;
 
-const PAGE_SIZE = 60;
-let filteredPlaces = places;
-let currentPage = 1;
-let showAll = false;
-
-function escapeHtml(str){
-    const d = document.createElement('div');
-    d.textContent = str;
-    return d.innerHTML;
-}
-
-function updateStats(){
-    statPlaces.textContent = Object.keys(codeNames).length.toLocaleString('en-US');
-    statRoutes.textContent = records.length.toLocaleString('en-US');
-    statShown.textContent = filteredPlaces.length.toLocaleString('en-US');
-}
+function escapeHtml(str){ const d = document.createElement('div'); d.textContent = str; return d.innerHTML; }
+function updateStats(){ statPlaces.textContent = Object.keys(codeNames).length.toLocaleString('en-US'); statRoutes.textContent = records.length.toLocaleString('en-US'); statShown.textContent = filteredPlaces.length.toLocaleString('en-US'); }
 
 function applyFilter(query){
     query = (query || '').trim().toLowerCase();
     if(!query){ filteredPlaces = places; }
-    else {
-        filteredPlaces = places.filter(function(p){
-            const code = p[0], name = (p[1] || '').toLowerCase();
-            return code.toLowerCase().includes(query) || name.includes(query);
-        });
-    }
-    currentPage = 1;
-    renderList();
+    else { filteredPlaces = places.filter(function(p){ const code = p[0], name = (p[1] || '').toLowerCase(); return code.toLowerCase().includes(query) || name.includes(query); }); }
+    currentPage = 1; renderList();
 }
 
 function renderList(){
     const totalPages = Math.max(1, Math.ceil(filteredPlaces.length / PAGE_SIZE));
     if(currentPage > totalPages) currentPage = totalPages;
     if(currentPage < 1) currentPage = 1;
-
     const startIdx = showAll ? 0 : (currentPage - 1) * PAGE_SIZE;
     const pageItems = showAll ? filteredPlaces : filteredPlaces.slice(startIdx, startIdx + PAGE_SIZE);
     const userIsAdmin = !!(window.__isAdmin && window.__isAdmin());
 
-    if(pageItems.length === 0){
-        listBody.innerHTML = "<div class='empty-msg'>🔍 لا توجد نتائج مطابقة للبحث</div>";
-    } else {
+    if(pageItems.length === 0){ listBody.innerHTML = "<div class='empty-msg'>🔍 لا توجد نتائج مطابقة للبحث</div>"; }
+    else {
         let html = '';
         pageItems.forEach(function(p){
             const code = p[0], name = p[1];
             const codeAttr = escapeHtml(code).replace(/"/g, '&quot;');
-            const editBtn = userIsAdmin
-                ? "<button type='button' class='edit-btn' data-code=\"" + codeAttr + "\" onclick='startEditPlace(this.getAttribute(\"data-code\"))'>✎ تعديل</button>"
-                : '';
-            html += "<div class='place-card'>" +
-                "<div class='place-code'>" + escapeHtml(code) + "</div>" +
-                "<div class='place-name'>" + escapeHtml(name || '—') + "</div>" +
-                editBtn +
-                "</div>";
+            const editBtn = userIsAdmin ? "<button type='button' class='edit-btn' data-code=\"" + codeAttr + "\" onclick='startEditPlace(this.getAttribute(\"data-code\"))'>✎ تعديل</button>" : '';
+            html += "<div class='place-card'><div class='place-code'>" + escapeHtml(code) + "</div><div class='place-name'>" + escapeHtml(name || '—') + "</div>" + editBtn + "</div>";
         });
         listBody.innerHTML = html;
     }
-
-    if(showAll){
-        listInfo.textContent = 'عرض جميع الأماكن (' + filteredPlaces.length.toLocaleString('en-US') + ')';
-    } else {
-        listInfo.textContent = 'عرض ' + (filteredPlaces.length === 0 ? 0 : startIdx + 1) + ' إلى ' +
-            Math.min(startIdx + PAGE_SIZE, filteredPlaces.length) + ' من أصل ' + filteredPlaces.length.toLocaleString('en-US') + ' مكان';
-    }
-    updateStats();
-    renderPagination(currentPage, totalPages);
+    if(showAll){ listInfo.textContent = 'عرض جميع الأماكن (' + filteredPlaces.length.toLocaleString('en-US') + ')'; }
+    else { listInfo.textContent = 'عرض ' + (filteredPlaces.length === 0 ? 0 : startIdx + 1) + ' إلى ' + Math.min(startIdx + PAGE_SIZE, filteredPlaces.length) + ' من أصل ' + filteredPlaces.length.toLocaleString('en-US') + ' مكان'; }
+    updateStats(); renderPagination(currentPage, totalPages);
 }
 
 function renderPagination(current, totalPages){
     if(showAll){ paginationBox.innerHTML = ''; return; }
-    let html = '';
-    html += "<button " + (current<=1?'disabled':'') + " onclick='goToPage(" + (current-1) + ")'>&laquo; السابق</button>";
-    const start = Math.max(1, current - 2);
-    const end = Math.min(totalPages, current + 2);
-    for(let p = start; p <= end; p++){
-        html += "<button class='" + (p===current?'active':'') + "' onclick='goToPage(" + p + ")'>" + p + "</button>";
-    }
+    let html = "<button " + (current<=1?'disabled':'') + " onclick='goToPage(" + (current-1) + ")'>&laquo; السابق</button>";
+    const start = Math.max(1, current - 2); const end = Math.min(totalPages, current + 2);
+    for(let p = start; p <= end; p++){ html += "<button class='" + (p===current?'active':'') + "' onclick='goToPage(" + p + ")'>" + p + "</button>"; }
     html += "<button " + (current>=totalPages?'disabled':'') + " onclick='goToPage(" + (current+1) + ")'>التالي &raquo;</button>";
     paginationBox.innerHTML = html;
 }
-
 function goToPage(p){ currentPage = p; renderList(); }
-
 listSearch.addEventListener('input', function(){ applyFilter(listSearch.value); });
 btnClearSearch.addEventListener('click', function(){ listSearch.value = ''; applyFilter(''); });
-btnToggleShowAll.addEventListener('click', function(){
-    showAll = !showAll;
-    this.textContent = showAll ? 'عرض بالصفحات' : 'عرض الكل';
-    this.classList.toggle('active', showAll);
-    currentPage = 1;
-    renderList();
-});
+btnToggleShowAll.addEventListener('click', function(){ showAll = !showAll; this.textContent = showAll ? 'عرض بالصفحات' : 'عرض الكل'; this.classList.toggle('active', showAll); currentPage = 1; renderList(); });
 
-// ---------- إضافة / تعديل مكان ----------
+// إضافة / تعديل
 const addPlaceForm = document.getElementById('addPlaceForm');
 const addPlaceStatus = document.getElementById('addPlaceStatus');
 const addPlaceTitle = document.getElementById('addPlaceTitle');
@@ -958,83 +730,34 @@ const newCodeInput = document.getElementById('newCode');
 const newNameInput = document.getElementById('newName');
 const btnSubmitPlace = document.getElementById('btnSubmitPlace');
 const btnCancelEdit = document.getElementById('btnCancelEdit');
-
 let editingCode = null;
 
-function setAddPlaceStatus(type, msg){
-    if(!type){ addPlaceStatus.style.display = 'none'; return; }
-    addPlaceStatus.className = 'status ' + type;
-    addPlaceStatus.textContent = msg;
-}
-function enterEditMode(code){
-    editingCode = code;
-    newCodeInput.value = code; newCodeInput.disabled = true;
-    newNameInput.value = codeNames[code] || '';
-    addPlaceTitle.textContent = 'تعديل المكان: ' + code;
-    btnSubmitPlace.textContent = 'حفظ التعديل';
-    btnCancelEdit.style.display = '';
-    setAddPlaceStatus(null);
-    switchTab('tab-add');
-    newNameInput.focus();
-}
-function exitEditMode(){
-    editingCode = null;
-    newCodeInput.disabled = false;
-    addPlaceTitle.textContent = 'إضافة مكان جديد';
-    btnSubmitPlace.textContent = 'إضافة المكان';
-    btnCancelEdit.style.display = 'none';
-    addPlaceForm.reset();
-    switchTab('tab-list');
-}
-function startEditPlace(code){
-    if(!(window.__isAdmin && window.__isAdmin())) return;
-    if(!Object.prototype.hasOwnProperty.call(codeNames, code)) return;
-    enterEditMode(code);
-}
+function setAddPlaceStatus(type, msg){ if(!type){ addPlaceStatus.style.display = 'none'; return; } addPlaceStatus.className = 'status ' + type; addPlaceStatus.textContent = msg; }
+function enterEditMode(code){ editingCode = code; newCodeInput.value = code; newCodeInput.disabled = true; newNameInput.value = codeNames[code] || ''; addPlaceTitle.textContent = 'تعديل المكان: ' + code; btnSubmitPlace.textContent = 'حفظ التعديل'; btnCancelEdit.style.display = ''; setAddPlaceStatus(null); switchTab('tab-add'); newNameInput.focus(); }
+function exitEditMode(){ editingCode = null; newCodeInput.disabled = false; addPlaceTitle.textContent = 'إضافة مكان جديد'; btnSubmitPlace.textContent = 'إضافة المكان'; btnCancelEdit.style.display = 'none'; addPlaceForm.reset(); switchTab('tab-list'); }
+function startEditPlace(code){ if(!(window.__isAdmin && window.__isAdmin())) return; if(!Object.prototype.hasOwnProperty.call(codeNames, code)) return; enterEditMode(code); }
 btnCancelEdit.addEventListener('click', function(){ exitEditMode(); setAddPlaceStatus(null); });
 
 addPlaceForm.addEventListener('submit', function(e){
     e.preventDefault();
-    if(!(window.__isAdmin && window.__isAdmin())){
-        setAddPlaceStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.');
-        return;
-    }
-    const code = editingCode ? editingCode : newCodeInput.value.trim();
-    const name = newNameInput.value.trim();
+    if(!(window.__isAdmin && window.__isAdmin())){ setAddPlaceStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.'); return; }
+    const code = editingCode ? editingCode : newCodeInput.value.trim(); const name = newNameInput.value.trim();
     if(!code || !name){ setAddPlaceStatus('error', 'الرجاء إدخال الكود واسم المكان.'); return; }
-
     const isUpdate = editingCode !== null || Object.prototype.hasOwnProperty.call(codeNames, code);
-    codeNames[code] = name;
-    customPlaces[code] = name;
-    const saved = saveCustomPlaces(customPlaces);
-
+    codeNames[code] = name; customPlaces[code] = name; const saved = saveCustomPlaces(customPlaces);
     const escapedCode = code.replace(/'/g, "\\'");
     let existingOpt = datalist.querySelector("option[value='" + escapedCode + "']");
-    if(!existingOpt){
-        const opt = document.createElement('option');
-        opt.value = code; opt.textContent = code + ' - ' + name;
-        datalist.appendChild(opt);
-    } else { existingOpt.textContent = code + ' - ' + name; }
-
+    if(!existingOpt){ const opt = document.createElement('option'); opt.value = code; opt.textContent = code + ' - ' + name; datalist.appendChild(opt); } else { existingOpt.textContent = code + ' - ' + name; }
     const idx = places.findIndex(function(p){ return p[0] === code; });
-    if(idx >= 0){ places[idx][1] = name; }
-    else { places.push([code, name]); }
+    if(idx >= 0){ places[idx][1] = name; } else { places.push([code, name]); }
     places.sort(function(x, y){ return x[0].localeCompare(y[0]); });
-
-    applyFilter(listSearch.value);
-    const wasEditing = editingCode !== null;
-
-    if(!saved) setAddPlaceStatus('warn', 'تم الحفظ لهذه الجلسة فقط، لكن تعذّر حفظه بشكل دائم.');
-    else if(wasEditing || isUpdate) setAddPlaceStatus('ok', 'تم تحديث اسم المكان بالكود ' + code + ' بنجاح.');
-    else setAddPlaceStatus('ok', 'تمت إضافة المكان "' + name + '" بالكود ' + code + ' بنجاح.');
-
-    if(wasEditing) exitEditMode();
-    else addPlaceForm.reset();
+    applyFilter(listSearch.value); const wasEditing = editingCode !== null;
+    if(!saved) setAddPlaceStatus('warn', 'تم الحفظ محلياً فقط.'); else if(wasEditing || isUpdate) setAddPlaceStatus('ok', 'تم تحديث اسم المكان بنجاح.'); else setAddPlaceStatus('ok', 'تمت إضافة المكان بنجاح.');
+    if(wasEditing) exitEditMode(); else addPlaceForm.reset();
 });
-
 renderList();
 
-// ---------- تبويب رفع الملف ----------
+// رفع الملف + GitHub API
 (function(){
     const dropzone = document.getElementById('dropzone');
     const dropzoneLink = document.getElementById('dropzoneLink');
@@ -1050,36 +773,16 @@ renderList();
     const MAX_FILE_SIZE = 15 * 1024 * 1024;
     let pendingUpload = null;
 
-    function setUploadStatus(type, msg){
-        if(!type){ uploadStatus.style.display = 'none'; return; }
-        uploadStatus.className = 'status ' + type;
-        uploadStatus.innerHTML = msg;
-    }
-    function resetDropzoneVisual(){
-        dropzone.classList.remove('has-file');
-        dropzoneFilename.textContent = '';
-    }
-    function resetUploadFlow(keepStatus){
-        pendingUpload = null;
-        uploadPreview.style.display = 'none';
-        uploadPreviewList.innerHTML = '';
-        uploadDownloadRow.style.display = 'none';
-        dataFileInput.value = '';
-        resetDropzoneVisual();
-        if(!keepStatus) setUploadStatus(null);
-    }
-    
-    // --- كود قراءة الملف المحسّن (يدعم var, let, const) ---
+    function setUploadStatus(type, msg){ if(!type){ uploadStatus.style.display = 'none'; return; } uploadStatus.className = 'status ' + type; uploadStatus.innerHTML = msg; }
+    function resetDropzoneVisual(){ dropzone.classList.remove('has-file'); dropzoneFilename.textContent = ''; }
+    function resetUploadFlow(keepStatus){ pendingUpload = null; uploadPreview.style.display = 'none'; uploadPreviewList.innerHTML = ''; uploadDownloadRow.style.display = 'none'; dataFileInput.value = ''; resetDropzoneVisual(); if(!keepStatus) setUploadStatus(null); }
+
     function parseDataFile(content){
         let src = content;
         if(/\b(var|let|const)\s+unite\s*=/.test(src) && !/\b(var|let|const)\s+codeNamesArr\s*=/.test(src)){
-            src = src.replace(/\b(var|let|const)\s+unite\s*=/, function(match, p1) {
-                return p1 + ' codeNamesArr =';
-            });
+            src = src.replace(/\b(var|let|const)\s+unite\s*=/, function(match, p1) { return p1 + ' codeNamesArr ='; });
         }
-        if(!/\b(var|let|const)\s+records\s*=/.test(src) && /\b(var|let|const)\s+distance\s*=/.test(src)) {
-            src += '\nvar records = distance;\n';
-        }
+        if(!/\b(var|let|const)\s+records\s*=/.test(src) && /\b(var|let|const)\s+distance\s*=/.test(src)) { src += '\nvar records = distance;\n'; }
 
         const wrapped = src + '\n;return { ' +
             'codeNamesArr: typeof codeNamesArr !== "undefined" ? codeNamesArr : undefined, ' +
@@ -1090,59 +793,28 @@ renderList();
             'operation: typeof operation !== "undefined" ? operation : undefined };';
 
         let result;
-        try{
-            const runner = new Function(wrapped);
-            result = runner();
-        }catch(e){
-            throw new Error('تعذّر قراءة محتوى الملف (' + e.message + ').');
-        }
-
-        if(!Array.isArray(result.codeNamesArr) || result.codeNamesArr.length === 0){
-            throw new Error('قائمة المناطق العامة (codeNamesArr أو unite) فارغة أو غير صحيحة.');
-        }
-        if(!Array.isArray(result.lieu) || result.lieu.length === 0){
-            throw new Error('قائمة الأماكن التفصيلية (lieu) فارغة أو غير صحيحة.');
-        }
+        try{ const runner = new Function(wrapped); result = runner(); }catch(e){ throw new Error('تعذّر قراءة محتوى الملف (' + e.message + ').'); }
+        if(!Array.isArray(result.codeNamesArr) || result.codeNamesArr.length === 0) throw new Error('قائمة codeNamesArr فارغة.');
+        if(!Array.isArray(result.lieu) || result.lieu.length === 0) throw new Error('قائمة lieu فارغة.');
         const distArr = result.distance || result.records;
-        if(!Array.isArray(distArr) || distArr.length === 0){
-            throw new Error('قائمة مسافات المسارات (distance أو records) فارغة أو غير صحيحة.');
-        }
-        result.distance = distArr;
-        result.records = result.records || distArr;
+        if(!Array.isArray(distArr) || distArr.length === 0) throw new Error('قائمة distance فارغة.');
+        result.distance = distArr; result.records = result.records || distArr;
         return { data: result, raw: src };
     }
-    
+
     function renderPreview(fileName, sizeKb, parsed){
         const d = parsed.data;
-        const rows = [
-            ['اسم الملف', fileName], ['حجم الملف', sizeKb + ' KB'],
-            ['المناطق العامة', d.codeNamesArr.length.toLocaleString('en-US')],
-            ['الأماكن التفصيلية', d.lieu.length.toLocaleString('en-US')],
-            ['مسارات المسافة', d.distance.length.toLocaleString('en-US')],
-        ];
-        if(Array.isArray(d.produit)) rows.push(['المنتجات', d.produit.length.toLocaleString('en-US')]);
-        if(Array.isArray(d.operation)) rows.push(['أنواع العمليات', d.operation.length.toLocaleString('en-US')]);
-        uploadPreviewList.innerHTML = rows.map(function(r){
-            return '<li>' + r[0] + ': <b>' + r[1] + '</b></li>';
-        }).join('');
+        const rows = [['اسم الملف', fileName], ['حجم الملف', sizeKb + ' KB'], ['المناطق العامة', d.codeNamesArr.length.toLocaleString('en-US')], ['الأماكن التفصيلية', d.lieu.length.toLocaleString('en-US')], ['مسارات المسافة', d.distance.length.toLocaleString('en-US')]];
+        uploadPreviewList.innerHTML = rows.map(function(r){ return '<li>' + r[0] + ': <b>' + r[1] + '</b></li>'; }).join('');
         uploadPreview.style.display = 'block';
     }
+
     function handleFile(file){
-        if(!(window.__isAdmin && window.__isAdmin())){
-            setUploadStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.');
-            return;
-        }
+        if(!(window.__isAdmin && window.__isAdmin())){ setUploadStatus('error', 'هذه الميزة مخصّصة للمستخدم الرئيسي فقط.'); return; }
         resetUploadFlow(false);
-        if(!/\.(js|txt)$/i.test(file.name)){
-            setUploadStatus('error', 'صيغة الملف غير مدعومة. الرجاء رفع ملف بامتداد .js.');
-            return;
-        }
-        if(file.size > MAX_FILE_SIZE){
-            setUploadStatus('error', 'حجم الملف كبير جدًا (الحد الأقصى 15 MB).');
-            return;
-        }
-        dropzone.classList.add('has-file');
-        dropzoneFilename.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
+        if(!/\.(js|txt)$/i.test(file.name)){ setUploadStatus('error', 'صيغة الملف غير مدعومة.'); return; }
+        if(file.size > MAX_FILE_SIZE){ setUploadStatus('error', 'حجم الملف كبير جدًا (الحد الأقصى 15 MB).'); return; }
+        dropzone.classList.add('has-file'); dropzoneFilename.textContent = file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)';
         setUploadStatus('warn', '<span class="spinner-inline"></span> جارٍ التحقق من الملف...');
         const reader = new FileReader();
         reader.onerror = function(){ setUploadStatus('error', 'تعذّرت قراءة الملف من الجهاز.'); };
@@ -1150,110 +822,114 @@ renderList();
             try{
                 const parsed = parseDataFile(String(reader.result));
                 pendingUpload = { data: parsed.data, raw: parsed.raw, fileName: file.name };
-                setUploadStatus('ok', 'الملف صالح. راجع الملخّص أدناه ثم اضغط "تأكيد واستبدال البيانات".');
+                setUploadStatus('ok', 'الملف صالح. راجع الملخّص أدناه ثم اضغط "تأكيد".');
                 renderPreview(file.name, (file.size / 1024).toFixed(1), parsed);
-            }catch(err){
-                pendingUpload = null;
-                setUploadStatus('error', err.message);
-            }
+            }catch(err){ pendingUpload = null; setUploadStatus('error', err.message); }
         };
         reader.readAsText(file, 'utf-8');
     }
+
     dropzoneLink.addEventListener('click', function(e){ e.stopPropagation(); dataFileInput.click(); });
     dropzone.addEventListener('click', function(){ dataFileInput.click(); });
-    dropzone.addEventListener('keydown', function(e){
-        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); dataFileInput.click(); }
-    });
-    dataFileInput.addEventListener('change', function(){
-        if(dataFileInput.files && dataFileInput.files[0]) handleFile(dataFileInput.files[0]);
-    });
-    ['dragenter', 'dragover'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){
-            e.preventDefault(); e.stopPropagation();
-            dropzone.classList.add('dragover');
-        });
-    });
-    ['dragleave', 'dragend'].forEach(function(evt){
-        dropzone.addEventListener(evt, function(e){
-            e.preventDefault(); e.stopPropagation();
-            dropzone.classList.remove('dragover');
-        });
-    });
-    dropzone.addEventListener('drop', function(e){
-        e.preventDefault(); e.stopPropagation();
-        dropzone.classList.remove('dragover');
-        if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
-    });
+    dropzone.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); dataFileInput.click(); } });
+    dataFileInput.addEventListener('change', function(){ if(dataFileInput.files && dataFileInput.files[0]) handleFile(dataFileInput.files[0]); });
+    ['dragenter', 'dragover'].forEach(function(evt){ dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('dragover'); }); });
+    ['dragleave', 'dragend'].forEach(function(evt){ dropzone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); }); });
+    dropzone.addEventListener('drop', function(e){ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('dragover'); if(e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]); });
     btnCancelUpload.addEventListener('click', function(){ resetUploadFlow(false); });
-    btnConfirmUpload.addEventListener('click', function(){
+
+    // دالة الحفظ في GitHub
+    async function saveToGitHub(content, filename) {
+        const cfg = getGhConfig();
+        if(!cfg.token || !cfg.owner || !cfg.repo) { throw new Error('لم يتم إعداد GitHub Token. يرجى الضغط على زر الإعدادات بالأعلى أولاً.'); }
+        
+        const path = cfg.path || filename;
+        const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`;
+        
+        // 1. جلب SHA للملف الحالي (مطلوب للتحديث)
+        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `token ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } });
+        let sha = null;
+        if (getRes.ok) {
+            const data = await getRes.json();
+            sha = data.sha;
+        } else if (getRes.status !== 404) {
+            throw new Error('فشل الاتصال بـ GitHub. تأكد من صحة Token والمستودع.');
+        }
+
+        // 2. رفع الملف الجديد
+        const putRes = await fetch(apiUrl, {
+            method: 'PUT',
+            headers: { 'Authorization': `token ${cfg.token}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
+            body: JSON.stringify({
+                message: 'تحديث data.js عبر لوحة التحكم',
+                content: btoa(unescape(encodeURIComponent(content))), // Base64 UTF-8
+                sha: sha || undefined,
+                branch: 'main' // افتراضي، قد يكون master
+            })
+        });
+
+        if (!putRes.ok) {
+            const err = await putRes.json();
+            throw new Error('فشل الرفع إلى GitHub: ' + (err.message || putRes.statusText));
+        }
+        return true;
+    }
+
+    btnConfirmUpload.addEventListener('click', async function(){
         if(!pendingUpload) return;
-        if(!window.confirm('سيتم استبدال بيانات المسافات والأماكن الحالية بالكامل بمحتوى الملف "' +
-            pendingUpload.fileName + '". هذا الإجراء لا يمكن التراجع عنه. هل تريد المتابعة؟')) return;
+        if(!window.confirm('سيتم استبدال بيانات المسافات والأماكن الحالية بالكامل. هل تريد المتابعة؟')) return;
+        
+        setUploadStatus('warn', '<span class="spinner-inline"></span> جارٍ الحفظ في قاعدة البيانات (GitHub)...');
+        btnConfirmUpload.disabled = true;
+
         try{
+            // تحديث الذاكرة المحلية أولاً
             applyUploadedData(pendingUpload.data);
-            setUploadStatus('ok', 'تم تحديث البيانات بنجاح (' + records.length + ' مسار، ' +
-                Object.keys(codeNames).length + ' موقع). نزّل الملف أدناه وارفعه على GitHub للتحديث الدائم.');
+            
+            // محاولة الحفظ في GitHub
+            await saveToGitHub(pendingUpload.raw, 'data.js');
+            
+            setUploadStatus('ok', '✅ تم تحديث قاعدة البيانات في GitHub بنجاح! سيتم تطبيق التغييرات على جميع الأجهزة فوراً.');
+            uploadPreview.style.display = 'none';
+            switchTab('tab-list');
+        } catch(err) {
+            // إذا فشل GitHub، نبقى في نفس الصفحة ونظهر الخطأ
+            setUploadStatus('error', '⚠️ تم التحديث مؤقتاً، لكن فشل الحفظ الدائم: <br>' + err.message + '<br><br>يمكنك تنزيل الملف بالأسفل ورفعه يدوياً.');
             uploadPreview.style.display = 'none';
             uploadDownloadRow.style.display = 'block';
-        }catch(err){
-            setUploadStatus('error', 'حدث خطأ أثناء تطبيق البيانات: ' + err.message);
+        } finally {
+            btnConfirmUpload.disabled = false;
         }
     });
+
     btnDownloadData.addEventListener('click', function(){
         if(!pendingUpload) return;
         const blob = new Blob([pendingUpload.raw], { type: 'text/javascript;charset=utf-8' });
         const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'data.js';
+        const a = document.createElement('a'); a.href = url; a.download = 'data.js';
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
     });
-    
-    // --- تطبيق البيانات المحسّن (مسح القديم والانتقال للقائمة) ---
+
     function applyUploadedData(newData){
-        customPlaces = {};
-        try { localStorage.removeItem(CUSTOM_PLACES_KEY); } catch(e){}
-
-        codeNamesArr.length = 0;
-        Array.prototype.push.apply(codeNamesArr, newData.codeNamesArr);
-
-        lieu.length = 0;
-        Array.prototype.push.apply(lieu, newData.lieu);
-
-        if (typeof distance !== 'undefined') {
-            distance.length = 0;
-            Array.prototype.push.apply(distance, newData.distance);
-        }
-        if (typeof records !== 'undefined') {
-            records.length = 0;
-            Array.prototype.push.apply(records, newData.records);
-        }
-
-        if(Array.isArray(newData.produit) && typeof produit !== 'undefined'){
-            produit.length = 0; Array.prototype.push.apply(produit, newData.produit);
-        }
-        if(Array.isArray(newData.operation) && typeof operation !== 'undefined'){
-            operation.length = 0; Array.prototype.push.apply(operation, newData.operation);
-        }
-
+        customPlaces = {}; try { localStorage.removeItem(CUSTOM_PLACES_KEY); } catch(e){}
+        codeNamesArr.length = 0; Array.prototype.push.apply(codeNamesArr, newData.codeNamesArr);
+        lieu.length = 0; Array.prototype.push.apply(lieu, newData.lieu);
+        if (typeof distance !== 'undefined') { distance.length = 0; Array.prototype.push.apply(distance, newData.distance); }
+        if (typeof records !== 'undefined') { records.length = 0; Array.prototype.push.apply(records, newData.records); }
+        if(Array.isArray(newData.produit) && typeof produit !== 'undefined'){ produit.length = 0; Array.prototype.push.apply(produit, newData.produit); }
+        if(Array.isArray(newData.operation) && typeof operation !== 'undefined'){ operation.length = 0; Array.prototype.push.apply(operation, newData.operation); }
+        
         Object.keys(codeNames).forEach(function(k){ delete codeNames[k]; });
         lieu.forEach(function(item){ if(item[1]) codeNames[item[0]] = item[1]; });
         codeNamesArr.forEach(function(item){ if(!codeNames[item[0]]) codeNames[item[0]] = item[1]; });
-
         Object.keys(distanceMap).forEach(function(k){ delete distanceMap[k]; });
         records.forEach(function(r){ distanceMap[r[0] + '|' + r[1]] = r[2]; });
-
+        
         rebuildDatalist();
         places.length = 0;
-        Array.prototype.push.apply(places, Object.keys(codeNames)
-            .map(function(code){ return [code, codeNames[code]]; })
-            .sort(function(x, y){ return x[0].localeCompare(y[0]); }));
-
+        Array.prototype.push.apply(places, Object.keys(codeNames).map(function(code){ return [code, codeNames[code]]; }).sort(function(x, y){ return x[0].localeCompare(y[0]); }));
         applyFilter(listSearch.value);
-
-        if (typeof switchTab === 'function') {
-            switchTab('tab-list');
-        }
     }
 })();
 </script>
@@ -1261,46 +937,25 @@ renderList();
 // تعطيل النقر بزر الماوس الأيمن / التحديد / Ctrl+C
 document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
 document.onselectstart = function(){ return false; };
-document.addEventListener('keydown', function(e){
-    if(e.ctrlKey && (e.key === 'c' || e.key === 'C')) e.preventDefault();
-});
+document.addEventListener('keydown', function(e){ if(e.ctrlKey && (e.key === 'c' || e.key === 'C')) e.preventDefault(); });
 </script>
 <script>
-// ---------- القائمة الجانبية ----------
+// القائمة الجانبية
 (function(){
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebarOverlay');
     const btnMenu = document.getElementById('btnMenu');
     const title = document.getElementById('topbarTitle');
     if(!sidebar || !overlay || !btnMenu) return;
-    function openMenu(){
-        sidebar.classList.add('open'); overlay.classList.add('show');
-        document.body.classList.add('no-scroll');
-        btnMenu.setAttribute('aria-expanded', 'true');
-    }
-    function closeMenu(){
-        sidebar.classList.remove('open'); overlay.classList.remove('show');
-        document.body.classList.remove('no-scroll');
-        btnMenu.setAttribute('aria-expanded', 'false');
-    }
-    btnMenu.addEventListener('click', function(){
-        sidebar.classList.contains('open') ? closeMenu() : openMenu();
-    });
+    function openMenu(){ sidebar.classList.add('open'); overlay.classList.add('show'); document.body.classList.add('no-scroll'); btnMenu.setAttribute('aria-expanded', 'true'); }
+    function closeMenu(){ sidebar.classList.remove('open'); overlay.classList.remove('show'); document.body.classList.remove('no-scroll'); btnMenu.setAttribute('aria-expanded', 'false'); }
+    btnMenu.addEventListener('click', function(){ sidebar.classList.contains('open') ? closeMenu() : openMenu(); });
     overlay.addEventListener('click', closeMenu);
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
     window.addEventListener('resize', function(){ if(window.innerWidth > 900) closeMenu(); });
-
     const navButtons = document.querySelectorAll('.tab-btn');
-    function syncTitle(){
-        const active = document.querySelector('.tab-btn.active .nav-label');
-        if(active && title) title.textContent = active.textContent;
-    }
-    navButtons.forEach(function(b){
-        b.addEventListener('click', function(){
-            closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        new MutationObserver(syncTitle).observe(b, { attributes: true, attributeFilter: ['class'] });
-    });
+    function syncTitle(){ const active = document.querySelector('.tab-btn.active .nav-label'); if(active && title) title.textContent = active.textContent; }
+    navButtons.forEach(function(b){ b.addEventListener('click', function(){ closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }); new MutationObserver(syncTitle).observe(b, { attributes: true, attributeFilter: ['class'] }); });
     syncTitle();
 })();
 </script>
