@@ -499,7 +499,10 @@ input[type="text"], input[type="search"], input[type="password"]{ color:#fff !im
     </div>
 </div>
 
-<script src="data.js"></script>
+<script>
+// تحميل data.js مع رقم فريد في كل فتح حتى لا يستعمل المتصفح/التطبيق النسخة القديمة المخزّنة (cache)
+document.write('<script src="data.js?v=' + Date.now() + '"><\/script>');
+</script>
 <script>
 // ==================== إعدادات GitHub ====================
 const GH_CONFIG_KEY = "ghConfigRekab";
@@ -522,18 +525,48 @@ document.getElementById('btnOpenSettings').addEventListener('click', function(){
 document.getElementById('btnCancelSettings').addEventListener('click', function(){
     document.getElementById('settingsModal').classList.remove('show');
 });
-document.getElementById('btnSaveSettings').addEventListener('click', function(){
+// ---- مساعدات GitHub ----
+function ghHeaders(token){ return { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }; }
+async function ghFetch(url, opts){
+    try{ return await fetch(url, opts); }
+    catch(e){ throw new Error('تعذّر الاتصال بـ GitHub. تأكد من اتصال الإنترنت ثم أعد المحاولة.'); }
+}
+async function ghApiMessage(res){ try{ const j = await res.json(); return j && j.message ? j.message : ''; }catch(e){ return ''; } }
+function ghErrorText(status, apiMsg){
+    if(status === 401) return 'Token غير صالح أو منتهي الصلاحية (401). أنشئ Token جديداً من GitHub وأدخله في الإعدادات.';
+    if(status === 403) return 'GitHub رفض العملية (403). تأكد أن Token يملك صلاحية الكتابة (Contents: Read and write) على هذا المستودع. ' + (apiMsg || '');
+    if(status === 404) return 'المستودع غير موجود أو Token لا يملك وصولاً إليه (404). تأكد من اسم المستخدم واسم المستودع وصلاحيات Token.';
+    if(status === 409 || status === 422) return 'تعارض أثناء الحفظ (' + status + '): ' + (apiMsg || '') + ' — أعد المحاولة.';
+    return 'خطأ من GitHub (' + status + '): ' + (apiMsg || '');
+}
+// يتحقق من Token والمستودع وصلاحية الكتابة، ويعيد معلومات المستودع
+async function ghCheckAccess(cfg){
+    const res = await ghFetch('https://api.github.com/repos/' + encodeURIComponent(cfg.owner) + '/' + encodeURIComponent(cfg.repo), { headers: ghHeaders(cfg.token), cache: 'no-store' });
+    if(!res.ok) throw new Error(ghErrorText(res.status, await ghApiMessage(res)));
+    const info = await res.json();
+    if(info.permissions && info.permissions.push === false) throw new Error('Token يملك صلاحية القراءة فقط. أنشئ Token بصلاحية الكتابة (Contents: Read and write).');
+    return info;
+}
+
+document.getElementById('btnSaveSettings').addEventListener('click', async function(){
     const token = document.getElementById('ghToken').value.trim();
     const owner = document.getElementById('ghOwner').value.trim();
     const repo = document.getElementById('ghRepo').value.trim();
     const path = document.getElementById('ghPath').value.trim() || 'data.js';
+    const errEl = document.getElementById('settingsError');
     if(!token || !owner || !repo) {
-        document.getElementById('settingsError').textContent = 'الرجاء ملء جميع الحقول المطلوبة.';
+        errEl.textContent = 'الرجاء ملء جميع الحقول المطلوبة.';
         return;
     }
     saveGhConfig({ token, owner, repo, path });
-    document.getElementById('settingsModal').classList.remove('show');
-    alert('تم حفظ إعدادات GitHub بنجاح!');
+    errEl.textContent = 'جارٍ التحقق من الاتصال بـ GitHub...';
+    try{
+        const info = await ghCheckAccess({ token, owner, repo });
+        document.getElementById('settingsModal').classList.remove('show');
+        alert('✅ تم الاتصال بـ GitHub بنجاح (' + info.full_name + '). يمكنك الآن رفع قاعدة البيانات من الموقع.');
+    }catch(err){
+        errEl.textContent = '❌ ' + err.message;
+    }
 });
 
 // ==================== نظام دخول المسؤول ====================
@@ -843,38 +876,46 @@ renderList();
     // دالة الحفظ في GitHub
     async function saveToGitHub(content, filename) {
         const cfg = getGhConfig();
-        if(!cfg.token || !cfg.owner || !cfg.repo) { throw new Error('لم يتم إعداد GitHub Token. يرجى الضغط على زر الإعدادات بالأعلى أولاً.'); }
-        
-        const path = cfg.path || filename;
-        const apiUrl = `https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`;
-        
-        // 1. جلب SHA للملف الحالي (مطلوب للتحديث)
-        const getRes = await fetch(apiUrl, { headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github.v3+json' } });
-        let sha = null;
-        if (getRes.ok) {
-            const data = await getRes.json();
-            sha = data.sha;
-        } else if (getRes.status !== 404) {
-            throw new Error('فشل الاتصال بـ GitHub. تأكد من صحة Token والمستودع.');
-        }
+        if(!cfg.token || !cfg.owner || !cfg.repo) { throw new Error('لم يتم إعداد GitHub Token. اضغط زر «إعدادات GitHub» بالأعلى وأدخل Token أولاً.'); }
 
-        // 2. رفع الملف الجديد
-        const putRes = await fetch(apiUrl, {
-            method: 'PUT',
-            headers: { 'Authorization': `Bearer ${cfg.token}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
-            body: JSON.stringify({
-                message: 'تحديث data.js عبر لوحة التحكم',
-                content: btoa(unescape(encodeURIComponent(content))), // Base64 UTF-8
-                sha: sha || undefined,
-                branch: 'main' // افتراضي، قد يكون master
-            })
-        });
+        const path = String(cfg.path || filename).replace(/^\/+/, '');
+        const o = encodeURIComponent(cfg.owner), r = encodeURIComponent(cfg.repo);
+        const apiUrl = 'https://api.github.com/repos/' + o + '/' + r + '/contents/' + path.split('/').map(encodeURIComponent).join('/');
+        const headers = ghHeaders(cfg.token);
 
-        if (!putRes.ok) {
-            const err = await putRes.json();
-            throw new Error('فشل الرفع إلى GitHub: ' + (err.message || putRes.statusText));
+        // 0. التحقق من Token/المستودع ومعرفة الفرع الافتراضي (main أو master)
+        const info = await ghCheckAccess(cfg);
+        const branch = info.default_branch || 'main';
+
+        // 1. جلب SHA للملف الحالي عبر قائمة المجلد (يعمل حتى لو تجاوز الملف 1MB)، دون استعمال الكاش
+        async function getSha(){
+            const parts = path.split('/'); const fileName = parts.pop();
+            const dirUrl = 'https://api.github.com/repos/' + o + '/' + r + '/contents' + (parts.length ? '/' + parts.map(encodeURIComponent).join('/') : '') + '?ref=' + encodeURIComponent(branch) + '&_=' + Date.now();
+            const res = await ghFetch(dirUrl, { headers: headers, cache: 'no-store' });
+            if(res.status === 404) return undefined;
+            if(!res.ok) throw new Error(ghErrorText(res.status, await ghApiMessage(res)));
+            const list = await res.json();
+            const f = Array.isArray(list) ? list.find(function(x){ return x.name === fileName && x.type === 'file'; }) : null;
+            return f ? f.sha : undefined;
         }
-        return true;
+        let sha = await getSha();
+
+        // 2. رفع الملف الجديد (مع إعادة محاولة واحدة عند التعارض)
+        const b64 = btoa(unescape(encodeURIComponent(content))); // Base64 UTF-8
+        for(let attempt = 0; attempt < 2; attempt++){
+            const putRes = await ghFetch(apiUrl, {
+                method: 'PUT',
+                headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
+                body: JSON.stringify({ message: 'تحديث data.js عبر لوحة التحكم', content: b64, sha: sha || undefined, branch: branch })
+            });
+            if(putRes.ok){
+                const j = await putRes.json();
+                return { commitSha: j.commit && j.commit.sha, commitUrl: j.commit && j.commit.html_url, branch: branch };
+            }
+            const msg = await ghApiMessage(putRes);
+            if((putRes.status === 409 || putRes.status === 422) && attempt === 0){ sha = await getSha(); continue; }
+            throw new Error(ghErrorText(putRes.status, msg));
+        }
     }
 
     btnConfirmUpload.addEventListener('click', async function(){
@@ -889,14 +930,12 @@ renderList();
             applyUploadedData(pendingUpload.data);
             
             // محاولة الحفظ في GitHub
-            await saveToGitHub(pendingUpload.raw, 'data.js');
-            
-            setUploadStatus('ok', '✅ تم تحديث قاعدة البيانات في GitHub بنجاح! سيتم تطبيق التغييرات على جميع الأجهزة فوراً.');
+            const res = await saveToGitHub(pendingUpload.raw, 'data.js');
+            setUploadStatus('ok', '✅ تم حفظ قاعدة البيانات في GitHub بنجاح' + (res && res.commitSha ? ' (commit ' + res.commitSha.slice(0,7) + ')' : '') + '. ستظهر لجميع الأجهزة بعد دقيقة إلى دقيقتين (ريثما ينشر GitHub Pages الموقع). إن لم تظهر، أغلق الصفحة وأعد فتحها.');
             uploadPreview.style.display = 'none';
-            switchTab('tab-list');
         } catch(err) {
             // إذا فشل GitHub، نبقى في نفس الصفحة ونظهر الخطأ
-            setUploadStatus('error', '⚠️ تم التحديث مؤقتاً، لكن فشل الحفظ الدائم: <br>' + err.message + '<br><br>يمكنك تنزيل الملف بالأسفل ورفعه يدوياً.');
+            setUploadStatus('error', '⚠️ لم يُحفظ التحديث في GitHub، لذلك سيختفي عند إعادة تحميل الصفحة: <br>' + err.message + '<br><br>يمكنك تنزيل الملف بالأسفل ورفعه يدوياً.');
             uploadPreview.style.display = 'none';
             uploadDownloadRow.style.display = 'block';
         } finally {
