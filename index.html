@@ -149,6 +149,8 @@ input:disabled{opacity:.55;}
 .place-card .place-code{font-size:13px;font-weight:800;color:var(--amber);direction:ltr;letter-spacing:1px;display:inline-flex;align-items:center;gap:6px;}
 .place-card .place-code::before{content:"#";opacity:.6;}
 .place-card .place-name{font-size:16px;color:#fff;font-weight:700;line-height:1.4;word-break:break-word;min-height:22px;}
+.place-card .place-org{font-size:13px;font-weight:700;color:var(--cyan);direction:ltr;text-align:left;display:inline-flex;align-items:center;gap:6px;opacity:.95;}
+.place-card .place-org::before{content:"\1F3E2";font-size:12px;}
 .place-card .edit-btn{align-self:flex-start;margin-top:6px;font-size:12px;padding:6px 14px;border-radius:999px;background:var(--grad-warm);color:#fff;border:none;cursor:pointer;font-weight:700;transition:transform .15s,box-shadow .2s;}
 .place-card .edit-btn:hover{transform:scale(1.05);box-shadow:0 6px 16px rgba(255,61,154,.4);}
 .empty-msg{grid-column:1/-1;text-align:center;padding:44px 16px;color:var(--muted);font-size:15px;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.15);border-radius:16px;}
@@ -390,7 +392,7 @@ input[type="text"], input[type="search"], input[type="password"]{ color:#fff !im
             <div class="stat-card cool"><div class="stat-num" id="statShown">0</div><div class="stat-lbl">👁️ المعروضة الآن</div></div>
         </div>
         <div class="list-toolbar">
-            <input type="search" id="listSearch" placeholder="🔍 بحث بالكود أو الاسم...">
+            <input type="search" id="listSearch" placeholder="🔍 بحث بالكود أو الاسم أو الجهة...">
             <button class="btn" id="btnClearSearch">مسح</button>
             <button class="btn" id="btnToggleShowAll">عرض الكل</button>
         </div>
@@ -707,6 +709,75 @@ const statPlaces = document.getElementById('statPlaces');
 const statRoutes = document.getElementById('statRoutes');
 const statShown = document.getElementById('statShown');
 
+// جدول organisem: أول 3 أرقام من كود المكان = كود الجهة (ملف organisem.txt)
+const organisemMap = {
+    "101":"UCC ALGER",
+    "102":"CCLS BLIDA",
+    "103":"CCLS BERROUAGHIA",
+    "104":"CCLS BOUIRA",
+    "105":"O.A.I.C",
+    "106":"CCLS EL-KHEMIS",
+    "107":"CCLS M'SILA",
+    "108":"CCLS DJELFA",
+    "109":"CCLS LAGHOUAT",
+    "110":"CCLS TIZI OUZOU",
+    "111":"CCLS ADRAR",
+    "112":"CCLS EL MENEA",
+    "201":"CCLS ORAN",
+    "202":"UCC ORAN",
+    "203":"UCA MOSTAGANEM",
+    "204":"CCLS RELIZANE",
+    "205":"CCLS O. R'HIOU",
+    "206":"CCLS A. TEMOUCHENT",
+    "207":"CCLS H-B. HADJAR",
+    "208":"CCLS S. B. ABBES",
+    "209":"CCLS LAMTAR",
+    "210":"CCLS TELAGH",
+    "211":"CCLS SFISEF",
+    "212":"CCLS TLEMCEN",
+    "213":"CCLS SAIDA",
+    "214":"CCLS MASCARA",
+    "215":"CCLS TIARET",
+    "216":"CCLS FRENDA",
+    "217":"CCLS MAHDIA",
+    "218":"CCLS BECHAR",
+    "219":"UCA ORAN",
+    "220":"CCLS TISSEMSILT",
+    "221":"CCLS NAAMA",
+    "222":"CCLS EL BAYADH",
+    "301":"CCLS CONSTANTINE",
+    "302":"CCLS ANNABA",
+    "303":"CCLS BATNA",
+    "304":"UCA SKIKDA",
+    "305":"CCLS SKIKDA",
+    "306":"CCLS O.EL-BOUAGHI",
+    "307":"CCLS AIN M'LILA",
+    "308":"CCLS GUELMA",
+    "309":"CCLS SOUK AHRAS",
+    "310":"CCLS SETIF",
+    "311":"CCLS B. B. ARRERIDJ",
+    "312":"CCLS TEBESSA",
+    "313":"CCLS OUARGLA",
+    "314":"CCLS BISKRA",
+    "315":"CCLS MILA",
+    "316":"CCLS KHENCHELA",
+    "317":"UCA BEJAIA",
+    "318":"URCA JIJEL",
+    "319":"AUTRE CLIENTS",
+    "321":"CCLS OUED SOUF",
+    "401":"UNITE DE ROUIBA",
+    "402":"CAP CCLS TIMIMOUNE",
+    "403":"UNITE DE BLIDA",
+    "404":"UNITE DE BOUIRA",
+    "405":"UNITE DE DJELFA",
+    "406":"UNITE D'EL KHEMIS",
+    "407":"UNITE DE LAGHOUAT",
+    "408":"UNITE DE M'SILA",
+    "409":"UNITE DE TENES",
+    "410":"UNITE DE TIZI-OUZOU"
+};
+function getOrganisem(code){ code = String(code || ''); if(code.length <= 3) return ''; return organisemMap[code.substring(0, 3)] || ''; }
+
 const places = Object.keys(codeNames).map(function(code){ return [code, codeNames[code]]; }).sort(function(x, y){ return x[0].localeCompare(y[0]); });
 const PAGE_SIZE = 60; let filteredPlaces = places; let currentPage = 1; let showAll = false;
 
@@ -716,7 +787,7 @@ function updateStats(){ statPlaces.textContent = Object.keys(codeNames).length.t
 function applyFilter(query){
     query = (query || '').trim().toLowerCase();
     if(!query){ filteredPlaces = places; }
-    else { filteredPlaces = places.filter(function(p){ const code = p[0], name = (p[1] || '').toLowerCase(); return code.toLowerCase().includes(query) || name.includes(query); }); }
+    else { filteredPlaces = places.filter(function(p){ const code = p[0], name = (p[1] || '').toLowerCase(); return code.toLowerCase().includes(query) || name.includes(query) || getOrganisem(code).toLowerCase().includes(query); }); }
     currentPage = 1; renderList();
 }
 
@@ -735,7 +806,9 @@ function renderList(){
             const code = p[0], name = p[1];
             const codeAttr = escapeHtml(code).replace(/"/g, '&quot;');
             const editBtn = userIsAdmin ? "<button type='button' class='edit-btn' data-code=\"" + codeAttr + "\" onclick='startEditPlace(this.getAttribute(\"data-code\"))'>✎ تعديل</button>" : '';
-            html += "<div class='place-card'><div class='place-code'>" + escapeHtml(code) + "</div><div class='place-name'>" + escapeHtml(name || '—') + "</div>" + editBtn + "</div>";
+            const orgName = getOrganisem(code);
+            const orgHtml = orgName ? "<div class='place-org'>" + escapeHtml(orgName) + "</div>" : '';
+            html += "<div class='place-card'><div class='place-code'>" + escapeHtml(code) + "</div><div class='place-name'>" + escapeHtml(name || '—') + "</div>" + orgHtml + editBtn + "</div>";
         });
         listBody.innerHTML = html;
     }
